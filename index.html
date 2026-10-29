@@ -1,137 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="つなぐ日本語の語彙を、自分のペースで練習するための学習ページです。">
-<title>にほんご語彙トレーニング｜Lesson 1〜30</title>
+<title>にほんご語彙トレーニング</title>
 <style>
-:root{--blue:#2457a6;--blue-dark:#1d4484;--ink:#172033;--muted:#657084;--line:#dce3ee;--bg:#f3f6fb;--green:#187344}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif}
-main{max-width:820px;margin:0 auto;padding:18px 16px 34px}
-header{text-align:center;padding:22px 12px 24px}
-.mark{font-size:2.6rem}
-h1{font-size:clamp(1.45rem,4vw,1.9rem);line-height:1.4;margin:8px 0}
-header p{color:var(--muted);margin:0;line-height:1.8}
-.intro{background:#eaf1ff;border-radius:16px;padding:14px 16px;margin:0 0 20px;line-height:1.7;font-size:.94rem}
-h2{font-size:1.2rem;margin:20px 0 12px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
-.lesson{min-height:122px;border:1px solid var(--line);border-radius:16px;padding:14px 13px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;background:#fff}
-a.lesson{text-decoration:none;color:inherit}
-a.lesson.available{border-color:#b7c9e8;box-shadow:0 3px 12px #15284a0a}
-a.lesson.available:hover{border-color:var(--blue);transform:translateY(-1px)}
-.lesson-num{font-size:1.08rem;font-weight:750}
-.status{font-size:.78rem;border-radius:999px;padding:4px 8px;background:#edf0f5;color:#687386}
-.status.ready{background:#e4f5e9;color:var(--green);font-weight:650}
-.arrow{font-size:.88rem;color:var(--blue);font-weight:700;margin-top:auto}
-.muted{font-size:.78rem;color:#8a93a2;margin-top:auto;line-height:1.4}
-footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:24px;line-height:1.7}
-@media(max-width:560px){main{padding:12px 12px 28px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.lesson{min-height:112px;padding:12px 11px}header{padding:14px 8px 20px}}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#1f2937;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.5}
+header{background:linear-gradient(135deg,#1e5c9a,#75b7e8);color:white;text-align:center;padding:28px 16px}
+h1{font-size:1.65rem;margin:0 0 6px}header p{margin:0}
+main{max-width:760px;margin:0 auto;padding:18px 14px 28px}
+.intro{background:white;padding:16px;border-radius:16px;margin-bottom:16px;box-shadow:0 3px 14px #18324d12}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.lesson{display:flex;align-items:center;justify-content:space-between;gap:8px;background:white;border-radius:14px;padding:14px;text-decoration:none;color:#1f2937;box-shadow:0 2px 8px #18324d0d;min-height:68px}
+.lesson strong{font-size:1.05rem}.status{font-size:.78rem;border-radius:20px;padding:5px 8px;white-space:nowrap;background:#edf0f4;color:#596273}
+.lesson.ready{border:1px solid #b7d7f5}.lesson.ready .status{background:#dceeff;color:#174f85;font-weight:700}
+.lesson.pending{color:#7b8490}.lesson.pending .status{background:#f0f1f3}
+footer{text-align:center;color:#657080;font-size:.82rem;padding:18px}
+@media(max-width:400px){.grid{grid-template-columns:1fr}.lesson{min-height:60px}}
 </style>
 </head>
 <body>
+<header><h1>にほんご語彙トレーニング</h1><p>日本語を見て、意味を思い出そう！</p></header>
 <main>
-<header>
-<div class="mark" aria-hidden="true">📚</div>
-<h1>にほんご語彙トレーニング</h1>
-<p>つなぐ日本語　Lesson 1〜30<br>自分のペースで、何度でも練習しよう！</p>
-</header>
-<div class="intro"><strong>使い方</strong><br>学習したい課を選んでください。公開中の課では、語彙カードで意味を確認したあと、4択クイズに挑戦できます。</div>
-<h2>学習する課を選んでください</h2>
+<section class="intro"><strong>使い方</strong><br>①「語彙カード」で意味を確認　②「4択クイズ」でチャレンジ<br>スマートフォンで、自分のペースで練習できます。</section>
 <div class="grid">
-<a class="lesson available" href="./Lesson1.html" aria-label="Lesson 1を学習する">
-      <span class="lesson-num">Lesson 1</span><span class="status ready">公開中</span><span class="arrow">学習する →</span>
-    </a>
-<div class="lesson pending" aria-label="Lesson 2は準備中">
-      <span class="lesson-num">Lesson 2</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 3は準備中">
-      <span class="lesson-num">Lesson 3</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 4は準備中">
-      <span class="lesson-num">Lesson 4</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 5は準備中">
-      <span class="lesson-num">Lesson 5</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 6は準備中">
-      <span class="lesson-num">Lesson 6</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 7は準備中">
-      <span class="lesson-num">Lesson 7</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 8は準備中">
-      <span class="lesson-num">Lesson 8</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 9は準備中">
-      <span class="lesson-num">Lesson 9</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 10は準備中">
-      <span class="lesson-num">Lesson 10</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 11は準備中">
-      <span class="lesson-num">Lesson 11</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 12は準備中">
-      <span class="lesson-num">Lesson 12</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 13は準備中">
-      <span class="lesson-num">Lesson 13</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 14は準備中">
-      <span class="lesson-num">Lesson 14</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<a class="lesson available" href="./Lesson15.html" aria-label="Lesson 15を学習する">
-      <span class="lesson-num">Lesson 15</span><span class="status ready">公開中</span><span class="arrow">学習する →</span>
-    </a>
-<div class="lesson pending" aria-label="Lesson 16は準備中">
-      <span class="lesson-num">Lesson 16</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 17は準備中">
-      <span class="lesson-num">Lesson 17</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 18は準備中">
-      <span class="lesson-num">Lesson 18</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 19は準備中">
-      <span class="lesson-num">Lesson 19</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 20は準備中">
-      <span class="lesson-num">Lesson 20</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 21は準備中">
-      <span class="lesson-num">Lesson 21</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 22は準備中">
-      <span class="lesson-num">Lesson 22</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 23は準備中">
-      <span class="lesson-num">Lesson 23</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 24は準備中">
-      <span class="lesson-num">Lesson 24</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 25は準備中">
-      <span class="lesson-num">Lesson 25</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 26は準備中">
-      <span class="lesson-num">Lesson 26</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 27は準備中">
-      <span class="lesson-num">Lesson 27</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 28は準備中">
-      <span class="lesson-num">Lesson 28</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 29は準備中">
-      <span class="lesson-num">Lesson 29</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
-<div class="lesson pending" aria-label="Lesson 30は準備中">
-      <span class="lesson-num">Lesson 30</span><span class="status">準備中</span><span class="arrow muted">公開までお待ちください</span>
-    </div>
+<a class="lesson ready" href="./Lesson1.html"><strong>Lesson 1</strong><span class="status">公開中</span></a>
+<a class="lesson ready" href="./Lesson2.html"><strong>Lesson 2</strong><span class="status">公開中</span></a>
+<a class="lesson ready" href="./Lesson3.html"><strong>Lesson 3</strong><span class="status">公開中</span></a>
+<a class="lesson ready" href="./Lesson4.html"><strong>Lesson 4</strong><span class="status">公開中</span></a>
+<a class="lesson ready" href="./Lesson5.html"><strong>Lesson 5</strong><span class="status">公開中</span></a>
+<div class="lesson pending"><strong>Lesson 6</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 7</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 8</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 9</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 10</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 11</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 12</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 13</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 14</strong><span class="status">準備中</span></div>
+<a class="lesson ready" href="./Lesson15.html"><strong>Lesson 15</strong><span class="status">公開中</span></a>
+<div class="lesson pending"><strong>Lesson 16</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 17</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 18</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 19</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 20</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 21</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 22</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 23</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 24</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 25</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 26</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 27</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 28</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 29</strong><span class="status">準備中</span></div>
+<div class="lesson pending"><strong>Lesson 30</strong><span class="status">準備中</span></div>
 </div>
-<footer>準備中の課は、教材ができ次第、順次公開します。<br>公開中の課は何度でも練習できます。</footer>
+<footer>少しずつ、くり返し練習しましょう。</footer>
 </main>
 </body>
 </html>
