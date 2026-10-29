@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>にほんご語彙トレーニング Lesson 1</title>
+<style>
+:root{--blue:#2457a6;--pale:#edf4ff;--green:#e7f6eb;--ink:#172033}
+*{box-sizing:border-box}body{margin:0;background:#f4f6fa;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif}
+main{max-width:680px;margin:auto;padding:18px}
+h1{font-size:1.45rem;margin:8px 0 4px} .sub{color:#5c6575;margin:0 0 18px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+button,select{font:inherit;border-radius:12px;padding:12px 14px;border:1px solid #c9d2e1;background:white;color:var(--ink)}
+button{cursor:pointer}button.primary{background:var(--blue);color:white;border-color:var(--blue)}button:disabled{opacity:.45}
+.panel{background:white;border:1px solid #dce2ec;border-radius:18px;padding:18px;margin:12px 0;box-shadow:0 3px 12px #15284a0a}
+.jp{font-size:2rem;font-weight:700;text-align:center;overflow-wrap:anywhere;padding:18px 0}
+.trans{font-size:1.15rem;text-align:center;line-height:1.6;overflow-wrap:anywhere}
+.muted{color:#697386;font-size:.92rem}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row button{flex:1}.choice{display:block;width:100%;text-align:left;margin:8px 0;min-height:52px}
+#feedback{font-weight:700;margin-top:12px}.good{color:#187344}.bad{color:#a33a31}
+.hidden{display:none}.count{text-align:center;font-weight:600;margin:8px}
+select{max-width:100%}
+footer{font-size:.82rem;color:#667085;margin-top:22px;line-height:1.5}
+</style>
+</head>
+<body><main>
+<h1>にほんご語彙トレーニング</h1>
+<p class="sub">つなぐ日本語・Lesson 1｜自分のペースで練習しよう</p>
+<div class="row"><label for="unit">範囲：</label><select id="unit"><option value="all">Lesson 1 全体</option><option value="1-1">1-1</option><option value="1-2">1-2</option><option value="1-3">1-3</option></select></div>
+<nav><button class="primary" id="cardsTab">語彙カード</button><button id="quizTab">4択クイズ</button></nav>
+<section id="cards">
+<div class="panel">
+<div class="count" id="cardCount"></div>
+<div class="jp" id="cardJp"></div>
+<div class="trans hidden" id="cardEn"></div>
+<div class="trans hidden" id="cardNe"></div>
+<p class="muted" style="text-align:center">日本語を見て、意味を思い出してから答えを見よう。</p>
+<div class="row"><button id="reveal" class="primary">意味を見る</button><button id="nextCard">次のカード →</button></div>
+</div>
+</section>
+<section id="quiz" class="hidden">
+<div class="panel">
+<div class="count" id="quizCount"></div>
+<div class="jp" id="quizJp"></div>
+<p style="text-align:center">正しい英語の意味を選んでください。</p>
+<div id="choices"></div>
+<div id="feedback" aria-live="polite"></div>
+<div class="row" style="margin-top:14px"><button id="nextQ" class="primary" disabled>次の問題 →</button></div>
+</div>
+<div class="count" id="score"></div>
+<button id="restart" class="hidden">もう一度挑戦する</button>
+</section>
+<footer>この試作品は、アップロードされた語彙リストの日本語・英語・ネパール語を使用しています。訳語は元ファイルの表記をそのまま表示します。</footer>
+</main>
+<script>
+const vocab=[{"lesson": "1-1", "jp": "はじめまして", "en": "Nice to meet you.", "ne": "पहिलो पटक भेट्‍दा गरिने अविवादन"}, {"lesson": "1-1", "jp": "こんにちは", "en": "Hello.", "ne": "नमस्ते"}, {"lesson": "1-1", "jp": "あ", "en": "ah", "ne": "अरे…"}, {"lesson": "1-1", "jp": "どうぞ よろしく おねがいします", "en": "Pleased to meet you.", "ne": "तपाईंको सहयोगको लागि धेरै धेरै धन्यवाद।"}, {"lesson": "1-1", "jp": "～さん", "en": "Mr. / Ms.", "ne": "～जी"}, {"lesson": "1-1", "jp": "（お）くに", "en": "country", "ne": "तपाईको देश"}, {"lesson": "1-1", "jp": "どちら", "en": "which", "ne": "कुन"}, {"lesson": "1-1", "jp": "わたし", "en": "I", "ne": "म"}, {"lesson": "1-1", "jp": "そうですか", "en": "I see.", "ne": "ए तेसो पो"}, {"lesson": "1-1", "jp": "（お）しごと", "en": "work, job", "ne": "तपाईको काम"}, {"lesson": "1-1", "jp": "～ご：にほんご", "en": "language: Japanese", "ne": "～भाषा: जापानी भाषा"}, {"lesson": "1-1", "jp": "がっこう", "en": "school", "ne": "विद्यालय"}, {"lesson": "1-1", "jp": "がくせい", "en": "student", "ne": "विद्यार्थी"}, {"lesson": "1-1", "jp": "いいえ", "en": "No", "ne": "होइन"}, {"lesson": "1-1", "jp": "かいしゃいん", "en": "company employee, office worker", "ne": "कम्पनी कर्मचारी"}, {"lesson": "1-1", "jp": "きょうし", "en": "teacher", "ne": "शिक्षक"}, {"lesson": "1-1", "jp": "こちら", "en": "this", "ne": "यहाँ"}, {"lesson": "1-1", "jp": "～じん：にほんじん", "en": "people: Japanese", "ne": "नागरिक: जापानी नागरिक"}, {"lesson": "1-1", "jp": "すみません", "en": "Excuse me.", "ne": "माफ गर्नुहोस्"}, {"lesson": "1-1", "jp": "にほん", "en": "Japan", "ne": "जापान"}, {"lesson": "1-1", "jp": "かた", "en": "person", "ne": "मानिस"}, {"lesson": "1-1", "jp": "はい", "en": "Yes", "ne": "हो"}, {"lesson": "1-1", "jp": "だいがくせい", "en": "university student", "ne": "विश्वविद्यालय विद्यार्थी"}, {"lesson": "1-1", "jp": "あの ひと", "en": "that person", "ne": "त्यो मानिस"}, {"lesson": "1-1", "jp": "だれですか", "en": "Who are you?, Who are they?", "ne": "को हो?"}, {"lesson": "1-1", "jp": "せんせい", "en": "teacher", "ne": "शिक्षक"}, {"lesson": "1-2", "jp": "いい てんきですね", "en": "The weather is nice, isn't it?", "ne": "राम्रो मौसम छ है।"}, {"lesson": "1-2", "jp": "てんき", "en": "weather", "ne": "मौसम"}, {"lesson": "1-2", "jp": "おはようございます", "en": "Good morning.", "ne": "शुभ - प्रभात"}, {"lesson": "1-2", "jp": "そうですね", "en": "That's right., Yes, it is.", "ne": "म सहमत छु"}, {"lesson": "1-2", "jp": "え？", "en": "Sorry?, Huh?", "ne": "अरे…"}, {"lesson": "1-2", "jp": "すみません", "en": "Sorry.", "ne": "माफ गर्नुहोस्"}, {"lesson": "1-2", "jp": "もう いちど", "en": "one more time", "ne": "फेरी एक पटक"}, {"lesson": "1-2", "jp": "おねがいします", "en": "please", "ne": "अनुरोध गर्छु"}, {"lesson": "1-2", "jp": "そうです", "en": "That's right.", "ne": "त्यो सहि हो"}, {"lesson": "1-2", "jp": "いってらっしゃい", "en": "Off you go., See you later.", "ne": "गएर आउनुहोस्"}, {"lesson": "1-2", "jp": "いってきます", "en": "I'm off., I'm going", "ne": "गएर आउँछु"}, {"lesson": "1-2", "jp": "あさ", "en": "morning", "ne": "बिहान"}, {"lesson": "1-2", "jp": "ひる", "en": "daytime", "ne": "दिउसो"}, {"lesson": "1-2", "jp": "よる", "en": "night", "ne": "रात"}, {"lesson": "1-2", "jp": "こんばんは", "en": "Good evening.", "ne": "शुभ सन्ध्या"}, {"lesson": "1-2", "jp": "さようなら", "en": "Good bye.", "ne": "Bye Bye"}, {"lesson": "1-2", "jp": "しつれいします", "en": "Sorry to be leaving before you.", "ne": "माफ गर्नुहोस्"}, {"lesson": "1-2", "jp": "おつかれさまでした", "en": "Good job., Good work., Thanks for your hard work.", "ne": "तपाईको कडा परिश्रमको लागि धन्यवाद"}, {"lesson": "1-2", "jp": "おやすみなさい", "en": "Good night.", "ne": "शुभ रात्री"}, {"lesson": "1-2", "jp": "どうぞ", "en": "Here you are.", "ne": "कृपया लिनुहोस्"}, {"lesson": "1-2", "jp": "ありがとうございます", "en": "Thank you.", "ne": "धन्यवाद"}, {"lesson": "1-2", "jp": "すみません", "en": "Excuse me, Sorry, Thank you", "ne": "माफ गर्नुहोस्"}, {"lesson": "1-2", "jp": "ごめんなさい", "en": "I'm sorry.", "ne": "माफ गर्नुहोस्"}, {"lesson": "1-2", "jp": "あめ", "en": "rain", "ne": "मिठाई"}, {"lesson": "1-2", "jp": "あつい", "en": "hot (weather)", "ne": "तातो"}, {"lesson": "1-2", "jp": "さむい", "en": "cold", "ne": "चिसो"}, {"lesson": "1-2", "jp": "ゆっくり", "en": "slowly", "ne": "बिस्तारी"}, {"lesson": "1-2", "jp": "えいご", "en": "English", "ne": "अंग्रेजी"}, {"lesson": "1-3", "jp": "きます・きました", "en": "come from / came from", "ne": "आउँछु / आएँ"}, {"lesson": "1-3", "jp": "せんしゅう", "en": "last week", "ne": "गएको हप्ता"}, {"lesson": "1-3", "jp": "ああ", "en": "ah", "ne": "ला…"}, {"lesson": "1-3", "jp": "あのう", "en": "Um., Excuse me.", "ne": "उम...."}, {"lesson": "1-3", "jp": "コーヒー", "en": "coffee", "ne": "कफी"}, {"lesson": "1-3", "jp": "のみます", "en": "drink", "ne": "पिउछु"}, {"lesson": "1-3", "jp": "すきです", "en": "like", "ne": "मन पर्छ"}, {"lesson": "1-3", "jp": "これ", "en": "this", "ne": "यो"}, {"lesson": "1-3", "jp": "わあ", "en": "wow", "ne": "वाह"}, {"lesson": "1-3", "jp": "～がつ：１がつ", "en": "month: January", "ne": "महिना \\ जनवरी"}, {"lesson": "1-3", "jp": "きょねん", "en": "last year", "ne": "गत वर्ष"}, {"lesson": "1-3", "jp": "あまい もの", "en": "sweets", "ne": "मिठो चिज"}, {"lesson": "1-3", "jp": "たべます", "en": "eat", "ne": "खान्छु"}, {"lesson": "1-3", "jp": "ケーキ", "en": "cake", "ne": "केक"}, {"lesson": "1-3", "jp": "クッキー", "en": "cookie", "ne": "कुकी"}, {"lesson": "1-3", "jp": "チョコレート", "en": "chocolate", "ne": "चकलेट"}, {"lesson": "1-3", "jp": "（お）さけ", "en": "alcohol", "ne": "रक्सी"}, {"lesson": "1-3", "jp": "ビール", "en": "beer", "ne": "बियर"}, {"lesson": "1-3", "jp": "ワイン", "en": "wine", "ne": "वाईन"}, {"lesson": "1-3", "jp": "にほんしゅ", "en": "sake, Japanese rice wine", "ne": "जापानी रक्सी"}, {"lesson": "1-3", "jp": "しょうちゅう", "en": "shochu (Japanese white distilled liquor)", "ne": "जापानी रक्सी"}];
+const unit=document.getElementById('unit');
+let pool=[],cardIndex=0,quizSet=[],qIndex=0,score=0,answered=false;
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function setPool(){pool=vocab.filter(x=>unit.value==='all'||x.lesson===unit.value); if(!pool.length)pool=[...vocab];}
+function showTab(tab){
+ document.getElementById('cards').classList.toggle('hidden',tab!=='cards');
+ document.getElementById('quiz').classList.toggle('hidden',tab!=='quiz');
+ document.getElementById('cardsTab').classList.toggle('primary',tab==='cards');
+ document.getElementById('quizTab').classList.toggle('primary',tab==='quiz');
+}
+function showCard(){if(!pool.length)return;cardIndex=(cardIndex+pool.length)%pool.length;const x=pool[cardIndex];document.getElementById('cardCount').textContent=`${cardIndex+1} / ${pool.length}　（${x.lesson}）`;document.getElementById('cardJp').textContent=x.jp;document.getElementById('cardEn').textContent=x.en;document.getElementById('cardNe').textContent=x.ne;document.getElementById('cardEn').classList.add('hidden');document.getElementById('cardNe').classList.add('hidden');document.getElementById('reveal').textContent='意味を見る';}
+function startQuiz(){setPool();quizSet=shuffle(pool).slice(0,Math.min(10,pool.length));qIndex=0;score=0;showTab('quiz');document.getElementById('restart').classList.add('hidden');renderQ();}
+function renderQ(){answered=false;const x=quizSet[qIndex];document.getElementById('quizCount').textContent=`問題 ${qIndex+1} / ${quizSet.length}`;document.getElementById('quizJp').textContent=x.jp;document.getElementById('feedback').textContent='';document.getElementById('feedback').className='';document.getElementById('nextQ').disabled=true;document.getElementById('nextQ').textContent=qIndex===quizSet.length-1?'結果を見る':'次の問題 →';document.getElementById('score').textContent=`現在の正解数：${score}`;let distractors=shuffle(pool.filter(y=>y.en!==x.en));let opts=shuffle([x,...distractors.slice(0,3)]);if(opts.length<2){opts=shuffle(pool.filter(y=>y.jp!==x.jp).slice(0,3).concat(x));}const box=document.getElementById('choices');box.innerHTML='';opts.forEach(o=>{const b=document.createElement('button');b.className='choice';b.textContent=o.en;b.onclick=()=>answer(b,o,x);box.appendChild(b);});}
+function answer(btn,o,x){if(answered)return;answered=true;document.querySelectorAll('.choice').forEach(b=>b.disabled=true);const f=document.getElementById('feedback');if(o.jp===x.jp){score++;f.textContent='正解です！';f.className='good';}else{f.textContent='もう一度覚えよう。正解：'+x.en+' ／ '+x.ne;f.className='bad';}document.getElementById('score').textContent=`現在の正解数：${score}`;document.getElementById('nextQ').disabled=false;}
+unit.addEventListener('change',()=>{setPool();cardIndex=0;showCard();if(!document.getElementById('quiz').classList.contains('hidden'))startQuiz();});
+document.getElementById('cardsTab').onclick=()=>showTab('cards');
+document.getElementById('quizTab').onclick=startQuiz;
+document.getElementById('reveal').onclick=()=>{document.getElementById('cardEn').classList.remove('hidden');document.getElementById('cardNe').classList.remove('hidden');document.getElementById('reveal').textContent='意味を確認しました';};
+document.getElementById('nextCard').onclick=()=>{cardIndex++;showCard();};
+document.getElementById('nextQ').onclick=()=>{if(qIndex<quizSet.length-1){qIndex++;renderQ();}else{document.getElementById('quizCount').textContent='クイズ終了！';document.getElementById('quizJp').textContent=`${quizSet.length}問中 ${score}問 正解`;document.getElementById('choices').innerHTML='';document.getElementById('feedback').textContent=score===quizSet.length?'すばらしい！全問正解です。':'間違えた語彙をカードでもう一度確認しましょう。';document.getElementById('nextQ').disabled=true;document.getElementById('nextQ').classList.add('hidden');document.getElementById('restart').classList.remove('hidden');}};
+document.getElementById('restart').onclick=()=>{document.getElementById('nextQ').classList.remove('hidden');startQuiz();};
+setPool();showCard();
+</script></body></html>
