@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 10 にほんご語彙トレーニング</title>
+<style>
+:root{--blue:#2463a6;--pale:#eef6ff;--ink:#1f2937;--muted:#5b6573}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#1e5c9a,#75b7e8);color:white;padding:22px 16px;text-align:center}
+h1{font-size:1.5rem;margin:0 0 4px}header p{margin:0;font-size:.95rem}
+main{max-width:720px;margin:0 auto;padding:16px}
+nav{display:flex;gap:8px;margin:0 0 16px}button,select{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:12px 14px}
+nav button{flex:1;background:white;color:var(--blue);font-weight:700;box-shadow:0 2px 8px #0000000d}
+nav button.active{background:var(--blue);color:white}
+.panel{background:white;border-radius:18px;padding:18px;box-shadow:0 3px 14px #18324d12;margin-bottom:16px}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+select{background:#edf4fb;color:var(--ink);flex:1;min-width:130px}
+.small{font-size:.9rem;color:var(--muted)}
+.card{min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--pale);border-radius:16px;padding:22px;margin:12px 0}
+.word{font-size:clamp(1.8rem,7vw,2.6rem);font-weight:750;overflow-wrap:anywhere}
+.translation{font-size:1.15rem;margin-top:12px;overflow-wrap:anywhere}
+.reveal{background:var(--blue);color:white;width:100%;font-weight:700}
+.actions{display:flex;gap:8px;margin-top:10px}.actions button{flex:1;background:#e7eef6;color:#23486f;font-weight:700}
+.quiz-question{font-size:1.65rem;font-weight:800;text-align:center;padding:18px 0;color:#2459a6}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choices button{background:#edf4fb;color:#1e3c5a;min-height:64px;text-align:left;overflow-wrap:anywhere}
+.choices button:disabled{cursor:default}
+.choices button.correct{background:#d8f4df;color:#14532d}
+.choices button.wrong{background:#ffe0e0;color:#8b1e1e}
+.feedback{min-height:30px;font-weight:800;font-size:1.12rem;margin:12px 0;text-align:center;padding:8px;border-radius:10px}
+.primary{background:var(--blue);color:white;font-weight:700;width:100%}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
+@media(max-width:420px){main{padding:12px}.panel{padding:14px}.choices{grid-template-columns:1fr}.card{min-height:220px}}
+</style>
+</head>
+<body>
+<header><h1>にほんご語彙トレーニング</h1><p>Lesson 10｜語彙カード ＋ 4択クイズ</p></header>
+<main>
+<nav><button id="cardsTab" class="active" onclick="showMode('cards')">語彙カード</button><button id="quizTab" onclick="showMode('quiz')">4択クイズ</button></nav>
+<section id="cardsPanel" class="panel">
+<h2>① 語彙カード</h2>
+<p class="small">日本語を見て意味を考えましょう。「意味を見る」を押すと、英語・ネパール語が表示されます。</p>
+<div class="controls"><label for="unitSelect">範囲：</label><select id="unitSelect" onchange="changeUnit()"><option value="all">Lesson 10 全体</option><option value="10-1">Lesson 10-1</option><option value="10-2">Lesson 10-2</option><option value="10-3">Lesson 10-3</option></select><span id="cardCount" class="small"></span></div>
+<div class="card"><div id="jpWord" class="word"></div><div id="translations" class="hidden"><div id="enWord" class="translation"></div><div id="npWord" class="translation"></div></div></div>
+<button id="revealBtn" class="reveal" onclick="reveal()">意味を見る</button>
+<div class="actions"><button onclick="moveCard(-1)">← 前へ</button><button onclick="moveCard(1)">次へ →</button></div>
+</section>
+<section id="quizPanel" class="panel hidden">
+<h2>② 4択クイズ</h2>
+<p class="small">日本語の語彙に合う英語の意味を選びましょう。10問です。</p>
+<div class="controls"><span id="quizProgress" class="small">準備OK</span><span id="scoreNow" class="small"></span></div>
+<div id="quizStart"><button class="primary" onclick="startQuiz()">クイズを始める</button></div>
+<div id="quizPlay" class="hidden"><div id="quizQuestion" class="quiz-question"></div><div id="quizChoices" class="choices"></div><div id="quizFeedback" class="feedback" aria-live="polite"></div><button id="nextQuestion" class="primary hidden" onclick="nextQuiz()">次の問題へ</button></div>
+<div id="quizResult" class="hidden"><h3 id="resultTitle"></h3><p id="resultText"></p><button class="primary" onclick="startQuiz()">もう一度チャレンジ</button></div>
+</section>
+<footer>自分のペースで、何度でも練習できます。</footer>
+</main>
+<script>
+const vocab = [{"lesson": "10-1", "jp": "グレー", "en": "gray", "np": "खैरो"}, {"lesson": "10-1", "jp": "スーツ", "en": "suit", "np": "सूट"}, {"lesson": "10-1", "jp": "めがねを かけます", "en": "put on glasses", "np": "चस्मा लगाउनु"}, {"lesson": "10-1", "jp": "システム", "en": "system", "np": "प्रणाली"}, {"lesson": "10-1", "jp": "～ぶ：システムぶ", "en": "～ department: system department", "np": "विभाग: प्रणाली विभाग"}, {"lesson": "10-1", "jp": "しょうかいします", "en": "introduce", "np": "परिचय गराउनु"}, {"lesson": "10-1", "jp": "いいですよ", "en": "sure", "np": "ठिक छ"}, {"lesson": "10-1", "jp": "どうりょう", "en": "coworker", "np": "सहकर्मी"}, {"lesson": "10-1", "jp": "コート", "en": "coat", "np": "कोट"}, {"lesson": "10-1", "jp": "Ｔシャツ", "en": "T-shirt", "np": "टी-शर्ट"}, {"lesson": "10-1", "jp": "きもの", "en": "kimono", "np": "जापानी लुगा"}, {"lesson": "10-1", "jp": "かぶります", "en": "wear, put on", "np": "टाउकोमा लगाउनु"}, {"lesson": "10-1", "jp": "はきます", "en": "wear, put on", "np": "कम्मर मुनी लगाउनु"}, {"lesson": "10-1", "jp": "ズボン", "en": "pants", "np": "प्यान्ट"}, {"lesson": "10-1", "jp": "スカート", "en": "skirt", "np": "स्कर्ट"}, {"lesson": "10-1", "jp": "ブーツ", "en": "boots", "np": "जुत्ता"}, {"lesson": "10-1", "jp": "（ネクタイを）します", "en": "wear a tie", "np": "टाई लगाउनु"}, {"lesson": "10-1", "jp": "ベルト", "en": "belt", "np": "बेल्ट"}, {"lesson": "10-1", "jp": "ゆびわ", "en": "ring", "np": "औठि"}, {"lesson": "10-1", "jp": "ネックレス", "en": "necklace", "np": "नेकलेस"}, {"lesson": "10-1", "jp": "ブレスレット", "en": "bracelet", "np": "ब्रेसलेट"}, {"lesson": "10-1", "jp": "マフラー", "en": "scarf", "np": "स्कार्फ"}, {"lesson": "10-1", "jp": "ワンピース", "en": "dress", "np": "वान पिस"}, {"lesson": "10-1", "jp": "ノート", "en": "notebook", "np": "नोट"}, {"lesson": "10-2", "jp": "住みます", "en": "live", "np": "बस्‍नु"}, {"lesson": "10-2", "jp": "こいびと", "en": "boyfriend, girlfriend, lover, partner, significant other", "np": "प्रेमी"}, {"lesson": "10-2", "jp": "かのじょ", "en": "she", "np": "प्रेमिका"}, {"lesson": "10-2", "jp": "あかるい", "en": "bright, lively", "np": "उज्यालो"}, {"lesson": "10-2", "jp": "まじめ（な）", "en": "serious", "np": "मेहिनति"}, {"lesson": "10-2", "jp": "やさしい", "en": "nice, kind", "np": "सजिलो"}, {"lesson": "10-2", "jp": "いもうと", "en": "little sister", "np": "बहिनी"}, {"lesson": "10-2", "jp": "おねえさん", "en": "older sister", "np": "दिदी"}, {"lesson": "10-2", "jp": "よく にています", "en": "really look alike", "np": "एकदम उस्तै"}, {"lesson": "10-2", "jp": "おとうと", "en": "little brother", "np": "भाइ"}, {"lesson": "10-2", "jp": "はたらきます", "en": "work", "np": "काम गर्नु"}, {"lesson": "10-2", "jp": "男の子", "en": "boy", "np": "केटा"}, {"lesson": "10-2", "jp": "女の子", "en": "girl", "np": "केटी"}, {"lesson": "10-2", "jp": "りょうしん", "en": "parents", "np": "आमाबाबु"}, {"lesson": "10-2", "jp": "父", "en": "dad, father", "np": "बुबा"}, {"lesson": "10-2", "jp": "あに", "en": "older brother", "np": "दाई"}, {"lesson": "10-2", "jp": "ぼうえきがいしゃ", "en": "trading company", "np": "ट्रेडिङ कम्पनी"}, {"lesson": "10-2", "jp": "けいえいします", "en": "manage, operate", "np": "व्यवस्थापन गर्नु"}, {"lesson": "10-2", "jp": "ざっし", "en": "magazine", "np": "पत्रिका"}, {"lesson": "10-2", "jp": "イラスト", "en": "illustration", "np": "दृष्टान्त"}, {"lesson": "10-2", "jp": "セールス", "en": "sales", "np": "बिक्री"}, {"lesson": "10-2", "jp": "高校", "en": "high school", "np": "उच्च माध्यमिक विद्यालय"}, {"lesson": "10-2", "jp": "おしえます", "en": "teach", "np": "सिकाउनु"}, {"lesson": "10-2", "jp": "ごけっこんは？", "en": "Are you married?", "np": "तपाईं विवाहित हुनुहुन्छ?"}, {"lesson": "10-2", "jp": "どくしん", "en": "bachelor, single", "np": "एकल"}, {"lesson": "10-2", "jp": "きっさてん", "en": "coffee shop", "np": "कफी पसल"}, {"lesson": "10-2", "jp": "イケメン", "en": "handsome", "np": "सुन्दर केटा"}, {"lesson": "10-2", "jp": "かれ", "en": "he", "np": "प्रेमि"}, {"lesson": "10-2", "jp": "かぞく", "en": "family", "np": "परिवार"}, {"lesson": "10-3", "jp": "南", "en": "south", "np": "दक्षिण"}, {"lesson": "10-3", "jp": "りっぱ（な）", "en": "splendid, handsome, beautiful", "np": "प्रशंसनीय"}, {"lesson": "10-3", "jp": "うるさい", "en": "noisy, loud", "np": "कोलाहल"}, {"lesson": "10-3", "jp": "ぜひ", "en": "please, feel free to", "np": "अवश्‍य"}, {"lesson": "10-3", "jp": "ビル", "en": "building", "np": "भवन"}, {"lesson": "10-3", "jp": "くうき", "en": "air", "np": "हावा"}, {"lesson": "10-3", "jp": "きたない", "en": "dirty", "np": "फोहोर"}, {"lesson": "10-3", "jp": "人口", "en": "population", "np": "जनसंख्या"}, {"lesson": "10-3", "jp": "高い", "en": "high", "np": "महँगो अग्लो"}, {"lesson": "10-3", "jp": "せが 高い", "en": "tall", "np": "हाइट अग्लो"}, {"lesson": "10-3", "jp": "ひくい", "en": "low", "np": "होचो"}, {"lesson": "10-3", "jp": "せが ひくい", "en": "short", "np": "हाइट होचो"}, {"lesson": "10-3", "jp": "うた", "en": "song", "np": "गीत"}, {"lesson": "10-3", "jp": "かみ", "en": "hair", "np": "कपाल"}, {"lesson": "10-3", "jp": "目", "en": "eye", "np": "आँखा"}, {"lesson": "10-3", "jp": "ねだん", "en": "price", "np": "मूल्य"}];
+let unit='all', filtered=[], cardIndex=0, revealed=false;
+function showMode(mode){
+ document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');
+ document.getElementById('quizPanel').classList.toggle('hidden',mode!=='quiz');
+ document.getElementById('cardsTab').classList.toggle('active',mode==='cards');
+ document.getElementById('quizTab').classList.toggle('active',mode==='quiz');
+}
+function changeUnit(){unit=document.getElementById('unitSelect').value;filtered=unit==='all'?vocab:vocab.filter(v=>v.lesson===unit);cardIndex=0;renderCard();}
+function renderCard(){
+ if(!filtered.length)filtered=vocab;
+ const v=filtered[cardIndex];revealed=false;
+ document.getElementById('jpWord').textContent=v.jp;
+ document.getElementById('enWord').textContent='English: '+v.en;
+ document.getElementById('npWord').textContent='नेपाली: '+v.np;
+ document.getElementById('translations').classList.add('hidden');
+ document.getElementById('revealBtn').textContent='意味を見る';
+ document.getElementById('cardCount').textContent=(cardIndex+1)+' / '+filtered.length+'語';
+}
+function reveal(){revealed=!revealed;document.getElementById('translations').classList.toggle('hidden',!revealed);document.getElementById('revealBtn').textContent=revealed?'意味をかくす':'意味を見る';}
+function moveCard(d){cardIndex=(cardIndex+d+filtered.length)%filtered.length;renderCard();}
+let questions=[], qIndex=0, score=0, answered=false;
+function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function startQuiz(){
+ const pool=shuffle([...vocab]);questions=pool.slice(0,Math.min(10,pool.length));qIndex=0;score=0;answered=false;
+ document.getElementById('quizStart').classList.add('hidden');document.getElementById('quizResult').classList.add('hidden');document.getElementById('quizPlay').classList.remove('hidden');renderQuiz();
+}
+function renderQuiz(){
+ answered=false;const v=questions[qIndex];document.getElementById('quizProgress').textContent='問題 '+(qIndex+1)+' / '+questions.length;document.getElementById('scoreNow').textContent='正解 '+score+' 問';
+ document.getElementById('quizQuestion').textContent=v.jp;
+ document.getElementById('quizFeedback').textContent='';document.getElementById('nextQuestion').classList.add('hidden');
+ const distractors=shuffle(vocab.filter(x=>x.en!==v.en)).slice(0,3);const opts=shuffle([v,...distractors]);
+ const box=document.getElementById('quizChoices');box.innerHTML='';
+ opts.forEach(opt=>{const b=document.createElement('button');b.textContent=opt.en;b.onclick=()=>answerQuiz(b,opt,v);box.appendChild(b);});
+}
+function answerQuiz(btn,opt,v){
+ if(answered)return;answered=true;const buttons=[...document.getElementById('quizChoices').children];buttons.forEach(b=>b.disabled=true);
+ if(opt===v){score++;btn.classList.add('correct');document.getElementById('quizFeedback').textContent='○ 正解です！';document.getElementById('quizFeedback').style.color='#16803c';document.getElementById('quizFeedback').style.background='#e3f8e8';}
+ else{btn.classList.add('wrong');buttons.forEach(b=>{if(b.textContent===v.en)b.classList.add('correct');});document.getElementById('quizFeedback').textContent='× ちがいます。正解は：'+v.en;document.getElementById('quizFeedback').style.color='#b42318';document.getElementById('quizFeedback').style.background='#fff0ef';}
+ document.getElementById('scoreNow').textContent='正解 '+score+' 問';document.getElementById('nextQuestion').textContent=qIndex===questions.length-1?'結果を見る':'次の問題へ';document.getElementById('nextQuestion').classList.remove('hidden');
+}
+function nextQuiz(){
+ if(qIndex<questions.length-1){qIndex++;renderQuiz();}
+ else{document.getElementById('quizPlay').classList.add('hidden');document.getElementById('quizResult').classList.remove('hidden');document.getElementById('resultTitle').textContent='おつかれさまでした！';document.getElementById('resultText').textContent='10問中 '+score+' 問正解です。間違えた語彙は、語彙カードでもう一度確認しましょう。';document.getElementById('quizProgress').textContent='クイズ終了';}
+}
+changeUnit();
+</script>
+</body>
+</html>
