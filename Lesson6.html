@@ -50,6 +50,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <section id="quizPanel" class="panel hidden">
 <h2>② 4択クイズ</h2>
 <p class="small">日本語の語彙に合う英語の意味を選びましょう。10問です。</p>
+<div class="controls"><label for="quizUnitSelect">出題範囲：</label><select id="quizUnitSelect" onchange="changeQuizUnit()"><option value="all">Lesson 6 全体</option><option value="6-1">Lesson 6-1</option><option value="6-2">Lesson 6-2</option><option value="6-3">Lesson 6-3</option></select></div>
 <div class="controls"><span id="quizProgress" class="small">準備OK</span><span id="scoreNow" class="small"></span></div>
 <div id="quizStart"><button class="primary" onclick="startQuiz()">クイズを始める</button></div>
 <div id="quizPlay" class="hidden"><div id="quizQuestion" class="quiz-question"></div><div id="quizChoices" class="choices"></div><div id="quizFeedback" class="feedback" aria-live="polite"></div><button id="nextQuestion" class="primary hidden" onclick="nextQuiz()">次の問題へ</button></div>
@@ -79,17 +80,27 @@ function renderCard(){
 }
 function reveal(){revealed=!revealed;document.getElementById('translations').classList.toggle('hidden',!revealed);document.getElementById('revealBtn').textContent=revealed?'意味をかくす':'意味を見る';}
 function moveCard(d){cardIndex=(cardIndex+d+filtered.length)%filtered.length;renderCard();}
-let questions=[], qIndex=0, score=0, answered=false;
+let questions=[], qIndex=0, score=0, answered=false, quizUnit='all';
+function changeQuizUnit(){
+ quizUnit=document.getElementById('quizUnitSelect').value;
+ document.getElementById('quizProgress').textContent='準備OK';
+ document.getElementById('scoreNow').textContent='';
+ document.getElementById('quizStart').classList.remove('hidden');
+ document.getElementById('quizPlay').classList.add('hidden');
+ document.getElementById('quizResult').classList.add('hidden');
+}
 function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function startQuiz(){
- const pool=shuffle([...vocab]);questions=pool.slice(0,Math.min(10,pool.length));qIndex=0;score=0;answered=false;
+ const quizPool=quizUnit==='all'?vocab:vocab.filter(v=>v.lesson===quizUnit);
+ const pool=shuffle([...quizPool]);questions=pool.slice(0,Math.min(10,pool.length));qIndex=0;score=0;answered=false;
  document.getElementById('quizStart').classList.add('hidden');document.getElementById('quizResult').classList.add('hidden');document.getElementById('quizPlay').classList.remove('hidden');renderQuiz();
 }
 function renderQuiz(){
  answered=false;const v=questions[qIndex];document.getElementById('quizProgress').textContent='問題 '+(qIndex+1)+' / '+questions.length;document.getElementById('scoreNow').textContent='正解 '+score+' 問';
  document.getElementById('quizQuestion').textContent=v.jp;
  document.getElementById('quizFeedback').textContent='';document.getElementById('nextQuestion').classList.add('hidden');
- const distractors=shuffle(vocab.filter(x=>x.en!==v.en)).slice(0,3);const opts=shuffle([v,...distractors]);
+ const quizPool=quizUnit==='all'?vocab:vocab.filter(x=>x.lesson===quizUnit);
+ const distractors=shuffle(quizPool.filter(x=>x.en!==v.en)).slice(0,3);const opts=shuffle([v,...distractors]);
  const box=document.getElementById('quizChoices');box.innerHTML='';
  opts.forEach(opt=>{const b=document.createElement('button');b.textContent=opt.en;b.onclick=()=>answerQuiz(b,opt,v);box.appendChild(b);});
 }
