@@ -59,7 +59,224 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"19-1","jp":"ぼしゅう","en":"recruiting","np":"भ्याकेन्‍सी"},{"lesson":"19-1","jp":"たんとう","en":"person in charge","np":"सुपरभाइजर"},{"lesson":"19-1","jp":"留学生","en":"international student","np":"अन्तर्राष्ट्रिय विद्यार्थी"},{"lesson":"19-1","jp":"めんせつ","en":"interview","np":"अन्तर्वार्ता"},{"lesson":"19-1","jp":"身分証明書","en":"personal identification","np":"परिचय पत्र"},{"lesson":"19-1","jp":"パスポート","en":"passport","np":"राहदानी"},{"lesson":"19-1","jp":"服","en":"clothes","np":"लुगा"},{"lesson":"19-1","jp":"通ります","en":"pass (through)","np":"पास हुन्छु / .... भएर जान्छु"},{"lesson":"19-1","jp":"ずいぶん","en":"very","np":"पर्याप्त"},{"lesson":"19-1","jp":"欠席","en":"absent","np":"अनुपस्थिति"},{"lesson":"19-1","jp":"せまい","en":"narrow","np":"साँघुरो"},{"lesson":"19-1","jp":"れいぞうこ","en":"refrigerator","np":"फ्रिज"},{"lesson":"19-1","jp":"メモします","en":"take a memo","np":"नोटहरू लिन्छु"},{"lesson":"19-2","jp":"会話","en":"conversation","np":"कुराकानी"},{"lesson":"19-2","jp":"～字：100字","en":"～ letter(s) : a hundred letters","np":"अक्षर : 100 अक्षर"},{"lesson":"19-2","jp":"今週中","en":"during the week, by the end of the week","np":"यो साताको भरि"},{"lesson":"19-2","jp":"なれます","en":"get used to","np":"बानी पर्नु"},{"lesson":"19-2","jp":"こまります","en":"be troubled","np":"समस्यामा पर्नु"},{"lesson":"19-2","jp":"自分","en":"myself, yourself","np":"आफु"},{"lesson":"19-2","jp":"着せます","en":"put clothes on (someone)","np":"लुगा लगाउन लगाउँछु"},{"lesson":"19-2","jp":"ほうこくします","en":"report","np":"रिपोर्ट गर्छु"},{"lesson":"19-2","jp":"分けます","en":"separate","np":"विभाजन गर्छु"},{"lesson":"19-2","jp":"リサイクル","en":"recycle","np":"रिसाइकल"},{"lesson":"19-2","jp":"いっしょにします","en":"put together","np":"सँगै गर्छु"},{"lesson":"19-2","jp":"おどります","en":"dance","np":"नृत्य गर्छु"},{"lesson":"19-3","jp":"ぜんぶ","en":"everything","np":"सबै"},{"lesson":"19-3","jp":"さそいます","en":"invite","np":"आमन्त्रण गर्छु"},{"lesson":"19-3","jp":"ほめます","en":"praise","np":"प्रशंसा गर्छु"},{"lesson":"19-3","jp":"たすけます","en":"save","np":"सहयोग गर्छु"},{"lesson":"19-3","jp":"しょうたいします","en":"invite","np":"निम्तो दिन्छु"},{"lesson":"19-3","jp":"てつだい","en":"help","np":"मद्दत"},{"lesson":"19-3","jp":"クリスマス","en":"Christmas","np":"क्रिसमस"},{"lesson":"19-3","jp":"けっこんしき","en":"wedding","np":"विवाह समारोह"},{"lesson":"19-3","jp":"スピーチ大会","en":"speech contest","np":"भाषण प्रतियोगिता"},{"lesson":"19-3","jp":"代表","en":"representative","np":"प्रतिनिधि"},{"lesson":"19-3","jp":"専門学校","en":"vocational school","np":"व्यावसायिक तालिम विद्यालय"}];
+const vocab = [
+  {
+    "lesson": "19-1",
+    "jp": "ぼしゅう",
+    "en": "recruiting",
+    "np": "भ्याकेन्‍सी"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "たんとう",
+    "en": "person in charge",
+    "np": "सुपरभाइजर"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "留学生",
+    "en": "international student",
+    "np": "अन्तर्राष्ट्रिय विद्यार्थी"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "めんせつ",
+    "en": "interview",
+    "np": "अन्तर्वार्ता"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "身分証明書",
+    "en": "personal identification",
+    "np": "परिचय पत्र"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "パスポート",
+    "en": "passport",
+    "np": "राहदानी"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "服",
+    "en": "clothes",
+    "np": "लुगा"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "通ります",
+    "en": "pass (through) ",
+    "np": "पास हुन्छु / .... भएर जान्छु"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "ずいぶん",
+    "en": "very",
+    "np": "पर्याप्त"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "欠席",
+    "en": "absent",
+    "np": "अनुपस्थिति"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "せまい",
+    "en": "narrow",
+    "np": "साँघुरो"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "れいぞうこ",
+    "en": "refrigerator",
+    "np": "फ्रिज"
+  },
+  {
+    "lesson": "19-1",
+    "jp": "メモします",
+    "en": "take a memo",
+    "np": "नोटहरू लिन्छु"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "会話",
+    "en": "conversation",
+    "np": "कुराकानी"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "～字：100字",
+    "en": "～ letter(s): a hundred letters",
+    "np": "अक्षर : 100 अक्षर"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "今週中",
+    "en": "during the week, by the end of the week",
+    "np": "यो साताको भरि"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "なれます",
+    "en": "get used to",
+    "np": "बानी पर्नु"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "こまります",
+    "en": "be troubled",
+    "np": "समस्यामा पर्नु"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "自分",
+    "en": "myself, yourself",
+    "np": "आफु"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "着せます",
+    "en": "put clothes on (someone)",
+    "np": "लुगा लगाउन लगाउँछु"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "ほうこくします",
+    "en": "report",
+    "np": "रिपोर्ट गर्छु"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "分けます",
+    "en": "separate",
+    "np": "विभाजन गर्छु"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "リサイクル",
+    "en": "recycle",
+    "np": "रिसाइकल"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "いっしょにします",
+    "en": "put together",
+    "np": "सँगै गर्छु"
+  },
+  {
+    "lesson": "19-2",
+    "jp": "おどります",
+    "en": "dance",
+    "np": "नृत्य गर्छु"
+  },
+  {
+    "lesson": "19-3",
+    "jp": "ぜんぶ",
+    "en": "everything",
+    "np": "सबै"
+  },
+  {
+    "lesson": "19-3",
+    "jp": "さそいます",
+    "en": "invite",
+    "np": "आमन्त्रण गर्छु"
+  },
+  {
+    "lesson": "19-3",
+    "jp": "ほめます",
+    "en": "praise",
+    "np": "प्रशंसा गर्छु"
+  },
+  {
+    "lesson": "19-3",
+    "jp": "たすけます",
+    "en": "save",
+    "np": "सहयोग गर्छु"
+  },
+  {
+    "lesson": "19-3",
+    "jp": "しょうたいします",
+    "en": "invite",
+    "np": "निम्तो दिन्छु"
+  },
+  {
+    "lesson": "19-3",
+    "jp": "てつだい",
+    "en": "help",
+    "np": "मद्दत"
+  },
+  {
+    "lesson": "19-3",
+    "jp": "クリスマス",
+    "en": "Christmas",
+    "np": "क्रिसमस"
+  },
+  {
+    "lesson": "19-3",
+    "jp": "けっこんしき",
+    "en": "wedding",
+    "np": "विवाह समारोह"
+  },
+  {
+    "lesson": "19-3",
+    "jp": "スピーチ大会",
+    "en": "speech contest",
+    "np": "भाषण प्रतियोगिता"
+  },
+  {
+    "lesson": "19-3",
+    "jp": "代表",
+    "en": "representative",
+    "np": "प्रतिनिधि"
+  },
+  {
+    "lesson": "19-3",
+    "jp": "せんもん学校",
+    "en": "vocational school",
+    "np": "व्यावसायिक तालिम विद्यालय"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

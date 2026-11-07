@@ -59,7 +59,584 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"12-1","jp":"来月","en":"next month","np":"अर्को महिना"},{"lesson":"12-1","jp":"帰国します","en":"return to one's country","np":"देश फर्कनु"},{"lesson":"12-1","jp":"きゅうかとどけ","en":"vacation request form","np":"छुट्टी सूचना"},{"lesson":"12-1","jp":"かみ","en":"paper","np":"कपाल"},{"lesson":"12-1","jp":"理由","en":"reason","np":"कारण"},{"lesson":"12-1","jp":"はんこ","en":"personal seal, name seal","np":"छाप"},{"lesson":"12-1","jp":"おします","en":"press, stamp","np":"थिच्नु"},{"lesson":"12-1","jp":"とうほく 東北しんかんせん","en":"Tohoku shinkansen, Tohoku bullet train","np":"तोहोकु बुलेट रेल"},{"lesson":"12-1","jp":"のりば","en":"platform","np":"प्लेटफर्म"},{"lesson":"12-1","jp":"よてい","en":"plan","np":"तालिका"},{"lesson":"12-1","jp":"メール","en":"email","np":"इमेल"},{"lesson":"12-1","jp":"ミーティング","en":"meeting","np":"बैठक"},{"lesson":"12-1","jp":"とっきゅうけん","en":"express ticket","np":"एक्सप्रेस रेल टिकट"},{"lesson":"12-1","jp":"ことば","en":"word","np":"शब्दहरू"},{"lesson":"12-1","jp":"いみ","en":"meaning","np":"अर्थ"},{"lesson":"12-1","jp":"はこびます","en":"carry","np":"बोक्नु"},{"lesson":"12-1","jp":"こわれます","en":"break","np":"टुट्नु"},{"lesson":"12-1","jp":"とりかえます","en":"replace","np":"बदल्नु"},{"lesson":"12-1","jp":"しゅっぱつ","en":"departure","np":"प्रस्थान"},{"lesson":"12-1","jp":"でんわ 電話を かけます","en":"make a call","np":"टेलिफोन कल गर्नु"},{"lesson":"12-1","jp":"ボタン","en":"button","np":"टांक"},{"lesson":"12-1","jp":"でんげん","en":"electrical power","np":"बिजुलीको आपूर्ति"},{"lesson":"12-1","jp":"スタート","en":"start","np":"सुरु"},{"lesson":"12-1","jp":"しって います","en":"know","np":"थाहा छ"},{"lesson":"12-1","jp":"しりません","en":"don't know","np":"थाहा छैन"},{"lesson":"12-1","jp":"まわします","en":"turn","np":"घुमाउनु"},{"lesson":"12-1","jp":"コーヒーマシン","en":"coffee machine","np":"कफी मेसिन"},{"lesson":"12-1","jp":"カップ","en":"cup","np":"कप"},{"lesson":"12-1","jp":"どうやって","en":"how","np":"कसरी"},{"lesson":"12-1","jp":"ゆでます","en":"boil","np":"उमाल्नु"},{"lesson":"12-1","jp":"（バターを） つけます","en":"spread butter on","np":"मक्खन हाल्नुहोस्"},{"lesson":"12-1","jp":"けっせきとどけ","en":"absence request","np":"अनुपस्थिति सूचना"},{"lesson":"12-1","jp":"じむしょ","en":"office","np":"कार्यालय"},{"lesson":"12-1","jp":"ＪＬＰＴ にほんごのうりょくしけん 日本語能力試験","en":"Japanese Language Proficiency Test","np":"JLPT/ जापानी भाषा प्रवीणता परीक्षा"},{"lesson":"12-1","jp":"もうしこみ","en":"application","np":"आवेदन"},{"lesson":"12-1","jp":"Ｗｅｂ （ウェブ）","en":"the web, the internet","np":"वेब"},{"lesson":"12-1","jp":"ゆうびん","en":"post, postal service","np":"पोस्ट"},{"lesson":"12-1","jp":"ＩＤ","en":"identification","np":"ID"},{"lesson":"12-2","jp":"おねがい","en":"request","np":"कृपया"},{"lesson":"12-2","jp":"おしらせ","en":"notification","np":"सूचना"},{"lesson":"12-2","jp":"むり（な）","en":"impossible","np":"अव्यावहारिक"},{"lesson":"12-2","jp":"れんしゅうします","en":"practice","np":"अभ्यास गर्नु"},{"lesson":"12-2","jp":"やります","en":"do","np":"गर्नु"},{"lesson":"12-2","jp":"ホール","en":"hall","np":"हल"},{"lesson":"12-2","jp":"ばしょ","en":"place","np":"ठाउँ"},{"lesson":"12-2","jp":"ちず","en":"map","np":"नक्सा"},{"lesson":"12-2","jp":"イベント","en":"event","np":"घटना"},{"lesson":"12-2","jp":"こと","en":"what, things","np":"कुरा"},{"lesson":"12-2","jp":"そうだんします","en":"discuss","np":"परामर्श गर्नु"},{"lesson":"12-2","jp":"（アルバイトを） かわります","en":"take one’s shift","np":"पार्टटाइम कामको  सिफ्ट कोहि सित साट्नु अथवा परिवर्तन गर्नु"},{"lesson":"12-2","jp":"しょくじします","en":"have a meal","np":"खाना खानु"},{"lesson":"12-2","jp":"たいそうします","en":"exercise","np":"जिम्न्यास्टिक गर्नु"},{"lesson":"12-2","jp":"そうじします","en":"clean","np":"सफा गर्नु"},{"lesson":"12-2","jp":"ホーム","en":"platform","np":"घर"},{"lesson":"12-2","jp":"せっけん","en":"soap","np":"साबुन"},{"lesson":"12-2","jp":"におい","en":"smell","np":"गन्ध"},{"lesson":"12-2","jp":"ガス","en":"gas","np":"ग्यास"},{"lesson":"12-2","jp":"こうじ","en":"construction","np":"निर्माण कार्य"},{"lesson":"12-2","jp":"てんちょう","en":"store manager, restaurant manager","np":"प्रबन्धक"},{"lesson":"12-3","jp":"けしゴム","en":"eraser","np":"इरेजर"},{"lesson":"12-3","jp":"ひどい","en":"awful","np":"भयानक"},{"lesson":"12-3","jp":"ちゃんと","en":"properly","np":"ठीकसँग"},{"lesson":"12-3","jp":"かえします","en":"return","np":"फर्काउनु"},{"lesson":"12-3","jp":"ねこ","en":"cat","np":"बिरालो"},{"lesson":"12-3","jp":"（でんきを） つけます","en":"turn on","np":"बिजुली खोल्नु"},{"lesson":"12-3","jp":"わたします","en":"pass","np":"जिम्मा लगाउनु"},{"lesson":"12-3","jp":"クイズ","en":"quiz","np":"प्रश्नोत्तरी"},{"lesson":"12-3","jp":"おとな","en":"adult","np":"वयस्क"},{"lesson":"12-3","jp":"ニュース","en":"news","np":"समाचार"},{"lesson":"12-3","jp":"ばんぐみ","en":"TV program","np":"कार्यक्रम"},{"lesson":"12-3","jp":"（テレビに） 出ます","en":"appear on a TV program","np":"टिभीमा आउनु"},{"lesson":"12-3","jp":"かしゅ","en":"singer","np":"गायक गाइका"},{"lesson":"12-3","jp":"デザイン","en":"design","np":"डिजाइन"},{"lesson":"12-3","jp":"デザイナー","en":"designer","np":"डिजाइनर"},{"lesson":"12-3","jp":"外国人","en":"foreigner","np":"विदेशी मान्छे"},{"lesson":"12-3","jp":"うります","en":"sell","np":"बेच्‍नु"},{"lesson":"12-4","jp":"おちます","en":"fall","np":"खस्‍नु"},{"lesson":"12-4","jp":"（テストを） うけます","en":"take a test","np":"परीक्षा दिनु"},{"lesson":"12-4","jp":"おだいじに","en":"Get well soon.","np":"ख्याल राख्नुहोस"},{"lesson":"12-4","jp":"くらい","en":"dark","np":"अधेरो"},{"lesson":"12-4","jp":"おなか","en":"stomach","np":"पेट"},{"lesson":"12-4","jp":"ゆうびん番号","en":"post code, zip code","np":"हुलाक नम्बर"},{"lesson":"12-4","jp":"れんらくします","en":"contact","np":"सम्पर्क गर्नु"},{"lesson":"12-4","jp":"くわしく","en":"detailed, in detail","np":"विस्तृत रूपमा"},{"lesson":"12-4","jp":"たくはいびん","en":"home delivery service","np":"होम डेलिभरी"},{"lesson":"12-4","jp":"いんかん","en":"personal seal, name seal","np":"हस्ताक्षर छाप"},{"lesson":"12-4","jp":"サイン","en":"signature","np":"चिन्ह"},{"lesson":"12-4","jp":"けっこうです","en":"That’s okay.","np":"हैन धन्यवाद , पर्दैन"},{"lesson":"12-4","jp":"よります","en":"drop by, come by","np":".....मा भर पर्छ"},{"lesson":"12-4","jp":"さくら","en":"cherry blossom","np":"चेरी फूलहरू"},{"lesson":"12-4","jp":"さきます","en":"bloom","np":"फुल्नु"},{"lesson":"12-4","jp":"あ～","en":"Oh no!","np":"आह~"},{"lesson":"12-4","jp":"データ","en":"data","np":"डाटा"},{"lesson":"12-4","jp":"きえます","en":"be deleted","np":"निभ्‍नु"},{"lesson":"12-4","jp":"なきます","en":"cry","np":"रुनु"},{"lesson":"12-4","jp":"ちこくします","en":"be late for","np":"ढिलो हुनु"}];
+const vocab = [
+  {
+    "lesson": "12-1",
+    "jp": "来月",
+    "en": "next month",
+    "np": "अर्को महिना"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "帰国します",
+    "en": "return to one's country",
+    "np": "देश फर्कनु"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "きゅうかとどけ",
+    "en": "vacation request form",
+    "np": "छुट्टी सूचना"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "かみ",
+    "en": "paper",
+    "np": "कपाल"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "理由",
+    "en": "reason",
+    "np": "कारण"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "はんこ",
+    "en": "personal seal, name seal",
+    "np": "छाप"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "おします",
+    "en": "press, stamp",
+    "np": "थिच्नु"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "東北しんかんせん",
+    "en": "Tohoku shinkansen, Tohoku bullet train",
+    "np": "तोहोकु बुलेट रेल"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "のりば",
+    "en": "platform",
+    "np": "प्लेटफर्म"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "よてい",
+    "en": "plan",
+    "np": "तालिका"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "メール",
+    "en": "email",
+    "np": "इमेल"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "ミーティング",
+    "en": "meeting",
+    "np": "बैठक"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "とっきゅうけん",
+    "en": "express ticket",
+    "np": "एक्सप्रेस रेल टिकट"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "ことば",
+    "en": "word",
+    "np": "शब्दहरू"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "いみ",
+    "en": "meaning",
+    "np": "अर्थ"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "はこびます",
+    "en": "carry",
+    "np": "बोक्नु"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "こわれます",
+    "en": "break",
+    "np": "टुट्नु"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "とりかえます",
+    "en": "replace",
+    "np": "बदल्नु"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "しゅっぱつ",
+    "en": "departure",
+    "np": "प्रस्थान"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "電話を かけます",
+    "en": "make a call",
+    "np": "टेलिफोन कल गर्नु"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "ボタン",
+    "en": "button",
+    "np": "टांक"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "でんげん",
+    "en": "electrical power",
+    "np": "बिजुलीको आपूर्ति"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "スタート",
+    "en": "start",
+    "np": "सुरु"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "しって います",
+    "en": "know",
+    "np": "थाहा छ"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "しりません",
+    "en": "don't know",
+    "np": "थाहा छैन"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "まわします",
+    "en": "turn",
+    "np": "घुमाउनु"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "コーヒーマシン",
+    "en": "coffee machine",
+    "np": "कफी मेसिन"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "カップ",
+    "en": "cup",
+    "np": "कप"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "どうやって",
+    "en": "how",
+    "np": "कसरी"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "ゆでます",
+    "en": "boil",
+    "np": "उमाल्नु"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "（バターを）つけます",
+    "en": "spread butter on",
+    "np": "मक्खन हाल्नुहोस्"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "けっせきとどけ",
+    "en": "absence request",
+    "np": "अनुपस्थिति सूचना"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "じむしょ",
+    "en": "office",
+    "np": "कार्यालय"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "ＪＬＰＴ・日本語のうりょくしけん",
+    "en": "Japanese Language Proficiency Test",
+    "np": "JLPT/जापानी भाषा प्रवीणता परीक्षा"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "もうしこみ",
+    "en": "application",
+    "np": "आवेदन"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "Ｗｅｂ",
+    "en": "the web, the internet",
+    "np": "वेब"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "ゆうびん",
+    "en": "post, postal service",
+    "np": "पोस्ट"
+  },
+  {
+    "lesson": "12-1",
+    "jp": "ＩＤ",
+    "en": "identification",
+    "np": "ID"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "おねがい",
+    "en": "request",
+    "np": "कृपया"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "おしらせ",
+    "en": "notification",
+    "np": "सूचना"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "むり（な）",
+    "en": "impossible",
+    "np": "अव्यावहारिक"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "れんしゅうします",
+    "en": "practice",
+    "np": "अभ्यास गर्नु"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "やります",
+    "en": "do",
+    "np": "गर्नु"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "ホール",
+    "en": "hall",
+    "np": "हल"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "ばしょ",
+    "en": "place",
+    "np": "ठाउँ"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "ちず",
+    "en": "map",
+    "np": "नक्सा"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "イベント",
+    "en": "event",
+    "np": "घटना"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "こと",
+    "en": "what, things",
+    "np": "कुरा"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "そうだんします",
+    "en": "discuss",
+    "np": "परामर्श गर्नु"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "（アルバイトを）かわります",
+    "en": "take one’s shift",
+    "np": "पार्टटाइम कामको  सिफ्ट कोहि सित साट्नु अथवा परिवर्तन गर्नु"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "しょくじします",
+    "en": "have a meal",
+    "np": "खाना खानु"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "たいそうします",
+    "en": "exercise",
+    "np": "जिम्न्यास्टिक गर्नु"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "そうじします",
+    "en": "clean",
+    "np": "सफा गर्नु"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "ホーム",
+    "en": "platform",
+    "np": "घर"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "せっけん",
+    "en": "soap",
+    "np": "साबुन"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "におい",
+    "en": "smell",
+    "np": "गन्ध"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "ガス",
+    "en": "gas",
+    "np": "ग्यास"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "こうじ",
+    "en": "construction",
+    "np": "निर्माण कार्य"
+  },
+  {
+    "lesson": "12-2",
+    "jp": "てんちょう",
+    "en": "store manager, restaurant manager",
+    "np": "प्रबन्धक"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "けしゴム",
+    "en": "eraser",
+    "np": "इरेजर"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "ひどい",
+    "en": "awful",
+    "np": "भयानक"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "ちゃんと",
+    "en": "properly",
+    "np": "ठीकसँग"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "かえします",
+    "en": "return",
+    "np": "फर्काउनु"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "ねこ",
+    "en": "cat",
+    "np": "बिरालो"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "（でんきを）つけます",
+    "en": "turn on",
+    "np": "बिजुली खोल्नु"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "わたします",
+    "en": "pass",
+    "np": "जिम्मा लगाउनु"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "クイズ",
+    "en": "quiz",
+    "np": "प्रश्नोत्तरी"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "おとな",
+    "en": "adult",
+    "np": "वयस्क"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "ニュース",
+    "en": "news",
+    "np": "समाचार"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "ばんぐみ",
+    "en": "TV program",
+    "np": "कार्यक्रम"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "（テレビに）出ます",
+    "en": "appear on a TV program",
+    "np": "टिभीमा आउनु"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "かしゅ",
+    "en": "singer",
+    "np": "गायक गाइका"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "デザイン",
+    "en": "design",
+    "np": "डिजाइन"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "デザイナー",
+    "en": "designer",
+    "np": "डिजाइनर"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "外国人",
+    "en": "foreigner",
+    "np": "विदेशी मान्छे"
+  },
+  {
+    "lesson": "12-3",
+    "jp": "うります",
+    "en": "sell",
+    "np": "बेच्‍नु"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "おちます",
+    "en": "fall",
+    "np": "खस्‍नु"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "（テストを）うけます",
+    "en": "take a test",
+    "np": "परीक्षा दिनु"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "おだいじに",
+    "en": "Get well soon.",
+    "np": "ख्याल राख्नुहोस"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "くらい",
+    "en": "dark",
+    "np": "अधेरो"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "おなか",
+    "en": "stomach",
+    "np": "पेट"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "ゆうびん番号",
+    "en": "post code, zip code",
+    "np": "हुलाक नम्बर"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "れんらくします",
+    "en": "contact",
+    "np": "सम्पर्क गर्नु"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "くわしく",
+    "en": "detailed, in detail",
+    "np": "विस्तृत रूपमा"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "たくはいびん",
+    "en": "home delivery service",
+    "np": "होम डेलिभरी"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "いんかん",
+    "en": "personal seal, name seal",
+    "np": "हस्ताक्षर छाप"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "サイン",
+    "en": "signature",
+    "np": "चिन्ह"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "けっこうです",
+    "en": "That’s okay.",
+    "np": "हैन धन्यवाद , पर्दैन"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "よります",
+    "en": "drop by, come by",
+    "np": ".....मा भर पर्छ"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "さくら",
+    "en": "cherry blossom",
+    "np": "चेरी फूलहरू"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "さきます",
+    "en": "bloom",
+    "np": "फुल्नु"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "あ～",
+    "en": "Oh no!",
+    "np": "आह~"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "データ",
+    "en": "data",
+    "np": "डाटा"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "きえます",
+    "en": "be deleted",
+    "np": "निभ्‍नु"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "なきます",
+    "en": "cry",
+    "np": "रुनु"
+  },
+  {
+    "lesson": "12-4",
+    "jp": "ちこくします",
+    "en": "be late for",
+    "np": "ढिलो हुनु"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

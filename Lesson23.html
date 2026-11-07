@@ -59,7 +59,236 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"23-1","jp":"とります","en":"steal","np":"टिप्छु"},{"lesson":"23-1","jp":"にげます","en":"run away","np":"भाग्छु"},{"lesson":"23-1","jp":"ベンチ","en":"bench","np":"बेन्च"},{"lesson":"23-1","jp":"おとこ 男","en":"man","np":"केटा मान्छे"},{"lesson":"23-1","jp":"コーチ","en":"coach","np":"प्रशिक्षक"},{"lesson":"23-1","jp":"けが","en":"injury","np":"चोट"},{"lesson":"23-1","jp":"ひっくりかえります","en":"flip over","np":"पल्टाउनु"},{"lesson":"23-1","jp":"わ","en":"Whoa!","np":"गोलाकार"},{"lesson":"23-1","jp":"ふみます","en":"step on","np":"टेक्‍छु"},{"lesson":"23-1","jp":"しかります","en":"scold","np":"गाली गर्छु"},{"lesson":"23-1","jp":"わらいます","en":"laugh","np":"हाँस्‍नु"},{"lesson":"23-2","jp":"リモコン","en":"remote control","np":"रिमोट कन्ट्रोल"},{"lesson":"23-2","jp":"でんち 電池","en":"battery","np":"ब्याट्री"},{"lesson":"23-2","jp":"ひら 開きます","en":"open","np":"खुल्नु"},{"lesson":"23-2","jp":"キャップ","en":"cap","np":"टोपी"},{"lesson":"23-2","jp":"ほけん 保険","en":"insurance","np":"बीमा"},{"lesson":"23-2","jp":"はくぶつかん 博物館","en":"museum","np":"संग्रहालय"},{"lesson":"23-2","jp":"サービスセンター","en":"service center","np":"सेवा केन्द्र"},{"lesson":"23-2","jp":"あやまります","en":"apologize","np":"माफी माग्‍छु"},{"lesson":"23-2","jp":"ゆるします","en":"forgive, accept","np":"माफ गरिदिनु"},{"lesson":"23-2","jp":"おこります","en":"get angry","np":"रिसाउछु"},{"lesson":"23-2","jp":"さがします","en":"look for","np":"खोज्छु"},{"lesson":"23-2","jp":"み 見つかります","en":"be found","np":"भेटिन्‍छ"},{"lesson":"23-2","jp":"はあ","en":"sigh","np":"हा"},{"lesson":"23-2","jp":"じょ せんめん所","en":"washroom","np":"मुख धुने स्थान"},{"lesson":"23-2","jp":"でんきゅう","en":"light bulb","np":"चिम"},{"lesson":"23-2","jp":"スイッチ","en":"switch","np":"स्विच"},{"lesson":"23-3","jp":"アナウンサー","en":"announcer","np":"उद्घोषक"},{"lesson":"23-3","jp":"は 晴れます","en":"be sunny, clear up","np":"घाम लाग्नु"},{"lesson":"23-3","jp":"ゴールデンウィーク","en":"golden week","np":"गोल्‍डेन विक"},{"lesson":"23-3","jp":"は 晴れ","en":"sunny","np":"घमाइलो"},{"lesson":"23-3","jp":"むすこ","en":"son","np":"छोरा"},{"lesson":"23-3","jp":"いえ","en":"No.","np":"घर"},{"lesson":"23-3","jp":"う あ 打ち合わせ","en":"business meeting","np":"बैठक"},{"lesson":"23-3","jp":"だから","en":"therefore","np":"त्यसैले"},{"lesson":"23-3","jp":"きめます","en":"decide","np":"निर्णय गर्नु"},{"lesson":"23-3","jp":"アイドル","en":"pop idol","np":"आइडल"},{"lesson":"23-3","jp":"つたえます","en":"tell","np":"संचार गर्नु"}];
+const vocab = [
+  {
+    "lesson": "23-1",
+    "jp": "とります",
+    "en": "steal",
+    "np": "टिप्छु"
+  },
+  {
+    "lesson": "23-1",
+    "jp": "にげます",
+    "en": "run away",
+    "np": "भाग्छु"
+  },
+  {
+    "lesson": "23-1",
+    "jp": "ベンチ",
+    "en": "bench",
+    "np": "बेन्च"
+  },
+  {
+    "lesson": "23-1",
+    "jp": "男",
+    "en": "man",
+    "np": "केटा मान्छे"
+  },
+  {
+    "lesson": "23-1",
+    "jp": "コーチ",
+    "en": "coach",
+    "np": "प्रशिक्षक"
+  },
+  {
+    "lesson": "23-1",
+    "jp": "けが",
+    "en": "injury",
+    "np": "चोट"
+  },
+  {
+    "lesson": "23-1",
+    "jp": "ひっくりかえります",
+    "en": "flip over",
+    "np": "पल्टाउनु"
+  },
+  {
+    "lesson": "23-1",
+    "jp": "わ",
+    "en": "Whoa!",
+    "np": "गोलाकार"
+  },
+  {
+    "lesson": "23-1",
+    "jp": "ふみます",
+    "en": "step on",
+    "np": "टेक्‍छु"
+  },
+  {
+    "lesson": "23-1",
+    "jp": "しかります",
+    "en": "scold",
+    "np": "गाली गर्छु"
+  },
+  {
+    "lesson": "23-1",
+    "jp": "わらいます",
+    "en": "laugh",
+    "np": "हाँस्‍नु"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "リモコン",
+    "en": "remote control",
+    "np": "रिमोट कन्ट्रोल"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "電池",
+    "en": "battery",
+    "np": "ब्याट्री"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "開きます",
+    "en": "open",
+    "np": "खुल्नु"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "キャップ",
+    "en": "cap",
+    "np": "टोपी"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "保険",
+    "en": "insurance",
+    "np": "बीमा"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "博物館",
+    "en": "museum",
+    "np": "संग्रहालय"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "サービスセンター",
+    "en": "service center",
+    "np": "सेवा केन्द्र"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "あやまります",
+    "en": "apologize",
+    "np": "माफी माग्‍छु"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "ゆるします",
+    "en": "forgive, accept",
+    "np": "माफ गरिदिनु"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "おこります",
+    "en": "get angry",
+    "np": "रिसाउछु"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "さがします",
+    "en": "look for",
+    "np": "खोज्छु"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "見つかります",
+    "en": "be found",
+    "np": "भेटिन्‍छ"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "はあ",
+    "en": "sigh",
+    "np": "हा"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "せんめん所",
+    "en": "washroom",
+    "np": "मुख धुने स्थान"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "でんきゅう",
+    "en": "light bulb",
+    "np": "चिम"
+  },
+  {
+    "lesson": "23-2",
+    "jp": "スイッチ",
+    "en": "switch",
+    "np": "स्विच"
+  },
+  {
+    "lesson": "23-3",
+    "jp": "アナウンサー",
+    "en": "announcer",
+    "np": "उद्घोषक"
+  },
+  {
+    "lesson": "23-3",
+    "jp": "晴れます",
+    "en": "be sunny, clear up",
+    "np": "घाम लाग्नु"
+  },
+  {
+    "lesson": "23-3",
+    "jp": "ゴールデンウィーク",
+    "en": "golden week",
+    "np": "गोल्‍डेन विक"
+  },
+  {
+    "lesson": "23-3",
+    "jp": "晴れ",
+    "en": "sunny",
+    "np": "घमाइलो"
+  },
+  {
+    "lesson": "23-3",
+    "jp": "むすこ",
+    "en": "son",
+    "np": "छोरा"
+  },
+  {
+    "lesson": "23-3",
+    "jp": "いえ",
+    "en": "No.",
+    "np": "घर"
+  },
+  {
+    "lesson": "23-3",
+    "jp": "打ち合わせ",
+    "en": "business meeting",
+    "np": "बैठक"
+  },
+  {
+    "lesson": "23-3",
+    "jp": "だから",
+    "en": "therefore",
+    "np": "त्यसैले"
+  },
+  {
+    "lesson": "23-3",
+    "jp": "きめます",
+    "en": "decide",
+    "np": "निर्णय गर्नु"
+  },
+  {
+    "lesson": "23-3",
+    "jp": "アイドル",
+    "en": "pop idol",
+    "np": "आइडल"
+  },
+  {
+    "lesson": "23-3",
+    "jp": "つたえます",
+    "en": "tell",
+    "np": "संचार गर्नु"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

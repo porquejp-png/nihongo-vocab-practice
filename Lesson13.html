@@ -59,7 +59,146 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"13-1","jp":"わしょく","en":"Japanese food","np":"जापानी खाना"},{"lesson":"13-1","jp":"やきとり","en":"yakitori, chicken skewers","np":"पोलेको कुखुराको मासु"},{"lesson":"13-1","jp":"じゃ","en":"well","np":"ल...."},{"lesson":"13-1","jp":"少し","en":"a little","np":"अलिकति"},{"lesson":"13-1","jp":"（せきが） あきます","en":"a seat be available","np":"सिट खाली हुनु"},{"lesson":"13-1","jp":"もどします","en":"return","np":"फिर्ता गर्नु"},{"lesson":"13-1","jp":"かいぎ","en":"meeting","np":"बैठक"},{"lesson":"13-1","jp":"しりょう","en":"document(s)","np":"कागजात"},{"lesson":"13-1","jp":"かいぎしつ","en":"meeting room","np":"बैठक कक्ष"},{"lesson":"13-1","jp":"ええ？","en":"Oh, really?","np":"हो?"},{"lesson":"13-1","jp":"コーヒーを いれます","en":"make coffee","np":"कफी हाल्नु"},{"lesson":"13-1","jp":"ちゅうかりょうり","en":"Chinese food","np":"चिनियाँ व्यञ्जन"},{"lesson":"13-1","jp":"デザート","en":"dessert","np":"मिठाई"},{"lesson":"13-2","jp":"さんぽ","en":"taking a walk","np":"टहल्नु"},{"lesson":"13-2","jp":"（お）ひるごはん","en":"lunch","np":"दिउसोको भोजन"},{"lesson":"13-2","jp":"リボン","en":"ribbon","np":"रिबन"},{"lesson":"13-3","jp":"フェスティバル","en":"festival","np":"उत्सव"},{"lesson":"13-3","jp":"いや（な）","en":"unfavorable, unpleasant","np":"घृणित"},{"lesson":"13-3","jp":"ざんねん（な）","en":"too bad, unfortunate","np":"दुर्भाग्यपूर्ण"},{"lesson":"13-3","jp":"もって きます","en":"bring (a thing)","np":"लिएर आउनु"},{"lesson":"13-3","jp":"そつぎょうします","en":"graduate","np":"पास हुनु वा सकाउनु"},{"lesson":"13-3","jp":"ぼんおどり","en":"bon odori, bon dancing","np":"जापानी नृत्य"},{"lesson":"13-3","jp":"ぶんかさい","en":"culture festival","np":"सांस्कृतिक पर्व"}];
+const vocab = [
+  {
+    "lesson": "13-1",
+    "jp": "わしょく",
+    "en": "Japanese food",
+    "np": "जापानी खाना"
+  },
+  {
+    "lesson": "13-1",
+    "jp": "やきとり",
+    "en": "yakitori, chicken skewers",
+    "np": "पोलेको कुखुराको मासु"
+  },
+  {
+    "lesson": "13-1",
+    "jp": "じゃ",
+    "en": "well",
+    "np": "ल...."
+  },
+  {
+    "lesson": "13-1",
+    "jp": "少し",
+    "en": "a little",
+    "np": "अलिकति"
+  },
+  {
+    "lesson": "13-1",
+    "jp": "（せきが）あきます",
+    "en": "a seat be available",
+    "np": "सिट खाली हुनु"
+  },
+  {
+    "lesson": "13-1",
+    "jp": "もどします",
+    "en": "return",
+    "np": "फिर्ता गर्नु"
+  },
+  {
+    "lesson": "13-1",
+    "jp": "かいぎ",
+    "en": "meeting",
+    "np": "बैठक"
+  },
+  {
+    "lesson": "13-1",
+    "jp": "しりょう",
+    "en": "document(s)",
+    "np": "कागजात"
+  },
+  {
+    "lesson": "13-1",
+    "jp": "かいぎしつ",
+    "en": "meeting room",
+    "np": "बैठक कक्ष"
+  },
+  {
+    "lesson": "13-1",
+    "jp": "ええ？",
+    "en": "Oh, really?",
+    "np": "हो?"
+  },
+  {
+    "lesson": "13-1",
+    "jp": "コーヒーを いれます",
+    "en": "make coffee",
+    "np": "कफी हाल्नु"
+  },
+  {
+    "lesson": "13-1",
+    "jp": "ちゅうかりょうり",
+    "en": "Chinese food",
+    "np": "चिनियाँ व्यञ्जन"
+  },
+  {
+    "lesson": "13-1",
+    "jp": "デザート",
+    "en": "dessert",
+    "np": "मिठाई"
+  },
+  {
+    "lesson": "13-2",
+    "jp": "さんぽ",
+    "en": "taking a walk",
+    "np": "टहल्नु"
+  },
+  {
+    "lesson": "13-2",
+    "jp": "（お）ひるごはん",
+    "en": "lunch",
+    "np": "दिउसोको भोजन"
+  },
+  {
+    "lesson": "13-2",
+    "jp": "リボン",
+    "en": "ribbon",
+    "np": "रिबन"
+  },
+  {
+    "lesson": "13-3",
+    "jp": "フェスティバル",
+    "en": "festival",
+    "np": "उत्सव"
+  },
+  {
+    "lesson": "13-3",
+    "jp": "いや（な）",
+    "en": "unfavorable, unpleasant",
+    "np": "घृणित"
+  },
+  {
+    "lesson": "13-3",
+    "jp": "ざんねん（な）",
+    "en": "too bad, unfortunate",
+    "np": "दुर्भाग्यपूर्ण"
+  },
+  {
+    "lesson": "13-3",
+    "jp": "もって きます",
+    "en": "bring (a thing)",
+    "np": "लिएर आउनु"
+  },
+  {
+    "lesson": "13-3",
+    "jp": "そつぎょうします",
+    "en": "graduate",
+    "np": "पास हुनु वा सकाउनु"
+  },
+  {
+    "lesson": "13-3",
+    "jp": "ぼんおどり",
+    "en": "bon odori, bon dancing",
+    "np": "जापानी नृत्य"
+  },
+  {
+    "lesson": "13-3",
+    "jp": "ぶんかさい",
+    "en": "culture festival",
+    "np": "सांस्कृतिक पर्व"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

@@ -59,7 +59,128 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"15-1","jp":"こわします","en":"break","np":"बिगार्नु"},{"lesson":"15-1","jp":"けります","en":"kick","np":"लातले हान्‍नु"},{"lesson":"15-1","jp":"あてます","en":"hit","np":"अनुमान मिल्नु"},{"lesson":"15-1","jp":"もうしわけ ありません","en":"I'm very sorry.","np":"माफ गर्नुहोस्"},{"lesson":"15-1","jp":"しょるい","en":"documents","np":"कागजात"},{"lesson":"15-1","jp":"よごします","en":"make ... dirty","np":"फोहोर बनाउनु"},{"lesson":"15-1","jp":"かびん","en":"vase","np":"फूलदानि"},{"lesson":"15-1","jp":"わります","en":"break","np":"विभाजन गर्नु"},{"lesson":"15-1","jp":"おとします","en":"drop","np":"खसाल्‍नु"},{"lesson":"15-1","jp":"ぶつかります","en":"hit","np":"ठोकिनु"},{"lesson":"15-1","jp":"たおします","en":"knock over","np":"ढल्‍नु"},{"lesson":"15-1","jp":"気を つけます","en":"take care","np":"ध्यान दिनु"},{"lesson":"15-1","jp":"山のぼり","en":"mountain climbing","np":"पर्वताराेहण"},{"lesson":"15-1","jp":"サーフィン","en":"surfing","np":"सर्फिङ"},{"lesson":"15-1","jp":"へいじつ","en":"weekday","np":"हप्ताका बिदा बहेकका दिनहरू"},{"lesson":"15-1","jp":"すいて います","en":"not crowded","np":"खाली छ अथवा कम छ"},{"lesson":"15-2","jp":"あのね","en":"Well...","np":"तपाईलाई थाहा छ ....."},{"lesson":"15-2","jp":"え～","en":"Oh gosh!","np":"ए~"},{"lesson":"15-2","jp":"しかたが ありません","en":"There is nothing you can do.","np":"उपाय छैन"},{"lesson":"15-2","jp":"あぶない","en":"dangerous","np":"खतरनाक"}];
+const vocab = [
+  {
+    "lesson": "15-1",
+    "jp": "こわします",
+    "en": "break",
+    "np": "बिगार्नु"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "けります",
+    "en": "kick",
+    "np": "लातले हान्‍नु"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "あてます",
+    "en": "hit",
+    "np": "अनुमान मिल्नु"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "もうしわけ ありません",
+    "en": "I'm very sorry.",
+    "np": "माफ गर्नुहोस्"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "しょるい",
+    "en": "documents",
+    "np": "कागजात"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "よごします",
+    "en": "make ... dirty",
+    "np": "फोहोर बनाउनु"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "かびん",
+    "en": "vase",
+    "np": "फूलदानि"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "わります",
+    "en": "break",
+    "np": "विभाजन गर्नु"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "おとします",
+    "en": "drop",
+    "np": "खसाल्‍नु"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "ぶつかります",
+    "en": "hit",
+    "np": "ठोकिनु"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "たおします",
+    "en": "knock over",
+    "np": "ढल्‍नु"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "気を つけます",
+    "en": "take care",
+    "np": "ध्यान दिनु"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "山のぼり",
+    "en": "mountain climbing",
+    "np": "पर्वताराेहण"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "サーフィン",
+    "en": "surfing",
+    "np": "सर्फिङ"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "へいじつ",
+    "en": "weekday",
+    "np": "हप्ताका बिदा बहेकका दिनहरू"
+  },
+  {
+    "lesson": "15-1",
+    "jp": "すいて います",
+    "en": "not crowded",
+    "np": "खाली छ अथवा कम छ"
+  },
+  {
+    "lesson": "15-2",
+    "jp": "あのね",
+    "en": "Well...",
+    "np": "तपाईलाई थाहा छ ....."
+  },
+  {
+    "lesson": "15-2",
+    "jp": "え～",
+    "en": "Oh gosh!",
+    "np": "ए~"
+  },
+  {
+    "lesson": "15-2",
+    "jp": "しかたが ありません",
+    "en": "There is nothing you can do.",
+    "np": "उपाय छैन"
+  },
+  {
+    "lesson": "15-2",
+    "jp": "あぶない",
+    "en": "dangerous",
+    "np": "खतरनाक"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

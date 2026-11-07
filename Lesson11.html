@@ -59,7 +59,272 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"11-1","jp":"（お）いわい","en":"congratulations, congratulatory gift","np":"उत्सव"},{"lesson":"11-1","jp":"しゃしんたて","en":"picture frame","np":"फोटो फ्रेम"},{"lesson":"11-1","jp":"おめでとうございます","en":"Congratulations.","np":"बधाई छ"},{"lesson":"11-1","jp":"おしあわせに","en":"may you find happiness","np":"खुसी हुनु"},{"lesson":"11-1","jp":"たいせつに します","en":"take good care of ...","np":"कदर गर्नु"},{"lesson":"11-1","jp":"そぼ","en":"grandmother","np":"हजुरआमा"},{"lesson":"11-1","jp":"すてき（な）","en":"lovely","np":"अद्भुत राम्रो"},{"lesson":"11-1","jp":"さいふ","en":"wallet","np":"पर्स"},{"lesson":"11-1","jp":"大学","en":"university","np":"विश्वविद्यालय"},{"lesson":"11-1","jp":"（学校に） 入ります","en":"enter school","np":"विद्यालयमा प्रवेश गर्नु"},{"lesson":"11-1","jp":"しゅうしょく","en":"getting a job","np":"काम खोज्नु"},{"lesson":"11-1","jp":"きまります","en":"be decided","np":"निर्णय हुनु"},{"lesson":"11-1","jp":"しょくじ","en":"meal","np":"खाना"},{"lesson":"11-1","jp":"うまれます","en":"be born","np":"जन्मनु"},{"lesson":"11-1","jp":"おもちゃ","en":"toy","np":"खेलौना"},{"lesson":"11-1","jp":"すごい","en":"amazing","np":"आश्चर्यजनक"},{"lesson":"11-1","jp":"テニス","en":"tennis","np":"टेनिस"},{"lesson":"11-1","jp":"バスケットボール","en":"basketball","np":"बास्केटबल"},{"lesson":"11-1","jp":"たっきゅう","en":"table tennis","np":"टेबल टेनिस"},{"lesson":"11-1","jp":"チケット","en":"ticket","np":"टिकट"},{"lesson":"11-2","jp":"バティック","en":"batik","np":"टेबल टेनिस"},{"lesson":"11-2","jp":"～まい：１まい","en":"(counter for flat objects): one","np":"～ पन्ना: 1 पन्ना"},{"lesson":"11-2","jp":"にあいます","en":"suit someone, look good","np":"....लाई भेट्नेछु"},{"lesson":"11-2","jp":"にんぎょう","en":"doll","np":"गुडिया"},{"lesson":"11-2","jp":"つれて いきます","en":"take someone along","np":"लिएर जानु"},{"lesson":"11-2","jp":"てつだいます","en":"help","np":"मद्दत गर्नु"},{"lesson":"11-2","jp":"（めがねを） なおします","en":"repair glasses","np":"चश्मा ठीक गर्नुहोस्"},{"lesson":"11-2","jp":"クラス","en":"class","np":"कक्षा"},{"lesson":"11-2","jp":"かぜ","en":"cold","np":"हावा"},{"lesson":"11-2","jp":"なおります","en":"recover","np":"निको हुनु"},{"lesson":"11-2","jp":"サングラス","en":"sunglasses","np":"सनग्लास"},{"lesson":"11-2","jp":"せんす","en":"folding fan","np":"भावना"},{"lesson":"11-2","jp":"ゆかた","en":"Japanese summer kimono","np":"जापानी लुगा"},{"lesson":"11-2","jp":"おばあさん","en":"grandmother","np":"हजुरआमा"},{"lesson":"11-3","jp":"とります","en":"take","np":"लिनु"},{"lesson":"11-3","jp":"～本：２本","en":"(counter for long objects): two","np":"~ वोटा: 2 वोटा"},{"lesson":"11-3","jp":"見せます","en":"show","np":"देखाउनु"},{"lesson":"11-3","jp":"どういたしまして","en":"You're welcome.","np":"तपाईलाई स्वागत छ।"},{"lesson":"11-3","jp":"さくぶん","en":"essay, composition","np":"निबन्ध"},{"lesson":"11-3","jp":"（さくぶんを） なおします","en":"correct a composition","np":"निबन्ध सही गर्नु"},{"lesson":"11-3","jp":"せきを かわります","en":"trade seats","np":"सिट परिवर्तन गर्नु"},{"lesson":"11-3","jp":"おくります","en":"escort, take","np":"पठाउनु"},{"lesson":"11-3","jp":"いろいろ（な）","en":"various","np":"विभिन्न"},{"lesson":"11-3","jp":"つかれます","en":"be tired","np":"थाक्नु"}];
+const vocab = [
+  {
+    "lesson": "11-1",
+    "jp": "（お）いわい",
+    "en": "congratulations, congratulatory gift",
+    "np": "उत्सव"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "しゃしんたて",
+    "en": "picture frame",
+    "np": "फोटो फ्रेम"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "おめでとうございます",
+    "en": "Congratulations.",
+    "np": "बधाई छ"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "おしあわせに",
+    "en": "may you find happiness",
+    "np": "खुसी हुनु"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "たいせつに します",
+    "en": "take good care of ...",
+    "np": "कदर गर्नु"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "そぼ",
+    "en": "grandmother",
+    "np": "हजुरआमा"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "すてき（な）",
+    "en": "lovely",
+    "np": "अद्भुत राम्रो"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "さいふ",
+    "en": "wallet",
+    "np": "पर्स"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "大学",
+    "en": "university",
+    "np": "विश्वविद्यालय"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "（学校に）入ります",
+    "en": "enter school",
+    "np": "विद्यालयमा प्रवेश गर्नु"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "しゅうしょく",
+    "en": "getting a job",
+    "np": "काम खोज्नु"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "きまります",
+    "en": "be decided",
+    "np": "निर्णय हुनु"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "しょくじ",
+    "en": "meal",
+    "np": "खाना"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "うまれます",
+    "en": "be born",
+    "np": "जन्मनु"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "おもちゃ",
+    "en": "toy",
+    "np": "खेलौना"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "すごい",
+    "en": "amazing",
+    "np": "आश्चर्यजनक"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "テニス",
+    "en": "tennis",
+    "np": "टेनिस"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "バスケットボール",
+    "en": "basketball",
+    "np": "बास्केटबल"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "たっきゅう",
+    "en": "table tennis",
+    "np": "टेबल टेनिस"
+  },
+  {
+    "lesson": "11-1",
+    "jp": "チケット",
+    "en": "ticket",
+    "np": "टिकट"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "バティック",
+    "en": "batik",
+    "np": "टेबल टेनिस"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "～まい：１まい",
+    "en": "(counter for flat objects): one",
+    "np": "～ पन्ना: 1 पन्ना"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "にあいます",
+    "en": "suit someone, look good",
+    "np": "....लाई भेट्नेछु"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "にんぎょう",
+    "en": "doll",
+    "np": "गुडिया"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "つれて いきます",
+    "en": "take someone along",
+    "np": "लिएर जानु"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "てつだいます",
+    "en": "help",
+    "np": "मद्दत गर्नु"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "（めがねを）なおします",
+    "en": "repair glasses",
+    "np": "चश्मा ठीक गर्नुहोस्"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "クラス",
+    "en": "class",
+    "np": "कक्षा"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "かぜ",
+    "en": "cold",
+    "np": "हावा"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "なおります",
+    "en": "recover",
+    "np": "निको हुनु"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "サングラス",
+    "en": "sunglasses",
+    "np": "सनग्लास"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "せんす",
+    "en": "folding fan",
+    "np": "भावना"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "ゆかた",
+    "en": "Japanese summer kimono",
+    "np": "जापानी लुगा"
+  },
+  {
+    "lesson": "11-2",
+    "jp": "おばあさん",
+    "en": "grandmother",
+    "np": "हजुरआमा"
+  },
+  {
+    "lesson": "11-3",
+    "jp": "とります",
+    "en": "take",
+    "np": "लिनु"
+  },
+  {
+    "lesson": "11-3",
+    "jp": "～本：２本",
+    "en": "(counter for long objects): two",
+    "np": "~ वोटा: 2 वोटा"
+  },
+  {
+    "lesson": "11-3",
+    "jp": "見せます",
+    "en": "show",
+    "np": "देखाउनु"
+  },
+  {
+    "lesson": "11-3",
+    "jp": "どういたしまして",
+    "en": "You're welcome.",
+    "np": "तपाईलाई स्वागत छ।"
+  },
+  {
+    "lesson": "11-3",
+    "jp": "さくぶん",
+    "en": "essay, composition",
+    "np": "निबन्ध"
+  },
+  {
+    "lesson": "11-3",
+    "jp": "（さくぶんを）なおします",
+    "en": "correct a composition",
+    "np": "निबन्ध सही गर्नु"
+  },
+  {
+    "lesson": "11-3",
+    "jp": "せきを かわります",
+    "en": "trade seats",
+    "np": "सिट परिवर्तन गर्नु"
+  },
+  {
+    "lesson": "11-3",
+    "jp": "おくります",
+    "en": "escort, take",
+    "np": "पठाउनु"
+  },
+  {
+    "lesson": "11-3",
+    "jp": "いろいろ（な）",
+    "en": "various",
+    "np": "विभिन्न"
+  },
+  {
+    "lesson": "11-3",
+    "jp": "つかれます",
+    "en": "be tired",
+    "np": "थाक्नु"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

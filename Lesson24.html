@@ -59,7 +59,200 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"24-1","jp":"思ったより","en":"more than I thought","np":"सोचे भन्दा"},{"lesson":"24-1","jp":"そだてます","en":"raise","np":"खेती गर्नु / पालन पोषण गर्नु"},{"lesson":"24-1","jp":"用意","en":"preparation","np":"तयारी"},{"lesson":"24-1","jp":"ゆっくりします","en":"relax","np":"बिस्तारै गर्छु"},{"lesson":"24-1","jp":"おひさしぶりです","en":"It's been a while.","np":"लामो समय पछि भेट भयो"},{"lesson":"24-1","jp":"おかげさまで","en":"thanks to you","np":"भगवानको क्रिपाले"},{"lesson":"24-1","jp":"とまります","en":"stay over","np":"रोकिनु"},{"lesson":"24-1","jp":"父の日","en":"Father's day","np":"बुबाको मुख हेर्ने दिन"},{"lesson":"24-1","jp":"むすめ","en":"daughter","np":"छोरी"},{"lesson":"24-2","jp":"うまくいきます","en":"It goes well.","np":"राम्रोसँग हुनु"},{"lesson":"24-2","jp":"発音","en":"pronunciation","np":"उच्चारण"},{"lesson":"24-2","jp":"たすかります","en":"help out","np":"मद्दत पाउनु"},{"lesson":"24-2","jp":"おれい","en":"something in return","np":"अविवादन"},{"lesson":"24-2","jp":"ごちそうします","en":"It's on me., Let me treat you.","np":"खान्छु"},{"lesson":"24-2","jp":"奥さま〈敬語〉","en":"your wife 〈honorific〉","np":"अरुको पत्नी"},{"lesson":"24-2","jp":"最後","en":"last","np":"अन्तिम"},{"lesson":"24-2","jp":"支店長","en":"branch manager","np":"शाखा प्रबन्धक"},{"lesson":"24-2","jp":"合格","en":"pass","np":"उत्तीर्ण"},{"lesson":"24-2","jp":"つま","en":"my wife","np":"आफ्‍नो पत्नी"},{"lesson":"24-2","jp":"お兄さん","en":"older brother","np":"भाइ"},{"lesson":"24-2","jp":"いります","en":"need, want","np":"चाहिन्छ"},{"lesson":"24-2","jp":"ぶんぽう","en":"grammar","np":"व्‍याकरण"},{"lesson":"24-3","jp":"お世話になりました","en":"Thank you for all your help.","np":"मद्दत गर्नुभएकोमा धन्यवाद"},{"lesson":"24-3","jp":"そうべつ会","en":"farewell party","np":"बिदाई पार्टी"},{"lesson":"24-3","jp":"しめきり","en":"deadline","np":"म्याद"},{"lesson":"24-3","jp":"ちょきんします","en":"save money","np":"पैसा बचत गर्नु"},{"lesson":"24-3","jp":"結婚記念日","en":"wedding anniversary","np":"विवाह वार्षिकोत्सव"},{"lesson":"24-3","jp":"スイーツ","en":"sweets","np":"मिठाईहरू"},{"lesson":"24-3","jp":"申し込みます","en":"apply","np":"निवेदन दिनु"},{"lesson":"24-3","jp":"ゼミ","en":"seminar","np":"सेमिनार"},{"lesson":"24-3","jp":"ときどき","en":"sometimes","np":"कहिलेकाहीँ"},{"lesson":"24-3","jp":"サービス","en":"service","np":"सेवा"}];
+const vocab = [
+  {
+    "lesson": "24-1",
+    "jp": "思ったより",
+    "en": "more than I thought",
+    "np": "सोचे भन्दा"
+  },
+  {
+    "lesson": "24-1",
+    "jp": "そだてます",
+    "en": "raise",
+    "np": "खेती गर्नु / पालन पोषण गर्नु"
+  },
+  {
+    "lesson": "24-1",
+    "jp": "用意",
+    "en": "preparation",
+    "np": "तयारी"
+  },
+  {
+    "lesson": "24-1",
+    "jp": "ゆっくりします",
+    "en": "relax",
+    "np": "बिस्तारै गर्छु"
+  },
+  {
+    "lesson": "24-1",
+    "jp": "おひさしぶりです",
+    "en": "It's been a while.",
+    "np": "लामो समय पछि भेट भयो"
+  },
+  {
+    "lesson": "24-1",
+    "jp": "おかげさまで",
+    "en": "thanks to you",
+    "np": "भगवानको क्रिपाले"
+  },
+  {
+    "lesson": "24-1",
+    "jp": "とまります",
+    "en": "stay over",
+    "np": "रोकिनु"
+  },
+  {
+    "lesson": "24-1",
+    "jp": "父の日",
+    "en": "Father's day",
+    "np": "बुबाको मुख हेर्ने दिन"
+  },
+  {
+    "lesson": "24-1",
+    "jp": "むすめ",
+    "en": "daughter",
+    "np": "छोरी"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "うまくいきます",
+    "en": "It goes well.",
+    "np": "राम्रोसँग हुनु"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "発音",
+    "en": "pronunciation",
+    "np": "उच्चारण"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "たすかります",
+    "en": "help out",
+    "np": "मद्दत पाउनु"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "おれい",
+    "en": "something in return",
+    "np": "अविवादन"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "ごちそうします",
+    "en": "It's on me., Let me treat you.",
+    "np": "खान्छु"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "奥さま〈敬語〉",
+    "en": "your wife〈honorific〉",
+    "np": "अरुको पत्नी"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "最後",
+    "en": "last",
+    "np": "अन्तिम"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "支店長",
+    "en": "branch manager",
+    "np": "शाखा प्रबन्धक"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "合格",
+    "en": "pass",
+    "np": "उत्तीर्ण"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "つま",
+    "en": "my wife",
+    "np": "आफ्‍नो पत्नी"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "お兄さん",
+    "en": "older brother",
+    "np": "भाइ"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "いります",
+    "en": "need, want",
+    "np": "चाहिन्छ"
+  },
+  {
+    "lesson": "24-2",
+    "jp": "ぶんぽう",
+    "en": "grammar",
+    "np": "व्‍याकरण"
+  },
+  {
+    "lesson": "24-3",
+    "jp": "お世話になりました",
+    "en": "Thank you for all your help.",
+    "np": "मद्दत गर्नुभएकोमा धन्यवाद"
+  },
+  {
+    "lesson": "24-3",
+    "jp": "そうべつ会",
+    "en": "farewell party",
+    "np": "बिदाई पार्टी"
+  },
+  {
+    "lesson": "24-3",
+    "jp": "しめきり",
+    "en": "deadline",
+    "np": "म्याद"
+  },
+  {
+    "lesson": "24-3",
+    "jp": "ちょきんします",
+    "en": "save money",
+    "np": "पैसा बचत गर्नु"
+  },
+  {
+    "lesson": "24-3",
+    "jp": "結婚記念日",
+    "en": "wedding anniversary",
+    "np": "विवाह वार्षिकोत्सव"
+  },
+  {
+    "lesson": "24-3",
+    "jp": "スイーツ",
+    "en": "sweets",
+    "np": "मिठाईहरू"
+  },
+  {
+    "lesson": "24-3",
+    "jp": "申し込みます",
+    "en": "apply",
+    "np": "निवेदन दिनु"
+  },
+  {
+    "lesson": "24-3",
+    "jp": "ゼミ",
+    "en": "seminar",
+    "np": "सेमिनार"
+  },
+  {
+    "lesson": "24-3",
+    "jp": "ときどき",
+    "en": "sometimes",
+    "np": "कहिलेकाहीँ"
+  },
+  {
+    "lesson": "24-3",
+    "jp": "サービス",
+    "en": "service",
+    "np": "सेवा"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

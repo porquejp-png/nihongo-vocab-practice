@@ -59,7 +59,188 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"22-1","jp":"しあわせ（な）","en":"happy, happiness","np":"खुशी"},{"lesson":"22-1","jp":"ごうかくします","en":"pass","np":"पास हुनु"},{"lesson":"22-1","jp":"おばけやしき","en":"haunted house","np":"भूत घर"},{"lesson":"22-1","jp":"こわい","en":"scary","np":"डरलाग्‍दो"},{"lesson":"22-1","jp":"プレゼン・プレゼンテーション","en":"presentation","np":"प्रस्तुति"},{"lesson":"22-1","jp":"ちょうど","en":"just","np":"ठिक"},{"lesson":"22-1","jp":"スポーツ大会","en":"sport event","np":"खेलकुद प्रतियोगिता"},{"lesson":"22-1","jp":"たいそう","en":"warm-up exercise","np":"व्यायाम"},{"lesson":"22-1","jp":"なわとび","en":"jump rope","np":"डोरि खेल"},{"lesson":"22-1","jp":"なわ","en":"rope","np":"डोरि"},{"lesson":"22-1","jp":"ひょうしょう式","en":"award ceremony","np":"पुरस्‍कार समारोह"},{"lesson":"22-1","jp":"ゆうしょうカップ","en":"trophy","np":"विजय कप"},{"lesson":"22-1","jp":"そつぎょう式","en":"graduation ceremony","np":"स्नातक समारोह"},{"lesson":"22-1","jp":"ちがいます","en":"be different","np":"भिन्न छ"},{"lesson":"22-1","jp":"そつぎょう証書","en":"diploma","np":"स्नातक प्रमाणपत्र"},{"lesson":"22-2","jp":"準備","en":"preparation","np":"तयारी"},{"lesson":"22-2","jp":"コピー","en":"copy","np":"कपी"},{"lesson":"22-2","jp":"調子","en":"condition","np":"अवस्था"},{"lesson":"22-2","jp":"修理します","en":"repair","np":"मर्मत गर्छु"},{"lesson":"22-2","jp":"集まります","en":"gather","np":"जम्‍मा हुन्छौ"},{"lesson":"22-2","jp":"救急車","en":"ambulance","np":"यम्बुलेन्स"},{"lesson":"22-2","jp":"じこ","en":"accident","np":"दुर्घटना"},{"lesson":"22-2","jp":"ペンキ","en":"paint","np":"रंग"},{"lesson":"22-2","jp":"まだまだです","en":"I still have much to learn.","np":"अझै छैन"},{"lesson":"22-2","jp":"あ～っ","en":"Ah!","np":"आह"},{"lesson":"22-2","jp":"パンフレット","en":"pamphlet, brochure","np":"पर्चा"},{"lesson":"22-2","jp":"とどきます","en":"arrive","np":"आइपुग्छ"},{"lesson":"22-2","jp":"注文します","en":"order","np":"अर्डर गर्छु"},{"lesson":"22-2","jp":"プログラム","en":"program","np":"कार्यक्रम"},{"lesson":"22-2","jp":"プリンター","en":"printer","np":"प्रिन्टर"}];
+const vocab = [
+  {
+    "lesson": "22-1",
+    "jp": "しあわせ（な）",
+    "en": "happy, happiness",
+    "np": "खुशी"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "ごうかくします",
+    "en": "pass",
+    "np": "पास हुनु"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "おばけやしき",
+    "en": "haunted house",
+    "np": "भूत घर"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "こわい",
+    "en": "scary",
+    "np": "डरलाग्‍दो"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "プレゼン・プレゼンテーション",
+    "en": "presentation",
+    "np": "प्रस्तुति"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "ちょうど",
+    "en": "just",
+    "np": "ठिक"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "スポーツ大会",
+    "en": "sport event",
+    "np": "खेलकुद प्रतियोगिता"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "たいそう",
+    "en": "warm-up exercise",
+    "np": "व्यायाम"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "なわとび",
+    "en": "jump rope",
+    "np": "डोरि खेल"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "なわ",
+    "en": "rope",
+    "np": "डोरि"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "ひょうしょう式",
+    "en": "award ceremony",
+    "np": "पुरस्‍कार समारोह"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "ゆうしょうカップ",
+    "en": "trophy",
+    "np": "विजय कप"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "そつぎょう式",
+    "en": "graduation ceremony",
+    "np": "स्नातक समारोह"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "ちがいます",
+    "en": "be different",
+    "np": "भिन्न छ"
+  },
+  {
+    "lesson": "22-1",
+    "jp": "そつぎょう証書",
+    "en": "diploma",
+    "np": "स्नातक प्रमाणपत्र"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "準備",
+    "en": "preparation",
+    "np": "तयारी"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "コピー",
+    "en": "copy",
+    "np": "कपी"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "調子",
+    "en": "condition",
+    "np": "अवस्था"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "修理します",
+    "en": "repair",
+    "np": "मर्मत गर्छु"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "集まります",
+    "en": "gather",
+    "np": "जम्‍मा हुन्छौ"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "救急車",
+    "en": "ambulance",
+    "np": "यम्बुलेन्स"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "じこ",
+    "en": "accident",
+    "np": "दुर्घटना"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "ペンキ",
+    "en": "paint",
+    "np": "रंग"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "まだまだです",
+    "en": "I still have much to learn.",
+    "np": "अझै छैन"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "あ～っ",
+    "en": "Ah!",
+    "np": "आह"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "パンフレット",
+    "en": "pamphlet, brochure",
+    "np": "पर्चा"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "とどきます",
+    "en": "arrive",
+    "np": "आइपुग्छ"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "注文します",
+    "en": "order",
+    "np": "अर्डर गर्छु"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "プログラム",
+    "en": "program",
+    "np": "कार्यक्रम"
+  },
+  {
+    "lesson": "22-2",
+    "jp": "プリンター",
+    "en": "printer",
+    "np": "प्रिन्टर"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

@@ -59,7 +59,458 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"1-1","jp":"はじめまして","en":"Nice to meet you.","np":"पहिलो पटक भेट्‍दा गरिने अविवादन"},{"lesson":"1-1","jp":"こんにちは","en":"Hello.","np":"नमस्ते"},{"lesson":"1-1","jp":"あ","en":"ah","np":"अरे…"},{"lesson":"1-1","jp":"どうぞ よろしく おねがいします","en":"Pleased to meet you.","np":"तपाईंको सहयोगको लागि धेरै धेरै धन्यवाद।"},{"lesson":"1-1","jp":"～さん","en":"Mr. / Ms.","np":"～जी"},{"lesson":"1-1","jp":"（お）くに","en":"country","np":"तपाईको देश"},{"lesson":"1-1","jp":"どちら","en":"which","np":"कुन"},{"lesson":"1-1","jp":"わたし","en":"I","np":"म"},{"lesson":"1-1","jp":"そうですか","en":"I see.","np":"ए तेसो पो"},{"lesson":"1-1","jp":"（お）しごと","en":"work, job","np":"तपाईको काम"},{"lesson":"1-1","jp":"～ご：にほんご","en":"language: Japanese","np":"～भाषा: जापानी भाषा"},{"lesson":"1-1","jp":"がっこう","en":"school","np":"विद्यालय"},{"lesson":"1-1","jp":"がくせい","en":"student","np":"विद्यार्थी"},{"lesson":"1-1","jp":"いいえ","en":"No","np":"होइन"},{"lesson":"1-1","jp":"かいしゃいん","en":"company employee, office worker","np":"कम्पनी कर्मचारी"},{"lesson":"1-1","jp":"きょうし","en":"teacher","np":"शिक्षक"},{"lesson":"1-1","jp":"こちら","en":"this","np":"यहाँ"},{"lesson":"1-1","jp":"～じん：にほんじん","en":"people: Japanese","np":"नागरिक: जापानी नागरिक"},{"lesson":"1-1","jp":"すみません","en":"Excuse me.","np":"माफ गर्नुहोस्"},{"lesson":"1-1","jp":"にほん","en":"Japan","np":"जापान"},{"lesson":"1-1","jp":"かた","en":"person","np":"मानिस"},{"lesson":"1-1","jp":"はい","en":"Yes","np":"हो"},{"lesson":"1-1","jp":"だいがくせい","en":"university student","np":"विश्वविद्यालय विद्यार्थी"},{"lesson":"1-1","jp":"あの ひと","en":"that person","np":"त्यो मानिस"},{"lesson":"1-1","jp":"だれですか","en":"Who are you?, Who are they?","np":"को हो?"},{"lesson":"1-1","jp":"せんせい","en":"teacher","np":"शिक्षक"},{"lesson":"1-2","jp":"いい てんきですね","en":"The weather is nice, isn't it?","np":"राम्रो मौसम छ है।"},{"lesson":"1-2","jp":"てんき","en":"weather","np":"मौसम"},{"lesson":"1-2","jp":"おはようございます","en":"Good morning.","np":"शुभ - प्रभात"},{"lesson":"1-2","jp":"そうですね","en":"That's right., Yes, it is.","np":"म सहमत छु"},{"lesson":"1-2","jp":"え？","en":"Sorry?, Huh?","np":"अरे…"},{"lesson":"1-2","jp":"すみません","en":"Sorry.","np":"माफ गर्नुहोस्"},{"lesson":"1-2","jp":"もう いちど","en":"one more time","np":"फेरी एक पटक"},{"lesson":"1-2","jp":"おねがいします","en":"please","np":"अनुरोध गर्छु"},{"lesson":"1-2","jp":"そうです","en":"That's right.","np":"त्यो सहि हो"},{"lesson":"1-2","jp":"いってらっしゃい","en":"Off you go., See you later.","np":"गएर आउनुहोस्"},{"lesson":"1-2","jp":"いってきます","en":"I'm off., I'm going","np":"गएर आउँछु"},{"lesson":"1-2","jp":"あさ","en":"morning","np":"बिहान"},{"lesson":"1-2","jp":"ひる","en":"daytime","np":"दिउसो"},{"lesson":"1-2","jp":"よる","en":"night","np":"रात"},{"lesson":"1-2","jp":"こんばんは","en":"Good evening.","np":"शुभ सन्ध्या"},{"lesson":"1-2","jp":"さようなら","en":"Good bye.","np":"Bye Bye"},{"lesson":"1-2","jp":"しつれいします","en":"Sorry to be leaving before you.","np":"माफ गर्नुहोस्"},{"lesson":"1-2","jp":"おつかれさまでした","en":"Good job., Good work., Thanks for your hard work.","np":"तपाईको कडा परिश्रमको लागि धन्यवाद"},{"lesson":"1-2","jp":"おやすみなさい","en":"Good night.","np":"शुभ रात्री"},{"lesson":"1-2","jp":"どうぞ","en":"Here you are.","np":"कृपया लिनुहोस्"},{"lesson":"1-2","jp":"ありがとうございます","en":"Thank you.","np":"धन्यवाद"},{"lesson":"1-2","jp":"すみません","en":"Excuse me, Sorry, Thank you","np":"माफ गर्नुहोस्"},{"lesson":"1-2","jp":"ごめんなさい","en":"I'm sorry.","np":"माफ गर्नुहोस्"},{"lesson":"1-2","jp":"あめ","en":"rain","np":"मिठाई"},{"lesson":"1-2","jp":"あつい","en":"hot (weather)","np":"तातो"},{"lesson":"1-2","jp":"さむい","en":"cold","np":"चिसो"},{"lesson":"1-2","jp":"ゆっくり","en":"slowly","np":"बिस्तारी"},{"lesson":"1-2","jp":"えいご","en":"English","np":"अंग्रेजी"},{"lesson":"1-3","jp":"きます・きました","en":"come from / came from","np":"आउँछु / आएँ"},{"lesson":"1-3","jp":"せんしゅう","en":"last week","np":"गएको हप्ता"},{"lesson":"1-3","jp":"ああ","en":"ah","np":"ला…"},{"lesson":"1-3","jp":"あのう","en":"Um., Excuse me.","np":"उम...."},{"lesson":"1-3","jp":"コーヒー","en":"coffee","np":"कफी"},{"lesson":"1-3","jp":"のみます","en":"drink","np":"पिउछु"},{"lesson":"1-3","jp":"すきです","en":"like","np":"मन पर्छ"},{"lesson":"1-3","jp":"これ","en":"this","np":"यो"},{"lesson":"1-3","jp":"わあ","en":"wow","np":"वाह"},{"lesson":"1-3","jp":"～がつ：１がつ","en":"month: January","np":"महिना \\ जनवरी"},{"lesson":"1-3","jp":"きょねん","en":"last year","np":"गत वर्ष"},{"lesson":"1-3","jp":"あまい もの","en":"sweets","np":"मिठो चिज"},{"lesson":"1-3","jp":"たべます","en":"eat","np":"खान्छु"},{"lesson":"1-3","jp":"ケーキ","en":"cake","np":"केक"},{"lesson":"1-3","jp":"クッキー","en":"cookie","np":"कुकी"},{"lesson":"1-3","jp":"チョコレート","en":"chocolate","np":"चकलेट"},{"lesson":"1-3","jp":"（お）さけ","en":"alcohol","np":"रक्सी"},{"lesson":"1-3","jp":"ビール","en":"beer","np":"बियर"},{"lesson":"1-3","jp":"ワイン","en":"wine","np":"वाईन"},{"lesson":"1-3","jp":"にほんしゅ","en":"sake, Japanese rice wine","np":"जापानी रक्सी"},{"lesson":"1-3","jp":"しょうちゅう","en":"shochu (Japanese white distilled liquor)","np":"जापानी रक्सी"}];
+const vocab = [
+  {
+    "lesson": "1-1",
+    "jp": "はじめまして",
+    "en": "Nice to meet you.",
+    "np": "पहिलो पटक भेट्‍दा गरिने अविवादन"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "こんにちは",
+    "en": "Hello.",
+    "np": "नमस्ते"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "あ",
+    "en": "ah",
+    "np": "अरे…"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "どうぞ よろしく おねがいします",
+    "en": "Pleased to meet you.",
+    "np": "तपाईंको सहयोगको लागि धेरै धेरै धन्यवाद।"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "～さん",
+    "en": "Mr. / Ms.",
+    "np": "～जी"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "（お）くに",
+    "en": "country",
+    "np": "तपाईको देश"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "どちら",
+    "en": "which",
+    "np": "कुन"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "わたし",
+    "en": "I",
+    "np": "म"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "そうですか",
+    "en": "I see.",
+    "np": "ए तेसो पो"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "（お）しごと",
+    "en": "work, job",
+    "np": "तपाईको काम"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "～ご：にほんご",
+    "en": "language: Japanese",
+    "np": "～भाषा: जापानी भाषा"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "がっこう",
+    "en": "school",
+    "np": "विद्यालय"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "がくせい",
+    "en": "student",
+    "np": "विद्यार्थी"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "いいえ",
+    "en": "No",
+    "np": "होइन"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "かいしゃいん",
+    "en": "company employee, office worker",
+    "np": "कम्पनी कर्मचारी"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "きょうし",
+    "en": "teacher",
+    "np": "शिक्षक"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "こちら",
+    "en": "this",
+    "np": "यहाँ"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "～じん：にほんじん",
+    "en": "people: Japanese",
+    "np": "नागरिक: जापानी नागरिक"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "すみません",
+    "en": "Excuse me.",
+    "np": "माफ गर्नुहोस्"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "にほん",
+    "en": "Japan",
+    "np": "जापान"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "かた",
+    "en": "person",
+    "np": "मानिस"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "はい",
+    "en": "Yes",
+    "np": "हो"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "だいがくせい",
+    "en": "university student",
+    "np": "विश्वविद्यालय विद्यार्थी"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "あの ひと",
+    "en": "that person",
+    "np": "त्यो मानिस"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "だれですか",
+    "en": "Who are you?, Who are they?",
+    "np": "को हो?"
+  },
+  {
+    "lesson": "1-1",
+    "jp": "せんせい",
+    "en": "teacher",
+    "np": "शिक्षक"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "いい てんきですね",
+    "en": "The weather is nice, isn't it?",
+    "np": "राम्रो मौसम छ है।"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "てんき",
+    "en": "weather",
+    "np": "मौसम"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "おはようございます",
+    "en": "Good morning.",
+    "np": "शुभ - प्रभात"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "そうですね",
+    "en": "That's right., Yes, it is.",
+    "np": "म सहमत छु"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "え？",
+    "en": "Sorry?, Huh?",
+    "np": "अरे…"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "すみません",
+    "en": "Sorry.",
+    "np": "माफ गर्नुहोस्"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "もう いちど",
+    "en": "one more time",
+    "np": "फेरी एक पटक"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "おねがいします",
+    "en": "please",
+    "np": "अनुरोध गर्छु"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "そうです",
+    "en": "That's right.",
+    "np": "त्यो सहि हो"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "いってらっしゃい",
+    "en": "Off you go., See you later.",
+    "np": "गएर आउनुहोस्"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "いってきます",
+    "en": "I'm off., I'm going",
+    "np": "गएर आउँछु"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "あさ",
+    "en": "morning",
+    "np": "बिहान"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "ひる",
+    "en": "daytime",
+    "np": "दिउसो"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "よる",
+    "en": "night",
+    "np": "रात"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "こんばんは",
+    "en": "Good evening.",
+    "np": "शुभ सन्ध्या"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "さようなら",
+    "en": "Good bye.",
+    "np": "Bye Bye"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "しつれいします",
+    "en": "Sorry to be leaving before you.",
+    "np": "माफ गर्नुहोस्"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "おつかれさまでした",
+    "en": "Good job., Good work., Thanks for your hard work.",
+    "np": "तपाईको कडा परिश्रमको लागि धन्यवाद"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "おやすみなさい",
+    "en": "Good night.",
+    "np": "शुभ रात्री"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "どうぞ",
+    "en": "Here you are.",
+    "np": "कृपया लिनुहोस्"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "ありがとうございます",
+    "en": "Thank you.",
+    "np": "धन्यवाद"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "すみません",
+    "en": "Excuse me, Sorry, Thank you",
+    "np": "माफ गर्नुहोस्"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "ごめんなさい",
+    "en": "I'm sorry.",
+    "np": "माफ गर्नुहोस्"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "あめ",
+    "en": "rain",
+    "np": "मिठाई"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "あつい",
+    "en": "hot (weather)",
+    "np": "तातो"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "さむい",
+    "en": "cold",
+    "np": "चिसो"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "ゆっくり",
+    "en": "slowly",
+    "np": "बिस्तारी"
+  },
+  {
+    "lesson": "1-2",
+    "jp": "えいご",
+    "en": "English",
+    "np": "अंग्रेजी"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "きます・きました",
+    "en": "come from / came from",
+    "np": "आउँछु / आएँ"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "せんしゅう",
+    "en": "last week",
+    "np": "गएको हप्ता"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "ああ",
+    "en": "ah",
+    "np": "ला…"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "あのう",
+    "en": "Um., Excuse me.",
+    "np": "उम...."
+  },
+  {
+    "lesson": "1-3",
+    "jp": "コーヒー",
+    "en": "coffee",
+    "np": "कफी"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "のみます",
+    "en": "drink",
+    "np": "पिउछु"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "すきです",
+    "en": "like",
+    "np": "मन पर्छ"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "これ",
+    "en": "this",
+    "np": "यो"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "わあ",
+    "en": "wow",
+    "np": "वाह"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "～がつ：１がつ",
+    "en": "month: January",
+    "np": "महिना \\ जनवरी"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "きょねん",
+    "en": "last year",
+    "np": "गत वर्ष"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "あまい もの",
+    "en": "sweets",
+    "np": "मिठो चिज"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "たべます",
+    "en": "eat",
+    "np": "खान्छु"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "ケーキ",
+    "en": "cake",
+    "np": "केक"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "クッキー",
+    "en": "cookie",
+    "np": "कुकी"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "チョコレート",
+    "en": "chocolate",
+    "np": "चकलेट"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "（お）さけ",
+    "en": "alcohol",
+    "np": "रक्सी"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "ビール",
+    "en": "beer",
+    "np": "बियर"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "ワイン",
+    "en": "wine",
+    "np": "वाईन"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "にほんしゅ",
+    "en": "sake, Japanese rice wine",
+    "np": "जापानी रक्सी"
+  },
+  {
+    "lesson": "1-3",
+    "jp": "しょうちゅう",
+    "en": "shochu (Japanese white distilled liquor)",
+    "np": "जापानी रक्सी"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

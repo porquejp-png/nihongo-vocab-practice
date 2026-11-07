@@ -59,7 +59,398 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"18-1","jp":"まず","en":"first","np":"पहिले"},{"lesson":"18-1","jp":"入ります","en":"turn, switch on","np":"भित्र जानु / खोल्नु"},{"lesson":"18-1","jp":"つぎに","en":"next","np":"पछि"},{"lesson":"18-1","jp":"セットします","en":"set (a time)","np":"सेट गर्नु"},{"lesson":"18-1","jp":"それから","en":"from that point on, from there","np":"त्यसपछि"},{"lesson":"18-1","jp":"ストレッチします","en":"stretch","np":"स्ट्रेचिङ गर्नु"},{"lesson":"18-1","jp":"かいさつ","en":"ticket gate","np":"टिकट जाँच गेट"},{"lesson":"18-1","jp":"開きます","en":"open","np":"खुल्नु"},{"lesson":"18-1","jp":"クリックします","en":"click","np":"क्लिक गर्नु"},{"lesson":"18-1","jp":"ろくおん","en":"audio recording","np":"अडियो रेकर्डिङ"},{"lesson":"18-1","jp":"ながれます","en":"flow","np":"बग्नु"},{"lesson":"18-1","jp":"正しい","en":"correct","np":"ठीक"},{"lesson":"18-1","jp":"えらびます","en":"select","np":"छान्नु"},{"lesson":"18-1","jp":"しょっけん","en":"meal voucher","np":"भोजन कुपन"},{"lesson":"18-1","jp":"マイク","en":"microphone","np":"माइक"},{"lesson":"18-1","jp":"音","en":"sound","np":"आवाज"},{"lesson":"18-1","jp":"ＡＴＭ","en":"ATM (automated teller machine)","np":"एटीएम"},{"lesson":"18-1","jp":"あんしょう番号","en":"PIN (personal identification number)","np":"पिन नम्बर"},{"lesson":"18-1","jp":"入力します","en":"input","np":"भित्र हाल्नु"},{"lesson":"18-1","jp":"きんがく","en":"amount of money","np":"रकम"},{"lesson":"18-1","jp":"かくにん","en":"confirmation","np":"पुष्टि"},{"lesson":"18-1","jp":"ろせんず","en":"route map","np":"मार्ग नक्सा"},{"lesson":"18-1","jp":"かけます","en":"hang","np":"झुण्ड्याउनु"},{"lesson":"18-1","jp":"バッグハンガー","en":"bag hanger","np":"झोला टाँस्ने हुक"},{"lesson":"18-1","jp":"なべ","en":"pot","np":"भाँडो"},{"lesson":"18-1","jp":"なべつかみ","en":"oven mitt","np":"ओभन मिट"},{"lesson":"18-1","jp":"ホッチキス","en":"stapler","np":"स्टेपलर"},{"lesson":"18-1","jp":"はり","en":"needle","np":"सुई"},{"lesson":"18-1","jp":"はずします","en":"remove","np":"झिक्नु"},{"lesson":"18-1","jp":"ホッチキスリムーバー","en":"stapler remover","np":"स्टेपलर रिमुभर"},{"lesson":"18-1","jp":"バッテリー","en":"battery","np":"ब्याट्री"},{"lesson":"18-1","jp":"けいたい電話","en":"cell-phone, mobile phone","np":"मोबाइल फोन"},{"lesson":"18-1","jp":"じゅうでんします","en":"charge","np":"चार्ज गर्नु"},{"lesson":"18-2","jp":"100円ショップ","en":"100-yen shop","np":"१०० येन पसल"},{"lesson":"18-2","jp":"まっすぐ","en":"straight, upright","np":"सिधै"},{"lesson":"18-2","jp":"ペン","en":"pen","np":"कलम"},{"lesson":"18-2","jp":"せなか","en":"back","np":"ढाड"},{"lesson":"18-2","jp":"ボタン","en":"button","np":"बटन"},{"lesson":"18-2","jp":"いかがですか","en":"How is it? 〈honorific〉","np":"कस्तो छ?"},{"lesson":"18-2","jp":"ファスナー","en":"fastener","np":"जिप"},{"lesson":"18-2","jp":"道","en":"road, street, way","np":"बाटो"},{"lesson":"18-2","jp":"かど","en":"corner","np":"कुनो"},{"lesson":"18-2","jp":"まがります","en":"turn","np":"घुम्नु"},{"lesson":"18-2","jp":"こうさてん","en":"intersection","np":"चौबाटो"},{"lesson":"18-2","jp":"～つ目：２つ目","en":"ordinal number : the second","np":"दोस्रो ~"},{"lesson":"18-2","jp":"西区役所","en":"west ward office","np":"पश्चिम वडा कार्यालय"},{"lesson":"18-3","jp":"いためます","en":"stir fry","np":"तल्नु"},{"lesson":"18-3","jp":"にます","en":"simmer","np":"झोल बनाउन पकाउनु"},{"lesson":"18-3","jp":"フォー","en":"Pho (name of a dish)","np":"फो"},{"lesson":"18-3","jp":"かっこいい","en":"good-looking","np":"स्टाइलिश"},{"lesson":"18-3","jp":"けっこん","en":"marriage","np":"विवाह"},{"lesson":"18-3","jp":"バインセオ","en":"Bánh xèo (name of a dish)","np":"बान्‌हसेओ"},{"lesson":"18-3","jp":"レタス","en":"lettuce","np":"लेट्युस"},{"lesson":"18-3","jp":"のせます","en":"put on top","np":"माथि राख्नु"},{"lesson":"18-3","jp":"まきます","en":"roll","np":"बेर्नु"},{"lesson":"18-3","jp":"おび","en":"Japanese belt for yukata and kimono","np":"ओबी पट्टी"},{"lesson":"18-3","jp":"むすびます","en":"tie, entwine","np":"बाँध्नु"},{"lesson":"18-3","jp":"おりがみ","en":"origami","np":"ओरिगामी"},{"lesson":"18-3","jp":"おります","en":"fold","np":"ओर्लिनु"},{"lesson":"18-3","jp":"牛肉","en":"beef","np":"गाईको मासु"},{"lesson":"18-3","jp":"受付","en":"reception","np":"रिसेप्सन"},{"lesson":"18-3","jp":"入館証","en":"entry permit","np":"प्रवेश पास"},{"lesson":"18-3","jp":"たまねぎ","en":"onion","np":"प्याज"},{"lesson":"18-3","jp":"ミキサー","en":"blender","np":"ब्लेन्डर"},{"lesson":"18-3","jp":"おやこどん","en":"rice bowl with Chicken and egg","np":"चिकेन एण्ड एग राइस बाउल"}];
+const vocab = [
+  {
+    "lesson": "18-1",
+    "jp": "まず",
+    "en": "first",
+    "np": "पहिले"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "入ります",
+    "en": "turn, switch on",
+    "np": "छिर्छु"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "つぎに",
+    "en": "next",
+    "np": "अर्को"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "セットします",
+    "en": "set (a time)",
+    "np": "सेट गर्छु"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "それから",
+    "en": "from that point on, from there",
+    "np": "त्यसपछि"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "ストレッチします",
+    "en": "stretch",
+    "np": "स्ट्रेच गर्छु"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "かいさつ",
+    "en": "ticket gate",
+    "np": "टिकट गेट"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "開きます",
+    "en": "open",
+    "np": "खुल्नु"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "クリックします",
+    "en": "click",
+    "np": "क्लिक गर्छु"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "ろくおん",
+    "en": "audio recording",
+    "np": "रेकर्डिङ"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "ながれます",
+    "en": "flow",
+    "np": "बग्नु"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "正しい",
+    "en": "correct",
+    "np": "सही"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "えらびます",
+    "en": "select",
+    "np": "रोज्छु"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "しょっけん",
+    "en": "meal voucher",
+    "np": "खाना टिकट"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "マイク",
+    "en": "microphone",
+    "np": "माइक्रोफोन"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "音",
+    "en": "sound",
+    "np": "आवाज"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "ＡＴＭ",
+    "en": "ATM (automated teller machine)",
+    "np": "ATM"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "あんしょう番号",
+    "en": "PIN (personal identification number)",
+    "np": "पिन नम्बर"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "入力します",
+    "en": "input",
+    "np": "नम्बर थिच्‍नु"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "きんがく",
+    "en": "amount of money",
+    "np": "पैसाको मात्रा"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "かくにん",
+    "en": "confirmation",
+    "np": "पुष्टिकरण"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "ろせんず",
+    "en": "route map",
+    "np": "मार्ग नक्शा"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "かけます",
+    "en": "hang",
+    "np": "लेख्न सक्छु"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "バッグハンガー",
+    "en": "bag hanger",
+    "np": "झोला ह्याङ्गर"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "なべ",
+    "en": "pot",
+    "np": "भाँडो"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "なべつかみ",
+    "en": "oven mitt",
+    "np": "भाँडो समात्‍ने कपडा"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "ホッチキス",
+    "en": "stapler",
+    "np": "स्टेपलर"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "はり",
+    "en": "needle",
+    "np": "सुई"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "はずします",
+    "en": "remove",
+    "np": "हटाउनु"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "ホッチキスリムーバー",
+    "en": "stapler remover",
+    "np": "स्टेपलर हटाउने"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "バッテリー",
+    "en": "battery",
+    "np": "ब्याट्री"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "けいたい電話",
+    "en": "cell-phone, mobile phone",
+    "np": "मोबाइल फोन"
+  },
+  {
+    "lesson": "18-1",
+    "jp": "じゅうでんします",
+    "en": "charge",
+    "np": "चार्ज गर्छु"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "100円ショップ",
+    "en": "100-yen shop",
+    "np": "100 येन पसल"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "まっすぐ",
+    "en": "straight, upright",
+    "np": "सीधा"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "ペン",
+    "en": "pen",
+    "np": "कलम"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "せなか",
+    "en": "back",
+    "np": "ढाड"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "ボタン",
+    "en": "button",
+    "np": "टांक"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "いかがですか",
+    "en": "How is it?〈honorific〉",
+    "np": ".... लिनुहुन्छ / .... गर्नुहुन्छ"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "ファスナー",
+    "en": "fastener",
+    "np": "चेन"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "道",
+    "en": "road, street, way",
+    "np": "सडक"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "かど",
+    "en": "corner",
+    "np": "कुना"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "まがります",
+    "en": "turn",
+    "np": "घुम्‍नु"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "こうさてん",
+    "en": "intersection",
+    "np": "चौ बाटो"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "～つ目：２つ目",
+    "en": "ordinal number: the second",
+    "np": "... नम्बरको: दोस्रो"
+  },
+  {
+    "lesson": "18-2",
+    "jp": "西区役所",
+    "en": "west ward office",
+    "np": "पश्‍चिम वडा कार्यालय"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "いためます",
+    "en": "stir fry",
+    "np": "भुट्छु"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "にます",
+    "en": "simmer",
+    "np": "उमाल्‍छु"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "フォー",
+    "en": "Pho (name of a dish)",
+    "np": "भियतनामी खाना"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "かっこいい",
+    "en": "good-looking",
+    "np": "हेन्डसम"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "けっこん",
+    "en": "marriage",
+    "np": "विवाह"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "バインセオ",
+    "en": "Bánh xèo (name of a dish)",
+    "np": "भियतनामी खाना"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "レタス",
+    "en": "lettuce",
+    "np": "लेट्स पत्ता"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "のせます",
+    "en": "put on top",
+    "np": "चडाउँछु"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "まきます",
+    "en": "roll",
+    "np": "बेर्छु"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "おび",
+    "en": "Japanese belt for yukata and kimono",
+    "np": "पटुका"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "むすびます",
+    "en": "tie, entwine",
+    "np": "गाठो पर्छु"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "おりがみ",
+    "en": "origami",
+    "np": "कागज पट्ट्याएर बनाउने खेलौना"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "おります",
+    "en": "fold",
+    "np": "पट्ट्याउछु"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "牛肉",
+    "en": "beef",
+    "np": "गाईको मासु"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "受付",
+    "en": "reception",
+    "np": "रिसेप्सन"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "入館証",
+    "en": "entry permit",
+    "np": "प्रवेश पत्र"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "たまねぎ",
+    "en": "onion",
+    "np": "प्याज"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "ミキサー",
+    "en": "blender",
+    "np": "मिक्सर"
+  },
+  {
+    "lesson": "18-3",
+    "jp": "おやこどん",
+    "en": "rice bowl with chicken and egg",
+    "np": "जापानी परिकार"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

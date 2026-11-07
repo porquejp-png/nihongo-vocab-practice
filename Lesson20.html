@@ -59,7 +59,332 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"20-1","jp":"富士山","en":"Mt. Fuji","np":"फुजी हिमाल"},{"lesson":"20-1","jp":"見えます","en":"be able to see","np":"देखिन्‍छ"},{"lesson":"20-1","jp":"つもります","en":"pile up","np":"जम्मा हुन्छ"},{"lesson":"20-1","jp":"ん？","en":"Huh?","np":"हो?"},{"lesson":"20-1","jp":"聞こえます","en":"hear","np":"सुनिन्छ"},{"lesson":"20-1","jp":"あっち","en":"over there","np":"उता"},{"lesson":"20-1","jp":"月","en":"moon","np":"महिना / चन्द्रमा"},{"lesson":"20-1","jp":"（月が）出ます","en":"(the moon) comes out","np":"चन्द्रमा उदाउछ"},{"lesson":"20-1","jp":"ほし","en":"star","np":"तारा"},{"lesson":"20-1","jp":"鳥","en":"bird","np":"चरा"},{"lesson":"20-1","jp":"なみ","en":"wave","np":"छाल"},{"lesson":"20-1","jp":"けむり","en":"smoke","np":"धुवाँ"},{"lesson":"20-1","jp":"しょうぼう車","en":"firetruck","np":"दमकल"},{"lesson":"20-1","jp":"サイレン","en":"siren","np":"साइरन"},{"lesson":"20-1","jp":"くもります","en":"be cloudy","np":"बादल लाग्‍नु"},{"lesson":"20-1","jp":"そうこ","en":"warehouse","np":"गोदाम"},{"lesson":"20-1","jp":"～たち：子どもたち","en":"plural suffix for people : children","np":"~हरु: बच्चाहरु"},{"lesson":"20-1","jp":"よろこびます","en":"be happy","np":"खुशी हुन्छु"},{"lesson":"20-1","jp":"めずらしい","en":"rare","np":"दुर्लभ"},{"lesson":"20-1","jp":"ご主人","en":"your husband 〈honorific〉","np":"लोग्‍ने"},{"lesson":"20-1","jp":"めんどう（な）","en":"bothersome","np":"झन्‍झटिलो"},{"lesson":"20-1","jp":"てんぼう台","en":"observation deck","np":"दृश्यहरू अवलोकन गर्नको लागि बनाईएको ठाऊँ"},{"lesson":"20-1","jp":"やけい","en":"night view","np":"रातको दृश्य"},{"lesson":"20-2","jp":"たおれます","en":"fall over","np":"ढल्नु"},{"lesson":"20-2","jp":"（おさけに）強い","en":"have a high tolerance for (alcohol)","np":"बलियो"},{"lesson":"20-2","jp":"よごれます","en":"get dirty","np":"फोहोर हुनु"},{"lesson":"20-2","jp":"われます","en":"split","np":"फुट्‍नु"},{"lesson":"20-2","jp":"マニュアル","en":"manual","np":"म्यानुअल"},{"lesson":"20-2","jp":"ジョギング","en":"jogging","np":"जगिङ"},{"lesson":"20-2","jp":"～キロ・キロメートル ：15キロ","en":"～ kilometer(s) : fifteen kilometers","np":"～किलोमिटर : १५ किलोमिटर"},{"lesson":"20-2","jp":"もくひょう","en":"goal","np":"लक्ष्य"},{"lesson":"20-2","jp":"閉まります","en":"close","np":"बन्द हुन्छ"},{"lesson":"20-2","jp":"つきます","en":"turn on","np":"पुग्छ"},{"lesson":"20-2","jp":"ひも","en":"string","np":"तार, डोरि"},{"lesson":"20-2","jp":"切れます","en":"break, snap","np":"काटिनु"},{"lesson":"20-2","jp":"ふくろ","en":"bag","np":"झोला"},{"lesson":"20-2","jp":"やぶれます","en":"tear","np":"च्यातिनु"},{"lesson":"20-2","jp":"むし","en":"bug, insect","np":"कीरा"},{"lesson":"20-2","jp":"くつひも","en":"shoestrings","np":"जुत्ताको तुना"},{"lesson":"20-2","jp":"母親","en":"mother, mom","np":"आमा"},{"lesson":"20-2","jp":"お母さん","en":"mother, mom","np":"आमा"},{"lesson":"20-2","jp":"あ～あ","en":"Ah!","np":"आह"},{"lesson":"20-3","jp":"交番","en":"police box","np":"प्रहरी बिट"},{"lesson":"20-3","jp":"ひろいます","en":"pick up","np":"टिप्‍नु"},{"lesson":"20-3","jp":"警察官","en":"police officer","np":"प्रहरी चौकि"},{"lesson":"20-3","jp":"ふんすい","en":"fountain","np":"पानीको फोहोरा"},{"lesson":"20-3","jp":"そば","en":"next to","np":"सोबा नुडलस"},{"lesson":"20-3","jp":"なんだ","en":"Oh, that's it?","np":"के हो ?"},{"lesson":"20-3","jp":"とどけます","en":"deliver","np":"पुर्‍याउँछु"},{"lesson":"20-3","jp":"確認します","en":"confirm","np":"सुनिश्चित गर्छु"},{"lesson":"20-3","jp":"以下","en":"less than","np":"तल"},{"lesson":"20-3","jp":"ていきけん","en":"commuter pass","np":"मासिक पास"},{"lesson":"20-3","jp":"おおぜい","en":"many people","np":"ठूलो संख्या"},{"lesson":"20-3","jp":"今度","en":"next time","np":"अर्को पटक"}];
+const vocab = [
+  {
+    "lesson": "20-1",
+    "jp": "ふじ山",
+    "en": "Mt. Fuji",
+    "np": "फुजी हिमाल"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "見えます",
+    "en": "be able to see",
+    "np": "देखिन्‍छ"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "つもります",
+    "en": "pile up",
+    "np": "जम्मा हुन्छ"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "ん？",
+    "en": "Huh?",
+    "np": "हो?"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "聞こえます",
+    "en": "hear",
+    "np": "सुनिन्छ"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "あっち",
+    "en": "over there",
+    "np": "उता"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "月",
+    "en": "moon",
+    "np": "महिना / चन्द्रमा"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "（月が）出ます",
+    "en": "(the moon) comes out",
+    "np": "चन्द्रमा उदाउछ"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "ほし",
+    "en": "star",
+    "np": "तारा"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "鳥",
+    "en": "bird",
+    "np": "चरा"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "なみ",
+    "en": "wave",
+    "np": "छाल"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "けむり",
+    "en": "smoke",
+    "np": "धुवाँ"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "しょうぼう車",
+    "en": "firetruck",
+    "np": "दमकल"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "サイレン",
+    "en": "siren",
+    "np": "साइरन"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "くもります",
+    "en": "be cloudy",
+    "np": "बादल लाग्‍नु"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "そうこ",
+    "en": "warehouse",
+    "np": "गोदाम"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "～たち：子どもたち",
+    "en": "plural suffix for people: children",
+    "np": "~हरु: बच्चाहरु"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "よろこびます",
+    "en": "be happy",
+    "np": "खुशी हुन्छु"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "めずらしい",
+    "en": "rare",
+    "np": "दुर्लभ"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "ご主人",
+    "en": "your husband〈honorific〉",
+    "np": "लोग्‍ने"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "めんどう（な）",
+    "en": "bothersome",
+    "np": "झन्‍झटिलो"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "てんぼう台",
+    "en": "observation deck",
+    "np": "दृश्यहरू अवलोकन गर्नको लागि बनाईएको ठाऊँ"
+  },
+  {
+    "lesson": "20-1",
+    "jp": "やけい",
+    "en": "night view",
+    "np": "रातको दृश्य"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "たおれます",
+    "en": "fall over",
+    "np": "ढल्नु"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "強い",
+    "en": "have a high tolerance for (alcohol)",
+    "np": "बलियो"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "よごれます",
+    "en": "get dirty",
+    "np": "फोहोर हुनु"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "われます",
+    "en": "split",
+    "np": "फुट्‍नु"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "マニュアル",
+    "en": "manual",
+    "np": "म्यानुअल"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "ジョギング",
+    "en": "jogging",
+    "np": "जगिङ"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "～キロ・キロメートル：15キロ",
+    "en": "～ kilometer(s): fifteen kilometers",
+    "np": "～किलोमिटर: १५ किलोमिटर"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "もくひょう",
+    "en": "goal",
+    "np": "लक्ष्य"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "閉まります",
+    "en": "close",
+    "np": "बन्द हुन्छ"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "つきます",
+    "en": "turn on",
+    "np": "पुग्छ"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "ひも",
+    "en": "string",
+    "np": "तार, डोरि"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "切れます",
+    "en": "break, snap",
+    "np": "काटिनु"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "ふくろ",
+    "en": "bag",
+    "np": "झोला"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "やぶれます",
+    "en": "tear",
+    "np": "च्यातिनु"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "むし",
+    "en": "bug, insect",
+    "np": "कीरा"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "くつひも",
+    "en": "shoestrings",
+    "np": "जुत्ताको तुना"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "母親",
+    "en": "mother, mom",
+    "np": "आमा"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "お母さん",
+    "en": "mother, mom",
+    "np": "आमा"
+  },
+  {
+    "lesson": "20-2",
+    "jp": "あ～あ",
+    "en": "Ah!",
+    "np": "आह"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "交番",
+    "en": "police box",
+    "np": "प्रहरी बिट"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "ひろいます",
+    "en": "pick up",
+    "np": "टिप्‍नु"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "けいさつかん",
+    "en": "police officer",
+    "np": "प्रहरी चौकि"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "ふんすい",
+    "en": "fountain",
+    "np": "पानीको फोहोरा"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "そば",
+    "en": "next to",
+    "np": "सोबा नुडलस"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "なんだ",
+    "en": "Oh, that's it?",
+    "np": "के हो ?"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "とどけます",
+    "en": "deliver",
+    "np": "पुर्‍याउँछु"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "かくにんします",
+    "en": "confirm",
+    "np": "सुनिश्चित गर्छु"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "以下",
+    "en": "less than",
+    "np": "तल"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "ていきけん",
+    "en": "commuter pass",
+    "np": "मासिक पास"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "おおぜい",
+    "en": "many people",
+    "np": "ठूलो संख्या"
+  },
+  {
+    "lesson": "20-3",
+    "jp": "今度",
+    "en": "next time",
+    "np": "अर्को पटक"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

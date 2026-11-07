@@ -59,7 +59,266 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"14-1","jp":"かおいろ","en":"complexion","np":"अनुहारको रङ्ग"},{"lesson":"14-1","jp":"つめたい","en":"cold (things)","np":"चिसो"},{"lesson":"14-1","jp":"かぜを ひきます","en":"catch a cold","np":"रुघा खोकी लाग्‍नु"},{"lesson":"14-1","jp":"（お）ふろに はい 入ります","en":"take a bath","np":"तातो पानीको बाथटबमा छिर्नु"},{"lesson":"14-1","jp":"マスク","en":"mask","np":"मास्क"},{"lesson":"14-1","jp":"はな       みず 花に 水を やります","en":"water the flower","np":"फूलहरूमा पानी हाल्नु"},{"lesson":"14-1","jp":"ねむい","en":"sleepy","np":"निद्रा लाग्‍नु"},{"lesson":"14-1","jp":"だんだん","en":"gradually","np":"झन झन"},{"lesson":"14-1","jp":"（コンビニが） できます","en":"a new convenience store is going to open","np":"सुविधा स्टोर बन्छ"},{"lesson":"14-1","jp":"いろんな","en":"various","np":"विभिन्न"},{"lesson":"14-2","jp":"ネット","en":"internet","np":"नेट"},{"lesson":"14-2","jp":"さがします","en":"search for","np":"खोज्‍नु"},{"lesson":"14-2","jp":"バイト","en":"part-time job","np":"पार्ट टाईम काम"},{"lesson":"14-2","jp":"ほら","en":"hey, look","np":"हेर्"},{"lesson":"14-2","jp":"やせます","en":"lose weight","np":"दुब्लाऊनु"},{"lesson":"14-2","jp":"うんどうします","en":"exercise","np":"व्यायाम गर्नु"},{"lesson":"14-2","jp":"もんだい","en":"question, problem","np":"समस्या"},{"lesson":"14-2","jp":"アプリ","en":"app, application","np":"एप"},{"lesson":"14-2","jp":"うんてん","en":"driving","np":"ड्राइभिङ"},{"lesson":"14-2","jp":"つうやく","en":"interpretation","np":"अनुवाद गर्नु"},{"lesson":"14-2","jp":"スケート","en":"skating","np":"स्केट"},{"lesson":"14-2","jp":"りょうほう","en":"both","np":"दुबै"},{"lesson":"14-2","jp":"せつめいかい","en":"information session","np":"व्‍याख्‍या गरिने बैठ्क"},{"lesson":"14-2","jp":"オープンキャンパス","en":"open campus","np":"खुला क्याम्पस सत्र"},{"lesson":"14-3","jp":"あき","en":"autumn, fall","np":"शरद ऋतु"},{"lesson":"14-3","jp":"もみじ","en":"maple tree","np":"मेपल"},{"lesson":"14-3","jp":"ふね","en":"boat, ship","np":"पानी जहाज"},{"lesson":"14-3","jp":"（めがねが） できます","en":"glasses be made","np":"चश्मा बन्‍नु"},{"lesson":"14-3","jp":"ちかく","en":"close","np":"नजिक"},{"lesson":"14-3","jp":"ざいりょう","en":"ingredients, materials","np":"सामग्री"},{"lesson":"14-3","jp":"たのみます","en":"order","np":"जिम्‍मा लगाउनु"},{"lesson":"14-3","jp":"インターネット","en":"internet","np":"इन्टरनेट"},{"lesson":"14-3","jp":"しらべます","en":"look up, research","np":"जाँच गर्नु"},{"lesson":"14-3","jp":"さいきん","en":"recently","np":"हाल्‍सालै"},{"lesson":"14-3","jp":"こし","en":"lower back","np":"कम्मर"},{"lesson":"14-3","jp":"しんぱい（な）","en":"worry, worrying","np":"चिन्‍ता"},{"lesson":"14-3","jp":"やっきょく","en":"drug store","np":"औषधि पसल"},{"lesson":"14-3","jp":"スノーボード","en":"snow-boarding","np":"हिउँ चिप्लिने बोर्ड"},{"lesson":"14-3","jp":"そんなに","en":"not really, not so much","np":"त्येति बिधि"},{"lesson":"14-3","jp":"さあ…","en":"I’m not sure.","np":"ल…"},{"lesson":"14-3","jp":"なっとう","en":"natto, fermented soybeans","np":"एक प्रकारको जापानी खाने कुरा"},{"lesson":"14-3","jp":"すもう","en":"sumo (wrestling)","np":"सुमो खेल"},{"lesson":"14-3","jp":"スピーチ","en":"speech","np":"भाषण"}];
+const vocab = [
+  {
+    "lesson": "14-1",
+    "jp": "かおいろ",
+    "en": "complexion",
+    "np": "अनुहारको रङ्ग"
+  },
+  {
+    "lesson": "14-1",
+    "jp": "つめたい",
+    "en": "cold (things)",
+    "np": "चिसो"
+  },
+  {
+    "lesson": "14-1",
+    "jp": "かぜを ひきます",
+    "en": "catch a cold",
+    "np": "रुघा खोकी लाग्‍नु"
+  },
+  {
+    "lesson": "14-1",
+    "jp": "（お）ふろに 入ります",
+    "en": "take a bath",
+    "np": "तातो पानीको बाथटबमा छिर्नु"
+  },
+  {
+    "lesson": "14-1",
+    "jp": "マスク",
+    "en": "mask",
+    "np": "मास्क"
+  },
+  {
+    "lesson": "14-1",
+    "jp": "花に 水を やります",
+    "en": "water the flower",
+    "np": "फूलहरूमा पानी हाल्नु"
+  },
+  {
+    "lesson": "14-1",
+    "jp": "ねむい",
+    "en": "sleepy",
+    "np": "निद्रा लाग्‍नु"
+  },
+  {
+    "lesson": "14-1",
+    "jp": "だんだん",
+    "en": "gradually",
+    "np": "झन झन"
+  },
+  {
+    "lesson": "14-1",
+    "jp": "（コンビニが）できます",
+    "en": "a new convenience store is going to open",
+    "np": "सुविधा स्टोर बन्छ"
+  },
+  {
+    "lesson": "14-1",
+    "jp": "いろんな",
+    "en": "various",
+    "np": "विभिन्न"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "ネット",
+    "en": "internet",
+    "np": "नेट"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "さがします",
+    "en": "search for",
+    "np": "खोज्‍नु"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "バイト",
+    "en": "part-time job",
+    "np": "पार्ट टाईम काम"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "ほら",
+    "en": "hey, look",
+    "np": "हेर्"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "やせます",
+    "en": "lose weight",
+    "np": "दुब्लाऊनु"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "うんどうします",
+    "en": "exercise",
+    "np": "व्यायाम गर्नु"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "もんだい",
+    "en": "question, problem",
+    "np": "समस्या"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "アプリ",
+    "en": "app, application",
+    "np": "एप"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "うんてん",
+    "en": "driving",
+    "np": "ड्राइभिङ"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "つうやく",
+    "en": "interpretation",
+    "np": "अनुवाद गर्नु"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "スケート",
+    "en": "skating",
+    "np": "स्केट"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "りょうほう",
+    "en": "both",
+    "np": "दुबै"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "せつめいかい",
+    "en": "information session",
+    "np": "व्‍याख्‍या गरिने बैठ्क"
+  },
+  {
+    "lesson": "14-2",
+    "jp": "オープンキャンパス",
+    "en": "open campus",
+    "np": "खुला क्याम्पस सत्र"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "あき",
+    "en": "autumn, fall",
+    "np": "शरद ऋतु"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "もみじ",
+    "en": "maple tree",
+    "np": "मेपल"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "ふね",
+    "en": "boat, ship",
+    "np": "पानी जहाज"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "（めがねが）できます",
+    "en": "glasses be made",
+    "np": "चश्मा बन्‍नु"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "ちかく",
+    "en": "close",
+    "np": "नजिक"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "ざいりょう",
+    "en": "ingredients, materials",
+    "np": "सामग्री"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "たのみます",
+    "en": "order",
+    "np": "जिम्‍मा लगाउनु"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "インターネット",
+    "en": "internet",
+    "np": "इन्टरनेट"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "しらべます",
+    "en": "look up, research",
+    "np": "जाँच गर्नु"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "さいきん",
+    "en": "recently",
+    "np": "हाल्‍सालै"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "こし",
+    "en": "lower back",
+    "np": "कम्मर"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "しんぱい（な）",
+    "en": "worry, worrying",
+    "np": "चिन्‍ता"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "やっきょく",
+    "en": "drug store",
+    "np": "औषधि पसल"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "スノーボード",
+    "en": "snow-boarding",
+    "np": "हिउँ चिप्लिने बोर्ड"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "そんなに",
+    "en": "not really, not so much",
+    "np": "त्येति बिधि"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "さあ…",
+    "en": "I’m not sure.",
+    "np": "ल…"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "なっとう",
+    "en": "natto, fermented soybeans",
+    "np": "एक प्रकारको जापानी खाने कुरा"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "すもう",
+    "en": "sumo (wrestling)",
+    "np": "सुमो खेल"
+  },
+  {
+    "lesson": "14-3",
+    "jp": "スピーチ",
+    "en": "speech",
+    "np": "भाषण"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

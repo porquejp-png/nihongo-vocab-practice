@@ -59,7 +59,338 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"25-1","jp":"安心（な）","en":"relieved, at ease","np":"ढुक्क"},{"lesson":"25-1","jp":"まあ","en":"I guess.","np":"हरे ..."},{"lesson":"25-1","jp":"ガイドブック","en":"guidebook","np":"गाइडबुक"},{"lesson":"25-1","jp":"今夜","en":"tonight","np":"आज राति"},{"lesson":"25-1","jp":"ひやします","en":"chill","np":"चिसो पार्छु"},{"lesson":"25-1","jp":"かざります","en":"decorate","np":"सजाउछु"},{"lesson":"25-1","jp":"じしん","en":"earthquake","np":"आत्‍मविश्‍वाश"},{"lesson":"25-1","jp":"ほうほう","en":"method","np":"विधि अथवा प्रणाली"},{"lesson":"25-1","jp":"グループ","en":"group","np":"समूह"},{"lesson":"25-1","jp":"発表会","en":"presentation","np":"प्रस्तुति"},{"lesson":"25-1","jp":"校長先生","en":"principle","np":"प्रधानाध्यापक"},{"lesson":"25-1","jp":"～行き：空港行き","en":"bound for ～ : bound for the airport","np":"~ जाने: एयरपोर्ट जाने"},{"lesson":"25-1","jp":"アラーム","en":"alarm","np":"अलार्म"},{"lesson":"25-1","jp":"さっき","en":"just a moment ago","np":"भर्खर अगाडी"},{"lesson":"25-1","jp":"タイマー","en":"timer","np":"टाइमर"},{"lesson":"25-1","jp":"起こします","en":"raise","np":"जगाउछु"},{"lesson":"25-1","jp":"ほんやく","en":"translation","np":"अनुवाद"},{"lesson":"25-1","jp":"もう１回","en":"one more time","np":"फेरी एकचोटी"},{"lesson":"25-1","jp":"冬休み","en":"winter break","np":"जाडो छुट्टी"},{"lesson":"25-2","jp":"全室","en":"all rooms, every room","np":"सबै कोठा"},{"lesson":"25-2","jp":"オーシャンビュー","en":"ocean view","np":"सागरको दृश्य"},{"lesson":"25-2","jp":"しかも","en":"moreover","np":"यसबाहेक पनि"},{"lesson":"25-2","jp":"特別（な）","en":"special","np":"विशेष"},{"lesson":"25-2","jp":"シャンパン","en":"champagne","np":"स्याम्पेन"},{"lesson":"25-2","jp":"記念写真","en":"commemorative photo","np":"स्मरणीय तस्बिर"},{"lesson":"25-2","jp":"やった～","en":"Alright!","np":"हो !...."},{"lesson":"25-2","jp":"～室：３室","en":"counter for rooms: three rooms","np":"कोठा: 3 कोठा"},{"lesson":"25-2","jp":"たぶん","en":"probably","np":"सायद"},{"lesson":"25-2","jp":"お子さま","en":"your child 〈honorific〉","np":"बच्चा"},{"lesson":"25-2","jp":"料金","en":"fee","np":"शुल्क"},{"lesson":"25-2","jp":"半額","en":"half off","np":"आधा शुल्क"},{"lesson":"25-2","jp":"受け取ります","en":"receive","np":"प्राप्त गर्नु"},{"lesson":"25-2","jp":"ひつよう（な）","en":"necessary","np":"आवश्यक"},{"lesson":"25-2","jp":"ページ","en":"page","np":"पृष्ठ"},{"lesson":"25-2","jp":"いんさつします","en":"print","np":"छाप्नु"},{"lesson":"25-2","jp":"警報","en":"warning","np":"खतराको अलार्म"},{"lesson":"25-2","jp":"ヨーグルト","en":"yogurt","np":"दही"},{"lesson":"25-2","jp":"しょうみきげん","en":"best before date","np":"म्याद समाप्त हुने मिति"},{"lesson":"25-2","jp":"（電話が）かかります","en":"get (a phone call)","np":"कल लाग्‍नु"},{"lesson":"25-2","jp":"お先に","en":"I'm going now.","np":"पहिले"},{"lesson":"25-2","jp":"じょせい","en":"female","np":"महिला"},{"lesson":"25-2","jp":"ふりこみます","en":"transfer money to a bank account","np":"पैसा ट्रान्सफर गर्छु"},{"lesson":"25-3","jp":"シャンプー","en":"shampoo","np":"शैम्पू"},{"lesson":"25-3","jp":"だいたい","en":"almost","np":"लगभग"},{"lesson":"25-3","jp":"レインコート","en":"raincoat","np":"रेनकोट"},{"lesson":"25-3","jp":"厚い","en":"thick","np":"बाक्लो"},{"lesson":"25-3","jp":"待ち合わせします","en":"meet","np":"भेट्नु"},{"lesson":"25-3","jp":"おみまい","en":"pay a hospital visit","np":"बिरामी भेट्‍नु"},{"lesson":"25-3","jp":"～部：１部","en":"packet(s) (of paper): a packet","np":"भाग: 1 भाग"},{"lesson":"25-3","jp":"ああ～","en":"Oh, so that's why.","np":"आह~"},{"lesson":"25-3","jp":"ならべます","en":"line up","np":"लाइन लगाउनु"},{"lesson":"25-3","jp":"プロジェクター","en":"projector","np":"प्रोजेक्टर"},{"lesson":"25-3","jp":"（かぎを）かけます","en":"lock","np":"ढोका बन्द गर्नु"},{"lesson":"25-3","jp":"（でんげんを） 切ります","en":"turn off","np":"विध्‍दुत बन्द गर्नु"},{"lesson":"25-3","jp":"カイロ","en":"hot pack","np":"कायरो"}];
+const vocab = [
+  {
+    "lesson": "25-1",
+    "jp": "安心（な）",
+    "en": "relieved, at ease",
+    "np": "ढुक्क"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "まあ",
+    "en": "I guess.",
+    "np": "हरे ..."
+  },
+  {
+    "lesson": "25-1",
+    "jp": "ガイドブック",
+    "en": "guidebook",
+    "np": "गाइडबुक"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "今夜",
+    "en": "tonight",
+    "np": "आज राति"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "ひやします",
+    "en": "chill",
+    "np": "चिसो पार्छु"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "かざります",
+    "en": "decorate",
+    "np": "सजाउछु"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "じしん",
+    "en": "earthquake",
+    "np": "आत्‍मविश्‍वाश"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "ほうほう",
+    "en": "method",
+    "np": "विधि अथवा प्रणाली"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "グループ",
+    "en": "group",
+    "np": "समूह"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "発表会",
+    "en": "presentation",
+    "np": "प्रस्तुति"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "校長先生",
+    "en": "principle",
+    "np": "प्रधानाध्यापक"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "～行き：空港行き",
+    "en": "bound for ～ : bound for the airport",
+    "np": "~ जाने: एयरपोर्ट जाने"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "アラーム",
+    "en": "alarm",
+    "np": "अलार्म"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "さっき",
+    "en": "just a moment ago",
+    "np": "भर्खर अगाडी"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "タイマー",
+    "en": "timer",
+    "np": "टाइमर"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "起こします",
+    "en": "raise",
+    "np": "जगाउछु"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "ほんやく",
+    "en": "translation",
+    "np": "अनुवाद"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "もう１回",
+    "en": "one more time",
+    "np": "फेरी एकचोटी"
+  },
+  {
+    "lesson": "25-1",
+    "jp": "ふゆ休み",
+    "en": "winter break",
+    "np": "जाडो छुट्टी"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "全室",
+    "en": "all rooms, every room",
+    "np": "सबै कोठा"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "オーシャンビュー",
+    "en": "ocean view",
+    "np": "सागरको दृश्य"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "しかも",
+    "en": "moreover",
+    "np": "यसबाहेक पनि"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "特別（な）",
+    "en": "special",
+    "np": "विशेष"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "シャンパン",
+    "en": "champagne",
+    "np": "स्याम्पेन"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "記念写真",
+    "en": "commemorative photo",
+    "np": "स्मरणीय तस्बिर"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "やった～",
+    "en": "Alright!",
+    "np": "हो !...."
+  },
+  {
+    "lesson": "25-2",
+    "jp": "～室：３室",
+    "en": "counter for rooms: three rooms",
+    "np": "कोठा: 3 कोठा"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "たぶん",
+    "en": "probably",
+    "np": "सायद"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "お子さま",
+    "en": "your child〈honorific〉",
+    "np": "बच्चा"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "料金",
+    "en": "fee",
+    "np": "शुल्क"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "半額",
+    "en": "half off",
+    "np": "आधा शुल्क"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "受け取ります",
+    "en": "receive",
+    "np": "प्राप्त गर्नु"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "ひつよう（な）",
+    "en": "necessary",
+    "np": "आवश्यक"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "ページ",
+    "en": "page",
+    "np": "पृष्ठ"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "いんさつします",
+    "en": "print",
+    "np": "छाप्नु"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "警報",
+    "en": "warning",
+    "np": "खतराको अलार्म"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "ヨーグルト",
+    "en": "yogurt",
+    "np": "दही"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "しょうみきげん",
+    "en": "best before date",
+    "np": "म्याद समाप्त हुने मिति"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "（電話が）かかります",
+    "en": "get (a phone call) ",
+    "np": "कल लाग्‍नु"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "お先に",
+    "en": "I'm going now.",
+    "np": "पहिले"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "じょせい",
+    "en": "female",
+    "np": "महिला"
+  },
+  {
+    "lesson": "25-2",
+    "jp": "ふりこみます",
+    "en": "transfer money to a bank account",
+    "np": "पैसा ट्रान्सफर गर्छु"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "シャンプー",
+    "en": "shampoo",
+    "np": "शैम्पू"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "だいたい",
+    "en": "almost",
+    "np": "लगभग"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "レインコート",
+    "en": "raincoat",
+    "np": "रेनकोट"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "厚い",
+    "en": "thick",
+    "np": "बाक्लो"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "待ち合わせします",
+    "en": "meet",
+    "np": "भेट्नु"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "おみまい",
+    "en": "pay a hospital visit",
+    "np": "बिरामी भेट्‍नु"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "～部：１部",
+    "en": "packet(s) (of paper): a packet",
+    "np": "भाग: 1 भाग"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "ああ～",
+    "en": "Oh, so that's why.",
+    "np": "आह~"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "ならべます",
+    "en": "line up",
+    "np": "लाइन लगाउनु"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "プロジェクター",
+    "en": "projector",
+    "np": "प्रोजेक्टर"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "（かぎを）かけます",
+    "en": "lock",
+    "np": "ढोका बन्द गर्नु"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "（でんげんを）切ります",
+    "en": "turn off",
+    "np": "विध्‍दुत बन्द गर्नु"
+  },
+  {
+    "lesson": "25-3",
+    "jp": "カイロ",
+    "en": "hot pack",
+    "np": "कायरो"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

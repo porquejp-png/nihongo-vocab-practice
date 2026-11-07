@@ -59,7 +59,416 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"21-1","jp":"頭","en":"head","np":"टाउको"},{"lesson":"21-1","jp":"診察券","en":"patient ID card","np":"बिरामी दर्ता कार्ड"},{"lesson":"21-1","jp":"保険証","en":"insurance card","np":"बीमा कार्ड"},{"lesson":"21-1","jp":"（熱を）はかります","en":"take (temperature)","np":"तापमान मापन"},{"lesson":"21-1","jp":"順番","en":"sequential order","np":"क्रम"},{"lesson":"21-1","jp":"のど","en":"throat","np":"घाँटी"},{"lesson":"21-1","jp":"せき","en":"cough","np":"खोकी"},{"lesson":"21-1","jp":"くしゃみ","en":"sneeze","np":"हाछ्युँ"},{"lesson":"21-1","jp":"気持ちが悪い","en":"feel sick","np":"नराम्रो भावना हुनु"},{"lesson":"21-1","jp":"しょくよく","en":"appetite","np":"भोक अथवा खानाकोलागि रुचि"},{"lesson":"21-1","jp":"さむけがします","en":"feel a chill","np":"चिसो लाग्नु"},{"lesson":"21-1","jp":"はきけがします","en":"be nauseous","np":"वाक वाक लाग्नु"},{"lesson":"21-1","jp":"指","en":"finger, thumb, toe","np":"औंला"},{"lesson":"21-1","jp":"けがします","en":"be injured","np":"चोट लाग्नु"},{"lesson":"21-1","jp":"やけどします","en":"be burned","np":"पोल्‍नु"},{"lesson":"21-1","jp":"（頭を）打ちます","en":"hit (one's head)","np":"टाउको ठोकिनु"},{"lesson":"21-1","jp":"足","en":"leg, foot","np":"खुट्टा"},{"lesson":"21-1","jp":"はれます","en":"get swollen, swell","np":"घमाइलो हुनु"},{"lesson":"21-1","jp":"整形外科","en":"orthopedics","np":"आर्थोपेडिक सर्जरी"},{"lesson":"21-1","jp":"レントゲン","en":"X-ray","np":"एक्स-रे"},{"lesson":"21-1","jp":"体重","en":"weight","np":"शरीरकाे ताैल"},{"lesson":"21-1","jp":"（体重を）はかります","en":"weigh","np":"शरीरकाे ताैल नाप्‍नु"},{"lesson":"21-1","jp":"血圧","en":"blood pressure","np":"रक्तचाप"},{"lesson":"21-1","jp":"採血","en":"drawing blood","np":"रगत संकलन कक्ष"},{"lesson":"21-1","jp":"検査室","en":"examination room","np":"परीक्षण कक्ष"},{"lesson":"21-2","jp":"医者","en":"doctor","np":"डाक्टर"},{"lesson":"21-2","jp":"（のどを）みます","en":"examine (one's throat)","np":"घाँटी जाँच गर्नु"},{"lesson":"21-2","jp":"～分 ：３日分","en":"prescription amount : medicine for three days","np":"～मिनेट: 3 दिन"},{"lesson":"21-2","jp":"（薬を）出します","en":"prescribe, give (medicine)","np":"औषधि दिनु"},{"lesson":"21-2","jp":"外出します","en":"go out","np":"बाहिर निकाल्‍नु"},{"lesson":"21-2","jp":"下がります","en":"go down","np":"तल झार्नु"},{"lesson":"21-2","jp":"無理をします","en":"overdo it, try too hard","np":"क्षमता भन्‍दा बढि गर्नु"},{"lesson":"21-2","jp":"食べすぎ","en":"eat too much","np":"धेरै खानु"},{"lesson":"21-2","jp":"楽になります","en":"become comfortable","np":"सजिलो हुनेछ"},{"lesson":"21-2","jp":"入院します","en":"be admitted into the hospital, stay in hospital","np":"अस्पतालमा भर्ना हुनु"},{"lesson":"21-2","jp":"リハビリ","en":"rehabilitation","np":"पुनर्स्थापना"},{"lesson":"21-2","jp":"ずっと","en":"for a long time","np":"लगातार"},{"lesson":"21-2","jp":"運動","en":"exercise","np":"व्‍याम"},{"lesson":"21-2","jp":"右手","en":"right hand","np":"दाहिने हात"},{"lesson":"21-2","jp":"しばらく","en":"a while","np":"केहि समयको लागि"},{"lesson":"21-2","jp":"左手","en":"left hand","np":"बायाँ हात"},{"lesson":"21-2","jp":"食後","en":"after eating","np":"खाना पछि"},{"lesson":"21-2","jp":"診察","en":"examination","np":"परामर्श"},{"lesson":"21-2","jp":"（診察を）受けます","en":"get an examination","np":"परामर्श लिनु"},{"lesson":"21-2","jp":"検査","en":"examination, check up","np":"निरीक्षण"},{"lesson":"21-2","jp":"ひざ","en":"knee(s)","np":"घुँडा"},{"lesson":"21-2","jp":"退院します","en":"leave[be released from] the hospital","np":"अस्पताल बाट डिस्‍चार्ज हुनु"},{"lesson":"21-2","jp":"かゆい","en":"itchy","np":"चिलाउनु"},{"lesson":"21-2","jp":"ぬります","en":"apply","np":"रङ लगाउनु"},{"lesson":"21-2","jp":"具合","en":"condition","np":"स्थिति"},{"lesson":"21-2","jp":"胃","en":"stomach","np":"पेट"},{"lesson":"21-2","jp":"胃カメラ検査","en":"stomach examination with a camera","np":"पेटमा क्यामेराले परीक्षण गर्नु"},{"lesson":"21-3","jp":"以内","en":"within","np":"भित्र"},{"lesson":"21-3","jp":"退院","en":"leaving [being released from] the hospital","np":"डिस्चार्ज"},{"lesson":"21-3","jp":"～か月 ：３か月","en":"counter for months : three months","np":"～महिना : ३ महिना"},{"lesson":"21-3","jp":"錠剤","en":"tablet, pill","np":"ट्याब्लेट"},{"lesson":"21-3","jp":"かた","en":"shoulder(s)","np":"काँध"},{"lesson":"21-3","jp":"しっぷ","en":"cold patch","np":"टाँस्‍ने औषधि"},{"lesson":"21-3","jp":"はります","en":"apply (to the back)","np":"घोच्‍नु"},{"lesson":"21-3","jp":"体","en":"body","np":"शरीर"},{"lesson":"21-3","jp":"量","en":"amount, portion(s)","np":"मात्रा"},{"lesson":"21-3","jp":"足ります","en":"be enough","np":"पुग्छ"},{"lesson":"21-3","jp":"増えます","en":"increase","np":"बढ्छ"},{"lesson":"21-3","jp":"できるだけ","en":"if possible, as ～ as possible","np":"सम्भव भएकोसम्म"},{"lesson":"21-3","jp":"こな薬","en":"powdered medicine","np":"धुलो औषधि"},{"lesson":"21-3","jp":"カプセル","en":"capsule","np":"क्याप्सुल"},{"lesson":"21-3","jp":"かぜ薬","en":"cold medicine","np":"रुघा खोकिको औषधि"},{"lesson":"21-3","jp":"はな水","en":"runny nose","np":"नाकको पानी"}];
+const vocab = [
+  {
+    "lesson": "21-1",
+    "jp": "頭",
+    "en": "head",
+    "np": "टाउको"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "診察券",
+    "en": "patient ID card",
+    "np": "बिरामी दर्ता कार्ड"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "保険証",
+    "en": "insurance card",
+    "np": "बीमा कार्ड"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "（熱を）はかります",
+    "en": "take (temperature)",
+    "np": "तापमान मापन"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "じゅんばん",
+    "en": "sequential order",
+    "np": "क्रम"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "のど",
+    "en": "throat",
+    "np": "घाँटी"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "せき",
+    "en": "cough",
+    "np": "खोकी"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "くしゃみ",
+    "en": "sneeze",
+    "np": "हाछ्युँ"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "気持ちが悪い",
+    "en": "feel sick",
+    "np": "नराम्रो भावना हुनु"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "しょくよく",
+    "en": "appetite",
+    "np": "भोक अथवा खानाकोलागि रुचि"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "さむけがします",
+    "en": "feel a chill",
+    "np": "चिसो लाग्नु"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "はきけがします",
+    "en": "be nauseous",
+    "np": "वाक वाक लाग्नु"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "指",
+    "en": "finger, thumb, toe",
+    "np": "औंला"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "けがします",
+    "en": "be injured",
+    "np": "चोट लाग्नु"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "やけどします",
+    "en": "be burned",
+    "np": "पोल्‍नु"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "（頭を）打ちます",
+    "en": "hit (one's head)",
+    "np": "टाउको ठोकिनु"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "足",
+    "en": "leg, foot",
+    "np": "खुट्टा"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "はれます",
+    "en": "get swollen, swell",
+    "np": "घमाइलो हुनु"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "整形外科",
+    "en": "orthopedics",
+    "np": "आर्थोपेडिक सर्जरी"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "レントゲン",
+    "en": "X-ray",
+    "np": "एक्स-रे"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "体重",
+    "en": "weight",
+    "np": "शरीरकाे ताैल"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "（体重を）はかります",
+    "en": "weigh",
+    "np": "शरीरकाे ताैल नाप्‍नु"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "血圧",
+    "en": "blood pressure",
+    "np": "रक्तचाप"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "採血",
+    "en": "drawing blood",
+    "np": "रगत संकलन कक्ष"
+  },
+  {
+    "lesson": "21-1",
+    "jp": "検査室",
+    "en": "examination room",
+    "np": "परीक्षण कक्ष"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "医者",
+    "en": "doctor",
+    "np": "डाक्टर"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "（のどを）みます",
+    "en": "examine (one's throat)",
+    "np": "घाँटी जाँच गर्नु"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "～分：３日分",
+    "en": "prescription amount: medicine for three days",
+    "np": "～मिनेट: 3 दिन"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "（薬を）出します",
+    "en": "prescribe, give (medicine)",
+    "np": "औषधि दिनु"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "外出します",
+    "en": "go out",
+    "np": "बाहिर निकाल्‍नु"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "下がります",
+    "en": "go down",
+    "np": "तल झार्नु"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "無理をします",
+    "en": "overdo it, try too hard",
+    "np": "क्षमता भन्‍दा बढि गर्नु"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "食べすぎ",
+    "en": "eat too much",
+    "np": "धेरै खानु"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "楽になります",
+    "en": "become comfortable",
+    "np": "सजिलो हुनेछ"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "入院します",
+    "en": "be admitted into the hospital, stay in hospital",
+    "np": "अस्पतालमा भर्ना हुनु"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "リハビリ",
+    "en": "rehabilitation",
+    "np": "पुनर्स्थापना"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "ずっと",
+    "en": "for a long time",
+    "np": "लगातार"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "運動",
+    "en": "exercise",
+    "np": "व्‍याम"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "右手",
+    "en": "right hand",
+    "np": "दाहिने हात"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "しばらく",
+    "en": "a while",
+    "np": "केहि समयको लागि"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "左手",
+    "en": "left hand",
+    "np": "बायाँ हात"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "食後",
+    "en": "after eating",
+    "np": "खाना पछि"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "診察",
+    "en": "examination",
+    "np": "परामर्श"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "（診察を）受けます",
+    "en": "get an examination",
+    "np": "परामर्श लिनु"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "検査",
+    "en": "examination, check up",
+    "np": "निरीक्षण"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "ひざ",
+    "en": "knee(s)",
+    "np": "घुँडा"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "退院します",
+    "en": "leave[be released from] the hospital",
+    "np": "अस्पताल बाट डिस्‍चार्ज हुनु"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "かゆい",
+    "en": "itchy",
+    "np": "चिलाउनु"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "ぬります",
+    "en": "apply",
+    "np": "रङ लगाउनु"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "具合",
+    "en": "condition",
+    "np": "स्थिति"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "胃",
+    "en": "stomach",
+    "np": "पेट"
+  },
+  {
+    "lesson": "21-2",
+    "jp": "胃カメラ検査",
+    "en": "stomach examination with a camera",
+    "np": "पेटमा क्यामेराले परीक्षण गर्नु"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "以内",
+    "en": "within",
+    "np": "भित्र"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "退院",
+    "en": "leaving [being released from] the hospital",
+    "np": "डिस्चार्ज"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "～か月：３か月",
+    "en": "counter for months: three months",
+    "np": "～महिना: ३ महिना"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "錠剤",
+    "en": "tablet, pill",
+    "np": "ट्याब्लेट"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "かた",
+    "en": "shoulder(s)",
+    "np": "काँध"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "しっぷ",
+    "en": "cold patch",
+    "np": "टाँस्‍ने औषधि"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "はります",
+    "en": "apply (to the back)",
+    "np": "घोच्‍नु"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "体",
+    "en": "body",
+    "np": "शरीर"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "量",
+    "en": "amount, portion(s)",
+    "np": "मात्रा"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "足ります",
+    "en": "be enough",
+    "np": "पुग्छ"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "ふえます",
+    "en": "increase",
+    "np": "बढ्छ"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "できるだけ",
+    "en": "if possible, as ～ as possible",
+    "np": "सम्भव भएकोसम्म"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "こな薬",
+    "en": "powdered medicine",
+    "np": "धुलो औषधि"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "カプセル",
+    "en": "capsule",
+    "np": "क्याप्सुल"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "かぜ薬",
+    "en": "cold medicine",
+    "np": "रुघा खोकिको औषधि"
+  },
+  {
+    "lesson": "21-3",
+    "jp": "はな水",
+    "en": "runny nose",
+    "np": "नाकको पानी"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');

@@ -59,7 +59,314 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <footer>自分のペースで、何度でも練習できます。</footer>
 </main>
 <script>
-const vocab = [{"lesson":"17-1","jp":"くるくる","en":"round and round","np":"गोलगोल"},{"lesson":"17-1","jp":"回ります","en":"turn around","np":"घुम्नु"},{"lesson":"17-1","jp":"リンク","en":"skating rink","np":"स्केटिङ रिंक"},{"lesson":"17-1","jp":"せ","en":"height","np":"उचाइ"},{"lesson":"17-1","jp":"おいくつですか","en":"How old are you? 〈honorific〉","np":"कति वर्षको हुनुहुन्छ? (आदरार्थी)"},{"lesson":"17-1","jp":"年下","en":"younger person","np":"कान्छो व्यक्ति"},{"lesson":"17-1","jp":"今年","en":"this year","np":"यस वर्ष"},{"lesson":"17-1","jp":"毎年","en":"yearly, annually","np":"हरेक वर्ष"},{"lesson":"17-1","jp":"がっき","en":"instrument","np":"वाद्ययन्त्र"},{"lesson":"17-1","jp":"ギター","en":"guitar","np":"गिटार"},{"lesson":"17-1","jp":"ひきます","en":"play","np":"बजाउनु"},{"lesson":"17-1","jp":"ピアノ","en":"piano","np":"पियानो"},{"lesson":"17-1","jp":"習います","en":"learn","np":"सिक्नु"},{"lesson":"17-1","jp":"止まります","en":"stop","np":"रोकिनु"},{"lesson":"17-1","jp":"工場","en":"factory","np":"कारखाना"},{"lesson":"17-1","jp":"～台：1,000台","en":"～ unit(s): a thousand units","np":"~ वटा : 1,000 वटा"},{"lesson":"17-1","jp":"自動車","en":"automobile","np":"कार"},{"lesson":"17-1","jp":"きせつ","en":"season","np":"ऋतु"},{"lesson":"17-1","jp":"春","en":"spring","np":"वसन्त"},{"lesson":"17-1","jp":"せいかつ","en":"life","np":"जीवन"},{"lesson":"17-1","jp":"サーブ","en":"serve","np":"सर्भ गर्नु"},{"lesson":"17-1","jp":"うちます","en":"hit, strike","np":"हिर्काउनु"},{"lesson":"17-1","jp":"ならびます","en":"align, line up","np":"लाइन लाग्नु"},{"lesson":"17-2","jp":"ひっこし","en":"moving","np":"घर सर्ने"},{"lesson":"17-2","jp":"こっち","en":"this one","np":"यता"},{"lesson":"17-2","jp":"まわり","en":"surrounding","np":"वरिपरि"},{"lesson":"17-2","jp":"それに","en":"besides","np":"त्यसका साथै"},{"lesson":"17-2","jp":"かんきょう","en":"environment","np":"वातावरण"},{"lesson":"17-2","jp":"めんきょ","en":"license","np":"लाइसेन्स"},{"lesson":"17-2","jp":"（めんきょを） とります","en":"get (a license)","np":"लाइसेन्स लिने"},{"lesson":"17-2","jp":"（お）正月","en":"New Year’s","np":"नयाँ वर्ष"},{"lesson":"17-2","jp":"やめます","en":"quit","np":"छोड्नु"},{"lesson":"17-2","jp":"予約","en":"appointment, reservation","np":"आरक्षण"},{"lesson":"17-2","jp":"カード","en":"credit card, cash card","np":"कार्ड"},{"lesson":"17-2","jp":"しはらい","en":"payment","np":"भुक्तानी"},{"lesson":"17-2","jp":"現金","en":"cash","np":"नगद"},{"lesson":"17-2","jp":"ねつ","en":"fever","np":"ज्वरो"},{"lesson":"17-2","jp":"うわ","en":"Whoa!","np":"ए!"},{"lesson":"17-2","jp":"じきゅう","en":"hourly wage","np":"प्रति घण्टा ज्याला"},{"lesson":"17-2","jp":"チャンス","en":"chance","np":"अवसर"},{"lesson":"17-2","jp":"ボーナス","en":"bonus","np":"बोनस"},{"lesson":"17-2","jp":"試食","en":"food samples","np":"नमूना स्वाद"},{"lesson":"17-3","jp":"物価","en":"price","np":"मूल्यस्तर"},{"lesson":"17-3","jp":"マンゴー","en":"mango","np":"आँप"},{"lesson":"17-3","jp":"かわります","en":"There is a difference.","np":"फरक हुन्छ"},{"lesson":"17-3","jp":"～はい：１ぱい","en":"～ bowl(s) of, ～ cup(s) of : one bowl, one cup","np":"~ कटोरी/कप : १ कटोरी/कप"},{"lesson":"17-3","jp":"きおん","en":"temperature","np":"तापक्रम"},{"lesson":"17-3","jp":"とんこつ","en":"pork bone broth","np":"पोर्क बोन ब्रोथ"},{"lesson":"17-3","jp":"～てん：タイゾーてん","en":"exhibition: the Taizo Exhibition","np":"~ प्रदर्शनी : ताइजो प्रदर्शनी"},{"lesson":"17-3","jp":"ヒール","en":"heel","np":"हिल"},{"lesson":"17-3","jp":"うどん","en":"udon","np":"उडोन"}];
+const vocab = [
+  {
+    "lesson": "17-1",
+    "jp": "くるくる",
+    "en": "round and round",
+    "np": "गोलो गोलो घुम्‍नु"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "回ります",
+    "en": "turn around",
+    "np": "घुम्‍नु"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "リンク",
+    "en": "skating rink",
+    "np": "लिङ्क"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "せ",
+    "en": "height",
+    "np": "उचाइ"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "おいくつですか",
+    "en": "How old are you?〈honorific〉",
+    "np": "उमेर कति हो"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "年下",
+    "en": "younger person",
+    "np": "कान्छो"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "今年",
+    "en": "this year",
+    "np": "यो वर्ष"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "毎年",
+    "en": "yearly, annually",
+    "np": "प्रत्येक बर्ष"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "がっき",
+    "en": "instrument",
+    "np": "म्‍युजिकल उपकरण"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "ギター",
+    "en": "guitar",
+    "np": "गितार"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "ひきます",
+    "en": "play",
+    "np": "तन्‍नु , बजाऊनु"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "ピアノ",
+    "en": "piano",
+    "np": "पियानो"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "習います",
+    "en": "learn",
+    "np": "सिक्छु"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "止まります",
+    "en": "stop",
+    "np": "रोकिन्छ"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "工場",
+    "en": "factory",
+    "np": "कारखाना"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "～台：1,000台",
+    "en": "～ unit(s): a thousand units",
+    "np": "~ वटा: 1,000 वटा"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "自動車",
+    "en": "automobile",
+    "np": "मोटर ग़ाडि"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "きせつ",
+    "en": "season",
+    "np": "ऋतु"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "春",
+    "en": "spring",
+    "np": "वसन्त ऋतु"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "せいかつ",
+    "en": "life",
+    "np": "जीवन शैलि"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "サーブ",
+    "en": "serve",
+    "np": "सर्भिस गर्नु"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "うちます",
+    "en": "hit, strike",
+    "np": "हान्‍नु"
+  },
+  {
+    "lesson": "17-1",
+    "jp": "ならびます",
+    "en": "align, line up",
+    "np": "लाइनमा लगाउनु"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "ひっこし",
+    "en": "moving",
+    "np": "कोठा सर्नु"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "こっち",
+    "en": "this one",
+    "np": "यहाँ"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "まわり",
+    "en": "surrounding",
+    "np": "वरिपरि"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "それに",
+    "en": "besides",
+    "np": "त्येस माथि"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "かんきょう",
+    "en": "environment",
+    "np": "वातावरण"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "めんきょ",
+    "en": "license",
+    "np": "इजाजतपत्र"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "（めんきょを）とります",
+    "en": "get (a license)",
+    "np": "इजाजतपत्र लिन्‍छु"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "（お）正月",
+    "en": "New Year’s",
+    "np": "नयाँ वर्षको दिन"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "やめます",
+    "en": "quit",
+    "np": "छोड्नु"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "予約",
+    "en": "appointment, reservation",
+    "np": "आरक्षण"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "カード",
+    "en": "credit card, cash card",
+    "np": "कार्ड"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "しはらい",
+    "en": "payment",
+    "np": "भुक्तानी"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "現金",
+    "en": "cash",
+    "np": "नगद"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "ねつ",
+    "en": "fever",
+    "np": "ज्वरो"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "うわ",
+    "en": "Whoa!",
+    "np": "वाह"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "じきゅう",
+    "en": "hourly wage",
+    "np": "प्रति घण्टाको ज्याला"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "チャンス",
+    "en": "chance",
+    "np": "मौका"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "ボーナス",
+    "en": "bonus",
+    "np": "बोनस"
+  },
+  {
+    "lesson": "17-2",
+    "jp": "試食",
+    "en": "food samples",
+    "np": "स्वाद चाख्नु"
+  },
+  {
+    "lesson": "17-3",
+    "jp": "物価",
+    "en": "price",
+    "np": "मूल्य"
+  },
+  {
+    "lesson": "17-3",
+    "jp": "マンゴー",
+    "en": "mango",
+    "np": "आँप"
+  },
+  {
+    "lesson": "17-3",
+    "jp": "かわります",
+    "en": "There is a difference.",
+    "np": "परिवर्तन गर्छु"
+  },
+  {
+    "lesson": "17-3",
+    "jp": "～はい：１ぱい",
+    "en": "～ bowl(s) of, ～ cup(s) of: one bowl, one cup",
+    "np": "~ कप: 1 कप"
+  },
+  {
+    "lesson": "17-3",
+    "jp": "きおん",
+    "en": "temperature",
+    "np": "तापक्रम"
+  },
+  {
+    "lesson": "17-3",
+    "jp": "とんこつ",
+    "en": "pork bone broth",
+    "np": "सुँगुरको हड्डी"
+  },
+  {
+    "lesson": "17-3",
+    "jp": "～てん：タイゾーてん",
+    "en": "exhibition: the Taizo Exhibition",
+    "np": "~ पसल : Taizo पसल"
+  },
+  {
+    "lesson": "17-3",
+    "jp": "ヒール",
+    "en": "heel",
+    "np": "हिल भएको जुत्ता"
+  },
+  {
+    "lesson": "17-3",
+    "jp": "うどん",
+    "en": "udon",
+    "np": "उदोन नुडल्‍स"
+  }
+];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');
