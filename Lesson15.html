@@ -1,30 +1,120 @@
-<!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>にほんご語彙トレーニング Lesson 15</title>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 15 にほんご語彙トレーニング</title>
 <style>
-:root{--blue:#2457a6;--ink:#172033}*{box-sizing:border-box}body{margin:0;background:#f4f6fa;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif}
-main{max-width:680px;margin:auto;padding:18px}h1{font-size:1.45rem;margin:8px 0 4px}.sub{color:#5c6575;margin:0 0 18px}
-nav{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}button,select{font:inherit;border-radius:12px;padding:12px 14px;border:1px solid #c9d2e1;background:white;color:var(--ink)}button{cursor:pointer}button.primary{background:var(--blue);color:white;border-color:var(--blue)}button:disabled{opacity:.45}
-.panel{background:white;border:1px solid #dce2ec;border-radius:18px;padding:18px;margin:12px 0;box-shadow:0 3px 12px #15284a0a}.jp{font-size:2rem;font-weight:700;text-align:center;overflow-wrap:anywhere;padding:18px 0}.trans{font-size:1.15rem;text-align:center;line-height:1.6;overflow-wrap:anywhere}.muted{color:#697386;font-size:.92rem}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row button{flex:1}.choice{display:block;width:100%;text-align:left;margin:8px 0;min-height:52px}.count{text-align:center;font-weight:600;margin:8px}.hidden{display:none}.good{color:#187344}.bad{color:#a33a31}select{max-width:100%}footer{font-size:.82rem;color:#667085;margin-top:22px;line-height:1.5}
-</style></head><body><main>
-<h1>にほんご語彙トレーニング</h1><p class="sub">つなぐ日本語・Lesson 15｜自分のペースで練習しよう</p>
-<div class="row"><label for="unit">範囲：</label><select id="unit"><option value="all">Lesson 15 全体</option><option value="15-1">15-1</option><option value="15-2">15-2</option></select></div>
-<nav><button class="primary" id="cardsTab">語彙カード</button><button id="quizTab">4択クイズ</button></nav>
-<section id="cards"><div class="panel"><div class="count" id="cardCount"></div><div class="jp" id="cardJp"></div><div class="trans hidden" id="cardEn"></div><div class="trans hidden" id="cardNe"></div><p class="muted" style="text-align:center">日本語を見て、意味を思い出してから答えを見よう。</p><div class="row"><button id="reveal" class="primary">意味を見る</button><button id="nextCard">次のカード →</button></div></div></section>
-<section id="quiz" class="hidden"><div class="panel"><div class="count" id="quizCount"></div><div class="jp" id="quizJp"></div><p style="text-align:center">正しい英語の意味を選んでください。</p><div id="choices"></div><div id="feedback" aria-live="polite"></div><div class="row" style="margin-top:14px"><button id="nextQ" class="primary" disabled>次の問題 →</button></div></div><div class="count" id="score"></div><button id="restart" class="hidden">もう一度挑戦する</button></section>
-<footer>アップロードされた語彙リストの日本語・英語・ネパール語を使用しています。訳語は元ファイルの表記をそのまま表示します。</footer>
-</main><script>
-const vocab=[{"lesson": "15-1", "jp": "こわします", "en": "break", "ne": "बिगार्नु"}, {"lesson": "15-1", "jp": "けります", "en": "kick", "ne": "लातले हान्‍नु"}, {"lesson": "15-1", "jp": "あてます", "en": "hit", "ne": "अनुमान मिल्नु"}, {"lesson": "15-1", "jp": "もうしわけ ありません", "en": "I'm very sorry.", "ne": "माफ गर्नुहोस्"}, {"lesson": "15-1", "jp": "しょるい", "en": "documents", "ne": "कागजात"}, {"lesson": "15-1", "jp": "よごします", "en": "make ... dirty", "ne": "फोहोर बनाउनु"}, {"lesson": "15-1", "jp": "かびん", "en": "vase", "ne": "फूलदानि"}, {"lesson": "15-1", "jp": "わります", "en": "break", "ne": "विभाजन गर्नु"}, {"lesson": "15-1", "jp": "おとします", "en": "drop", "ne": "खसाल्‍नु"}, {"lesson": "15-1", "jp": "ぶつかります", "en": "hit", "ne": "ठोकिनु"}, {"lesson": "15-1", "jp": "たおします", "en": "knock over", "ne": "ढल्‍नु"}, {"lesson": "15-1", "jp": "気を つけます", "en": "take care", "ne": "ध्यान दिनु"}, {"lesson": "15-1", "jp": "山のぼり", "en": "mountain climbing", "ne": "पर्वताराेहण"}, {"lesson": "15-1", "jp": "サーフィン", "en": "surfing", "ne": "सर्फिङ"}, {"lesson": "15-1", "jp": "へいじつ", "en": "weekday", "ne": "हप्ताका बिदा बहेकका दिनहरू"}, {"lesson": "15-1", "jp": "すいて います", "en": "not crowded", "ne": "खाली छ अथवा कम छ"}, {"lesson": "15-2", "jp": "あのね", "en": "Well...", "ne": "तपाईलाई थाहा छ ....."}, {"lesson": "15-2", "jp": "え～", "en": "Oh gosh!", "ne": "ए~"}, {"lesson": "15-2", "jp": "しかたが ありません", "en": "There is nothing you can do.", "ne": "उपाय छैन"}, {"lesson": "15-2", "jp": "あぶない", "en": "dangerous", "ne": "खतरनाक"}];const unit=document.getElementById('unit');let pool=[],cardIndex=0,quizSet=[],qIndex=0,score=0,answered=false;
-function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
-function setPool(){pool=vocab.filter(x=>unit.value==='all'||x.lesson===unit.value);if(!pool.length)pool=[...vocab]}
-function showTab(tab){document.getElementById('cards').classList.toggle('hidden',tab!=='cards');document.getElementById('quiz').classList.toggle('hidden',tab!=='quiz');document.getElementById('cardsTab').classList.toggle('primary',tab==='cards');document.getElementById('quizTab').classList.toggle('primary',tab==='quiz')}
-function showCard(){cardIndex=(cardIndex+pool.length)%pool.length;const x=pool[cardIndex];document.getElementById('cardCount').textContent=`${cardIndex+1} / ${pool.length}（${x.lesson}）`;document.getElementById('cardJp').textContent=x.jp;document.getElementById('cardEn').textContent=x.en;document.getElementById('cardNe').textContent=x.ne;document.getElementById('cardEn').classList.add('hidden');document.getElementById('cardNe').classList.add('hidden');document.getElementById('reveal').textContent='意味を見る'}
-function startQuiz(){setPool();let distinct=[];let seen=new Set();for(const x of shuffle(pool)){if(!seen.has(x.en)){distinct.push(x);seen.add(x.en)}}quizSet=distinct.slice(0,Math.min(10,distinct.length));qIndex=0;score=0;showTab('quiz');document.getElementById('restart').classList.add('hidden');document.getElementById('nextQ').classList.remove('hidden');renderQ()}
-function renderQ(){answered=false;const x=quizSet[qIndex];document.getElementById('quizCount').textContent=`問題 ${qIndex+1} / ${quizSet.length}`;document.getElementById('quizJp').textContent=x.jp;document.getElementById('feedback').textContent='';document.getElementById('feedback').className='';document.getElementById('nextQ').disabled=true;document.getElementById('nextQ').textContent=qIndex===quizSet.length-1?'結果を見る':'次の問題 →';document.getElementById('score').textContent=`現在の正解数：${score}`;let opts=shuffle([x,...shuffle(pool.filter(y=>y.en!==x.en)).filter((y,i,a)=>a.findIndex(z=>z.en===y.en)===i).slice(0,3)]);const box=document.getElementById('choices');box.innerHTML='';opts.forEach(o=>{const b=document.createElement('button');b.className='choice';b.textContent=o.en;b.onclick=()=>answer(o,x);box.appendChild(b)})}
-function answer(o,x){if(answered)return;answered=true;document.querySelectorAll('.choice').forEach(b=>b.disabled=true);const f=document.getElementById('feedback');if(o.jp===x.jp){score++;f.textContent='正解です！';f.className='good'}else{f.textContent='もう一度覚えよう。正解：'+x.en+' ／ '+x.ne;f.className='bad'}document.getElementById('score').textContent=`現在の正解数：${score}`;document.getElementById('nextQ').disabled=false}
-unit.addEventListener('change',()=>{setPool();cardIndex=0;showCard();if(!document.getElementById('quiz').classList.contains('hidden'))startQuiz()});document.getElementById('cardsTab').onclick=()=>showTab('cards');document.getElementById('quizTab').onclick=startQuiz;
-document.getElementById('reveal').onclick=()=>{document.getElementById('cardEn').classList.remove('hidden');document.getElementById('cardNe').classList.remove('hidden');document.getElementById('reveal').textContent='意味を確認しました'};
-document.getElementById('nextCard').onclick=()=>{cardIndex++;showCard()};
-document.getElementById('nextQ').onclick=()=>{if(qIndex<quizSet.length-1){qIndex++;renderQ()}else{document.getElementById('quizCount').textContent='クイズ終了！';document.getElementById('quizJp').textContent=`${quizSet.length}問中 ${score}問 正解`;document.getElementById('choices').innerHTML='';document.getElementById('feedback').textContent=score===quizSet.length?'すばらしい！全問正解です。':'間違えた語彙をカードでもう一度確認しましょう。';document.getElementById('nextQ').classList.add('hidden');document.getElementById('restart').classList.remove('hidden')}};
-document.getElementById('restart').onclick=startQuiz;setPool();showCard();
-</script></body></html>
+:root{--blue:#2463a6;--pale:#eef6ff;--ink:#1f2937;--muted:#5b6573}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#1e5c9a,#75b7e8);color:white;padding:22px 16px;text-align:center}
+h1{font-size:1.5rem;margin:0 0 4px}header p{margin:0;font-size:.95rem}
+main{max-width:720px;margin:0 auto;padding:16px}
+nav{display:flex;gap:8px;margin:0 0 16px}button,select{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:12px 14px}
+nav button{flex:1;background:white;color:var(--blue);font-weight:700;box-shadow:0 2px 8px #0000000d}
+nav button.active{background:var(--blue);color:white}
+.panel{background:white;border-radius:18px;padding:18px;box-shadow:0 3px 14px #18324d12;margin-bottom:16px}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+select{background:#edf4fb;color:var(--ink);flex:1;min-width:130px}
+.small{font-size:.9rem;color:var(--muted)}
+.card{min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--pale);border-radius:16px;padding:22px;margin:12px 0}
+.word{font-size:clamp(1.8rem,7vw,2.6rem);font-weight:750;overflow-wrap:anywhere}
+.translation{font-size:1.15rem;margin-top:12px;overflow-wrap:anywhere}
+.reveal{background:var(--blue);color:white;width:100%;font-weight:700}
+.actions{display:flex;gap:8px;margin-top:10px}.actions button{flex:1;background:#e7eef6;color:#23486f;font-weight:700}
+.quiz-question{font-size:1.65rem;font-weight:800;text-align:center;padding:18px 0;color:#2459a6}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choices button{background:#edf4fb;color:#1e3c5a;min-height:64px;text-align:left;overflow-wrap:anywhere}
+.choices button:disabled{cursor:default}
+.choices button.correct{background:#d8f4df;color:#14532d}
+.choices button.wrong{background:#ffe0e0;color:#8b1e1e}
+.feedback{min-height:30px;font-weight:800;font-size:1.12rem;margin:12px 0;text-align:center;padding:8px;border-radius:10px}
+.primary{background:var(--blue);color:white;font-weight:700;width:100%}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
+@media(max-width:420px){main{padding:12px}.panel{padding:14px}.choices{grid-template-columns:1fr}.card{min-height:220px}}
+.home-link{display:inline-block;margin:0 0 12px;padding:8px 14px;border:1px solid #ffffffaa;border-radius:999px;color:white;text-decoration:none;font-weight:700;font-size:.9rem}.home-link:hover{background:#ffffff22}
+</style>
+</head>
+<body>
+<header><a class="home-link" href="https://porquejp-png.github.io/nihongo-vocab-practice/">⌂ ホームへ戻る</a><h1>にほんご語彙トレーニング</h1><p>Lesson 15｜語彙カード ＋ 4択クイズ</p></header>
+<main>
+<nav><button id="cardsTab" class="active" onclick="showMode('cards')">語彙カード</button><button id="quizTab" onclick="showMode('quiz')">4択クイズ</button></nav>
+<section id="cardsPanel" class="panel">
+<h2>① 語彙カード</h2>
+<p class="small">日本語を見て意味を考えましょう。「意味を見る」を押すと、英語・ネパール語が表示されます。</p>
+<div class="controls"><label for="unitSelect">範囲：</label><select id="unitSelect" onchange="changeUnit()"><option value="all">Lesson 15 全体</option><option value="15-1">Lesson 15-1</option><option value="15-2">Lesson 15-2</option></select><span id="cardCount" class="small"></span></div>
+<div class="card"><div id="jpWord" class="word"></div><div id="translations" class="hidden"><div id="enWord" class="translation"></div><div id="npWord" class="translation"></div></div></div>
+<button id="revealBtn" class="reveal" onclick="reveal()">意味を見る</button>
+<div class="actions"><button onclick="moveCard(-1)">← 前へ</button><button onclick="moveCard(1)">次へ →</button></div>
+</section>
+<section id="quizPanel" class="panel hidden">
+<h2>② 4択クイズ</h2>
+<p class="small">日本語の語彙に合う英語の意味を選びましょう。10問です。</p>
+<div class="controls"><label for="quizUnitSelect">出題範囲：</label><select id="quizUnitSelect" onchange="changeQuizUnit()"><option value="all">Lesson 15 全体</option><option value="15-1">Lesson 15-1</option><option value="15-2">Lesson 15-2</option></select><span id="quizProgress" class="small">出題範囲：Lesson 15 全体（クイズを始めてください）</span><span id="scoreNow" class="small"></span></div>
+<div id="quizStart"><button class="primary" onclick="startQuiz()">クイズを始める</button></div>
+<div id="quizPlay" class="hidden"><div id="quizQuestion" class="quiz-question"></div><div id="quizChoices" class="choices"></div><div id="quizFeedback" class="feedback" aria-live="polite"></div><button id="nextQuestion" class="primary hidden" onclick="nextQuiz()">次の問題へ</button></div>
+<div id="quizResult" class="hidden"><h3 id="resultTitle"></h3><p id="resultText"></p><button class="primary" onclick="startQuiz()">もう一度チャレンジ</button></div>
+</section>
+<footer>自分のペースで、何度でも練習できます。</footer>
+</main>
+<script>
+const vocab = [{"lesson":"15-1","jp":"こわします","en":"break","np":"बिगार्नु"},{"lesson":"15-1","jp":"けります","en":"kick","np":"लातले हान्‍नु"},{"lesson":"15-1","jp":"あてます","en":"hit","np":"अनुमान मिल्नु"},{"lesson":"15-1","jp":"もうしわけ ありません","en":"I'm very sorry.","np":"माफ गर्नुहोस्"},{"lesson":"15-1","jp":"しょるい","en":"documents","np":"कागजात"},{"lesson":"15-1","jp":"よごします","en":"make ... dirty","np":"फोहोर बनाउनु"},{"lesson":"15-1","jp":"かびん","en":"vase","np":"फूलदानि"},{"lesson":"15-1","jp":"わります","en":"break","np":"विभाजन गर्नु"},{"lesson":"15-1","jp":"おとします","en":"drop","np":"खसाल्‍नु"},{"lesson":"15-1","jp":"ぶつかります","en":"hit","np":"ठोकिनु"},{"lesson":"15-1","jp":"たおします","en":"knock over","np":"ढल्‍नु"},{"lesson":"15-1","jp":"気を つけます","en":"take care","np":"ध्यान दिनु"},{"lesson":"15-1","jp":"山のぼり","en":"mountain climbing","np":"पर्वताराेहण"},{"lesson":"15-1","jp":"サーフィン","en":"surfing","np":"सर्फिङ"},{"lesson":"15-1","jp":"へいじつ","en":"weekday","np":"हप्ताका बिदा बहेकका दिनहरू"},{"lesson":"15-1","jp":"すいて います","en":"not crowded","np":"खाली छ अथवा कम छ"},{"lesson":"15-2","jp":"あのね","en":"Well...","np":"तपाईलाई थाहा छ ....."},{"lesson":"15-2","jp":"え～","en":"Oh gosh!","np":"ए~"},{"lesson":"15-2","jp":"しかたが ありません","en":"There is nothing you can do.","np":"उपाय छैन"},{"lesson":"15-2","jp":"あぶない","en":"dangerous","np":"खतरनाक"}];
+let unit='all', filtered=[], cardIndex=0, revealed=false;
+function showMode(mode){
+ document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');
+ document.getElementById('quizPanel').classList.toggle('hidden',mode!=='quiz');
+ document.getElementById('cardsTab').classList.toggle('active',mode==='cards');
+ document.getElementById('quizTab').classList.toggle('active',mode==='quiz');
+}
+function changeUnit(){unit=document.getElementById('unitSelect').value;filtered=unit==='all'?vocab:vocab.filter(v=>v.lesson===unit);cardIndex=0;renderCard();}
+function renderCard(){
+ if(!filtered.length)filtered=vocab;
+ const v=filtered[cardIndex];revealed=false;
+ document.getElementById('jpWord').textContent=v.jp;
+ document.getElementById('enWord').textContent='English: '+v.en;
+ document.getElementById('npWord').textContent='नेपाली: '+v.np;
+ document.getElementById('translations').classList.add('hidden');
+ document.getElementById('revealBtn').textContent='意味を見る';
+ document.getElementById('cardCount').textContent=(cardIndex+1)+' / '+filtered.length+'語';
+}
+function reveal(){revealed=!revealed;document.getElementById('translations').classList.toggle('hidden',!revealed);document.getElementById('revealBtn').textContent=revealed?'意味をかくす':'意味を見る';}
+function moveCard(d){cardIndex=(cardIndex+d+filtered.length)%filtered.length;renderCard();}
+let questions=[], qIndex=0, score=0, answered=false, quizUnit='all';
+function quizUnitLabel(){return quizUnit==='all'?'Lesson 15 全体':'Lesson '+quizUnit;}
+function changeQuizUnit(){
+ quizUnit=document.getElementById('quizUnitSelect').value;
+ document.getElementById('quizPlay').classList.add('hidden');
+ document.getElementById('quizResult').classList.add('hidden');
+ document.getElementById('quizStart').classList.remove('hidden');
+ document.getElementById('quizProgress').textContent='出題範囲：'+quizUnitLabel()+'（クイズを始めてください）';
+ document.getElementById('scoreNow').textContent='';
+}
+function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function startQuiz(){
+ const selectedPool=quizUnit==='all'?vocab:vocab.filter(v=>v.lesson===quizUnit);
+ const pool=shuffle([...selectedPool]);questions=pool.slice(0,Math.min(10,pool.length));qIndex=0;score=0;answered=false;
+ document.getElementById('quizStart').classList.add('hidden');document.getElementById('quizResult').classList.add('hidden');document.getElementById('quizPlay').classList.remove('hidden');renderQuiz();
+}
+function renderQuiz(){
+ answered=false;const v=questions[qIndex];document.getElementById('quizProgress').textContent='出題範囲：'+quizUnitLabel()+'｜問題 '+(qIndex+1)+' / '+questions.length;document.getElementById('scoreNow').textContent='正解 '+score+' 問';
+ document.getElementById('quizQuestion').textContent=v.jp;
+ document.getElementById('quizFeedback').textContent='';document.getElementById('nextQuestion').classList.add('hidden');
+ const selectedPool=quizUnit==='all'?vocab:vocab.filter(x=>x.lesson===quizUnit);const unique=[];const seen=new Set([v.en]);for(const x of shuffle(selectedPool)){if(!seen.has(x.en)){seen.add(x.en);unique.push(x);}}const distractors=unique.slice(0,3);const opts=shuffle([v,...distractors]);
+ const box=document.getElementById('quizChoices');box.innerHTML='';
+ opts.forEach(opt=>{const b=document.createElement('button');b.textContent=opt.en;b.onclick=()=>answerQuiz(b,opt,v);box.appendChild(b);});
+}
+function answerQuiz(btn,opt,v){
+ if(answered)return;answered=true;const buttons=[...document.getElementById('quizChoices').children];buttons.forEach(b=>b.disabled=true);
+ if(opt===v){score++;btn.classList.add('correct');document.getElementById('quizFeedback').textContent='○ 正解です！';document.getElementById('quizFeedback').style.color='#16803c';document.getElementById('quizFeedback').style.background='#e3f8e8';}
+ else{btn.classList.add('wrong');buttons.forEach(b=>{if(b.textContent===v.en)b.classList.add('correct');});document.getElementById('quizFeedback').textContent='× ちがいます。正解は：'+v.en;document.getElementById('quizFeedback').style.color='#b42318';document.getElementById('quizFeedback').style.background='#fff0ef';}
+ document.getElementById('scoreNow').textContent='正解 '+score+' 問';document.getElementById('nextQuestion').textContent=qIndex===questions.length-1?'結果を見る':'次の問題へ';document.getElementById('nextQuestion').classList.remove('hidden');
+}
+function nextQuiz(){
+ if(qIndex<questions.length-1){qIndex++;renderQuiz();}
+ else{document.getElementById('quizPlay').classList.add('hidden');document.getElementById('quizResult').classList.remove('hidden');document.getElementById('resultTitle').textContent='おつかれさまでした！';document.getElementById('resultText').textContent=questions.length+'問中 '+score+' 問正解です。間違えた語彙は、語彙カードでもう一度確認しましょう。';document.getElementById('quizProgress').textContent='出題範囲：'+quizUnitLabel()+'｜クイズ終了';}
+}
+changeUnit();
+</script>
+</body>
+</html>
