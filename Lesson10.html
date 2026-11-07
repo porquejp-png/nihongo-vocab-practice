@@ -33,10 +33,11 @@ select{background:#edf4fb;color:var(--ink);flex:1;min-width:130px}
 .hidden{display:none!important}
 footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 @media(max-width:420px){main{padding:12px}.panel{padding:14px}.choices{grid-template-columns:1fr}.card{min-height:220px}}
+.home-link{display:inline-block;margin:0 0 12px;padding:8px 14px;border:1px solid #ffffffaa;border-radius:999px;color:white;text-decoration:none;font-weight:700;font-size:.9rem}.home-link:hover{background:#ffffff22}
 </style>
 </head>
 <body>
-<header><h1>にほんご語彙トレーニング</h1><p>Lesson 10｜語彙カード ＋ 4択クイズ</p></header>
+<header><a class="home-link" href="https://porquejp-png.github.io/nihongo-vocab-practice/">⌂ ホームへ戻る</a><h1>にほんご語彙トレーニング</h1><p>Lesson 10｜語彙カード ＋ 4択クイズ</p></header>
 <main>
 <nav><button id="cardsTab" class="active" onclick="showMode('cards')">語彙カード</button><button id="quizTab" onclick="showMode('quiz')">4択クイズ</button></nav>
 <section id="cardsPanel" class="panel">
@@ -50,7 +51,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <section id="quizPanel" class="panel hidden">
 <h2>② 4択クイズ</h2>
 <p class="small">日本語の語彙に合う英語の意味を選びましょう。10問です。</p>
-<div class="controls"><span id="quizProgress" class="small">準備OK</span><span id="scoreNow" class="small"></span></div>
+<div class="controls"><label for="quizUnitSelect">出題範囲：</label><select id="quizUnitSelect" onchange="changeQuizUnit()"><option value="all">Lesson 10 全体</option><option value="10-1">Lesson 10-1</option><option value="10-2">Lesson 10-2</option><option value="10-3">Lesson 10-3</option></select><span id="quizProgress" class="small">出題範囲：Lesson 10 全体（クイズを始めてください）</span><span id="scoreNow" class="small"></span></div>
 <div id="quizStart"><button class="primary" onclick="startQuiz()">クイズを始める</button></div>
 <div id="quizPlay" class="hidden"><div id="quizQuestion" class="quiz-question"></div><div id="quizChoices" class="choices"></div><div id="quizFeedback" class="feedback" aria-live="polite"></div><button id="nextQuestion" class="primary hidden" onclick="nextQuiz()">次の問題へ</button></div>
 <div id="quizResult" class="hidden"><h3 id="resultTitle"></h3><p id="resultText"></p><button class="primary" onclick="startQuiz()">もう一度チャレンジ</button></div>
@@ -79,17 +80,27 @@ function renderCard(){
 }
 function reveal(){revealed=!revealed;document.getElementById('translations').classList.toggle('hidden',!revealed);document.getElementById('revealBtn').textContent=revealed?'意味をかくす':'意味を見る';}
 function moveCard(d){cardIndex=(cardIndex+d+filtered.length)%filtered.length;renderCard();}
-let questions=[], qIndex=0, score=0, answered=false;
+let questions=[], qIndex=0, score=0, answered=false, quizUnit='all';
+function quizUnitLabel(){return quizUnit==='all'?'Lesson 10 全体':'Lesson '+quizUnit;}
+function changeQuizUnit(){
+ quizUnit=document.getElementById('quizUnitSelect').value;
+ document.getElementById('quizPlay').classList.add('hidden');
+ document.getElementById('quizResult').classList.add('hidden');
+ document.getElementById('quizStart').classList.remove('hidden');
+ document.getElementById('quizProgress').textContent='出題範囲：'+quizUnitLabel()+'（クイズを始めてください）';
+ document.getElementById('scoreNow').textContent='';
+}
 function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function startQuiz(){
- const pool=shuffle([...vocab]);questions=pool.slice(0,Math.min(10,pool.length));qIndex=0;score=0;answered=false;
+ const selectedPool=quizUnit==='all'?vocab:vocab.filter(v=>v.lesson===quizUnit);
+ const pool=shuffle([...selectedPool]);questions=pool.slice(0,Math.min(10,pool.length));qIndex=0;score=0;answered=false;
  document.getElementById('quizStart').classList.add('hidden');document.getElementById('quizResult').classList.add('hidden');document.getElementById('quizPlay').classList.remove('hidden');renderQuiz();
 }
 function renderQuiz(){
- answered=false;const v=questions[qIndex];document.getElementById('quizProgress').textContent='問題 '+(qIndex+1)+' / '+questions.length;document.getElementById('scoreNow').textContent='正解 '+score+' 問';
+ answered=false;const v=questions[qIndex];document.getElementById('quizProgress').textContent='出題範囲：'+quizUnitLabel()+'｜問題 '+(qIndex+1)+' / '+questions.length;document.getElementById('scoreNow').textContent='正解 '+score+' 問';
  document.getElementById('quizQuestion').textContent=v.jp;
  document.getElementById('quizFeedback').textContent='';document.getElementById('nextQuestion').classList.add('hidden');
- const distractors=shuffle(vocab.filter(x=>x.en!==v.en)).slice(0,3);const opts=shuffle([v,...distractors]);
+ const selectedPool=quizUnit==='all'?vocab:vocab.filter(x=>x.lesson===quizUnit);const distractors=shuffle(selectedPool.filter(x=>x.en!==v.en)).slice(0,3);const opts=shuffle([v,...distractors]);
  const box=document.getElementById('quizChoices');box.innerHTML='';
  opts.forEach(opt=>{const b=document.createElement('button');b.textContent=opt.en;b.onclick=()=>answerQuiz(b,opt,v);box.appendChild(b);});
 }
@@ -101,7 +112,7 @@ function answerQuiz(btn,opt,v){
 }
 function nextQuiz(){
  if(qIndex<questions.length-1){qIndex++;renderQuiz();}
- else{document.getElementById('quizPlay').classList.add('hidden');document.getElementById('quizResult').classList.remove('hidden');document.getElementById('resultTitle').textContent='おつかれさまでした！';document.getElementById('resultText').textContent='10問中 '+score+' 問正解です。間違えた語彙は、語彙カードでもう一度確認しましょう。';document.getElementById('quizProgress').textContent='クイズ終了';}
+ else{document.getElementById('quizPlay').classList.add('hidden');document.getElementById('quizResult').classList.remove('hidden');document.getElementById('resultTitle').textContent='おつかれさまでした！';document.getElementById('resultText').textContent=questions.length+'問中 '+score+' 問正解です。間違えた語彙は、語彙カードでもう一度確認しましょう。';document.getElementById('quizProgress').textContent='出題範囲：'+quizUnitLabel()+'｜クイズ終了';}
 }
 changeUnit();
 </script>

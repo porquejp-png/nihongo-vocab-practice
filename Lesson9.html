@@ -7,7 +7,7 @@
 <style>
 :root{--blue:#2463a6;--pale:#eef6ff;--ink:#1f2937;--muted:#5b6573}
 *{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.55}
-header{background:linear-gradient(135deg,#1e5c9a,#75b7e8);color:white;padding:22px 16px;text-align:center}
+header{background:linear-gradient(135deg,#1e5c9a,#75b7e8);color:white;padding:18px 16px;text-align:center}.home-link{display:inline-block;margin:0 0 12px;padding:8px 14px;border:1px solid #ffffffaa;border-radius:999px;color:white;text-decoration:none;font-weight:700;font-size:.9rem}.home-link:hover{background:#ffffff22}
 h1{font-size:1.5rem;margin:0 0 4px}header p{margin:0;font-size:.95rem}
 main{max-width:720px;margin:0 auto;padding:16px}
 nav{display:flex;gap:8px;margin:0 0 16px}button,select{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:12px 14px}
@@ -36,7 +36,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 </style>
 </head>
 <body>
-<header><h1>にほんご語彙トレーニング</h1><p>Lesson 9｜語彙カード ＋ 4択クイズ</p></header>
+<header><a class="home-link" href="https://porquejp-png.github.io/nihongo-vocab-practice/">⌂ ホームへ戻る</a><h1>にほんご語彙トレーニング</h1><p>Lesson 9｜語彙カード ＋ 4択クイズ</p></header>
 <main>
 <nav><button id="cardsTab" class="active" onclick="showMode('cards')">語彙カード</button><button id="quizTab" onclick="showMode('quiz')">4択クイズ</button></nav>
 <section id="cardsPanel" class="panel">
@@ -50,7 +50,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <section id="quizPanel" class="panel hidden">
 <h2>② 4択クイズ</h2>
 <p class="small">日本語の語彙に合う英語の意味を選びましょう。10問です。</p>
-<div class="controls"><span id="quizProgress" class="small">準備OK</span><span id="scoreNow" class="small"></span></div>
+<div class="controls"><label for="quizUnitSelect">出題範囲：</label><select id="quizUnitSelect" onchange="changeQuizUnit()"><option value="all">Lesson 9 全体</option><option value="9-1">Lesson 9-1</option><option value="9-2">Lesson 9-2</option><option value="9-3">Lesson 9-3</option></select><span id="quizProgress" class="small">出題範囲：Lesson 9 全体（クイズを始めてください）</span><span id="scoreNow" class="small"></span></div>
 <div id="quizStart"><button class="primary" onclick="startQuiz()">クイズを始める</button></div>
 <div id="quizPlay" class="hidden"><div id="quizQuestion" class="quiz-question"></div><div id="quizChoices" class="choices"></div><div id="quizFeedback" class="feedback" aria-live="polite"></div><button id="nextQuestion" class="primary hidden" onclick="nextQuiz()">次の問題へ</button></div>
 <div id="quizResult" class="hidden"><h3 id="resultTitle"></h3><p id="resultText"></p><button class="primary" onclick="startQuiz()">もう一度チャレンジ</button></div>
@@ -60,6 +60,16 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 <script>
 const vocab = [{"lesson": "9-1", "jp": "すてます", "en": "throw away", "np": "फाल्नु"}, {"lesson": "9-1", "jp": "プラスチック", "en": "plastic", "np": "प्लास्टिक"}, {"lesson": "9-1", "jp": "生ごみ", "en": "raw garbage", "np": "कुहिने फोहोर"}, {"lesson": "9-1", "jp": "ごみ", "en": "garbage, trash", "np": "फोहोर"}, {"lesson": "9-1", "jp": "さわります", "en": "touch", "np": "छुनु"}, {"lesson": "9-1", "jp": "入ります", "en": "enter, go into", "np": "छिर्नु"}, {"lesson": "9-1", "jp": "出ます", "en": "go out", "np": "निस्कनु"}, {"lesson": "9-1", "jp": "ドア", "en": "door", "np": "ढोका"}, {"lesson": "9-1", "jp": "じしょ", "en": "dictionary", "np": "शब्दकोश"}, {"lesson": "9-1", "jp": "わすれます", "en": "forget", "np": "बिर्सनु"}, {"lesson": "9-1", "jp": "ロッカー", "en": "locker", "np": "लकर"}, {"lesson": "9-1", "jp": "かぎ", "en": "key", "np": "चाबी"}, {"lesson": "9-1", "jp": "なくします", "en": "lose", "np": "हराउनु"}, {"lesson": "9-1", "jp": "おなじ", "en": "same", "np": "एउटै"}, {"lesson": "9-1", "jp": "まちがえます", "en": "make a mistake", "np": "गल्ती गर्नु"}, {"lesson": "9-1", "jp": "おきます", "en": "put, place", "np": "उठ्‍नु"}, {"lesson": "9-1", "jp": "おぼえます", "en": "remember, memorize", "np": "सम्झनु"}, {"lesson": "9-1", "jp": "くすり", "en": "medicine", "np": "औषधी"}, {"lesson": "9-1", "jp": "おおや", "en": "landlord", "np": "घरजग्गा मालिक"}, {"lesson": "9-1", "jp": "げつまつ", "en": "end of the month", "np": "महिनाको अन्त्य"}, {"lesson": "9-1", "jp": "やちん", "en": "rent", "np": "भाडा"}, {"lesson": "9-1", "jp": "はらいます", "en": "pay", "np": "भुक्तान गर्नु"}, {"lesson": "9-1", "jp": "かちょう", "en": "department chief, section head", "np": "प्रबन्धक"}, {"lesson": "9-1", "jp": "しゃいん", "en": "company employee", "np": "कंपनी कर्मचारी"}, {"lesson": "9-1", "jp": "レポート", "en": "report", "np": "रिपोर्ट"}, {"lesson": "9-1", "jp": "あと～", "en": "more, left", "np": "पछि ~"}, {"lesson": "9-1", "jp": "ツアー", "en": "tour", "np": "भ्रमणहरू"}, {"lesson": "9-1", "jp": "せんたく", "en": "laundry", "np": "लुगा धुनु"}, {"lesson": "9-1", "jp": "こえ", "en": "voice", "np": "आवाज"}, {"lesson": "9-2", "jp": "つかいます", "en": "use", "np": "प्रयोग गर्नु"}, {"lesson": "9-2", "jp": "きょうかしょ", "en": "textbook", "np": "पाठ्यपुस्तक"}, {"lesson": "9-2", "jp": "入れます", "en": "put in", "np": "प्रवेश गर्न सक्नु"}, {"lesson": "9-2", "jp": "ボールペン", "en": "ball-point pen", "np": "बलपेन"}, {"lesson": "9-2", "jp": "えんぴつ", "en": "pencil", "np": "पेन्सिल"}, {"lesson": "9-2", "jp": "たばこ", "en": "cigarette", "np": "चुरोट"}, {"lesson": "9-2", "jp": "たばこを すいます", "en": "smoke", "np": "चुरोट पिउनु"}, {"lesson": "9-2", "jp": "とめます", "en": "stop", "np": "रोक्नु"}, {"lesson": "9-2", "jp": "わたります", "en": "cross", "np": "तर्नु"}, {"lesson": "9-2", "jp": "うんてんします", "en": "drive", "np": "ड्राइभ गर्नु"}, {"lesson": "9-2", "jp": "かんごし", "en": "nurse", "np": "नर्स"}, {"lesson": "9-2", "jp": "はしります", "en": "run", "np": "दौडनु"}, {"lesson": "9-2", "jp": "電話", "en": "telephone, phone", "np": "फोन"}, {"lesson": "9-2", "jp": "コピーします", "en": "copy", "np": "फोटो कपि गर्नु"}, {"lesson": "9-2", "jp": "住所", "en": "address", "np": "ठेगाना"}, {"lesson": "9-2", "jp": "生年月日", "en": "date of birth", "np": "जन्म मिति"}, {"lesson": "9-2", "jp": "電話番号", "en": "phone number", "np": "टेलिफोन नम्बर"}, {"lesson": "9-2", "jp": "ひらがな", "en": "hiragana", "np": "हिरागाना"}, {"lesson": "9-3", "jp": "時間です", "en": "Time’s up.", "np": "समय भयो"}, {"lesson": "9-3", "jp": "あつめます", "en": "collect, take", "np": "जम्मा गर्नु"}, {"lesson": "9-3", "jp": "だめ（な）", "en": "can’t, not allowed", "np": "हुदैन"}, {"lesson": "9-3", "jp": "かたづけます", "en": "pick up, clean up", "np": "मिलाएर राख़्नु"}, {"lesson": "9-3", "jp": "すぐ", "en": "right away, quickly, be there soon", "np": "छि्ट्टै"}, {"lesson": "9-3", "jp": "はじめます", "en": "start", "np": "सुरु गर्नु"}, {"lesson": "9-3", "jp": "やめます", "en": "stop, quit", "np": "रोक्नु"}, {"lesson": "9-3", "jp": "おそい", "en": "late, take too long", "np": "ढिलो"}, {"lesson": "9-3", "jp": "はじまります", "en": "start", "np": "सुरु हुनु"}, {"lesson": "9-3", "jp": "だいじょうぶ（な）", "en": "okay, no problem", "np": "ठिक"}, {"lesson": "9-3", "jp": "どうしよう", "en": "What should I do?", "np": "के गरौ"}, {"lesson": "9-3", "jp": "まにあいます", "en": "be on time", "np": "समयमा हुनु"}];
 let unit='all', filtered=[], cardIndex=0, revealed=false;
+let quizUnit='all';
+function quizUnitLabel(){return quizUnit==='all'?'Lesson 9 全体':'Lesson '+quizUnit;}
+function changeQuizUnit(){
+ quizUnit=document.getElementById('quizUnitSelect').value;
+ document.getElementById('quizPlay').classList.add('hidden');
+ document.getElementById('quizResult').classList.add('hidden');
+ document.getElementById('quizStart').classList.remove('hidden');
+ document.getElementById('quizProgress').textContent='出題範囲：'+quizUnitLabel()+'（クイズを始めてください）';
+ document.getElementById('scoreNow').textContent='';
+}
 function showMode(mode){
  document.getElementById('cardsPanel').classList.toggle('hidden',mode!=='cards');
  document.getElementById('quizPanel').classList.toggle('hidden',mode!=='quiz');
@@ -82,14 +92,15 @@ function moveCard(d){cardIndex=(cardIndex+d+filtered.length)%filtered.length;ren
 let questions=[], qIndex=0, score=0, answered=false;
 function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function startQuiz(){
- const pool=shuffle([...vocab]);questions=pool.slice(0,Math.min(10,pool.length));qIndex=0;score=0;answered=false;
+ const selectedPool=quizUnit==='all'?vocab:vocab.filter(v=>v.lesson===quizUnit);
+ const pool=shuffle([...selectedPool]);questions=pool.slice(0,Math.min(10,pool.length));qIndex=0;score=0;answered=false;
  document.getElementById('quizStart').classList.add('hidden');document.getElementById('quizResult').classList.add('hidden');document.getElementById('quizPlay').classList.remove('hidden');renderQuiz();
 }
 function renderQuiz(){
- answered=false;const v=questions[qIndex];document.getElementById('quizProgress').textContent='問題 '+(qIndex+1)+' / '+questions.length;document.getElementById('scoreNow').textContent='正解 '+score+' 問';
+ answered=false;const v=questions[qIndex];document.getElementById('quizProgress').textContent='出題範囲：'+quizUnitLabel()+'｜問題 '+(qIndex+1)+' / '+questions.length;document.getElementById('scoreNow').textContent='正解 '+score+' 問';
  document.getElementById('quizQuestion').textContent=v.jp;
  document.getElementById('quizFeedback').textContent='';document.getElementById('nextQuestion').classList.add('hidden');
- const distractors=shuffle(vocab.filter(x=>x.en!==v.en)).slice(0,3);const opts=shuffle([v,...distractors]);
+ const selectedPool=quizUnit==='all'?vocab:vocab.filter(x=>x.lesson===quizUnit);const distractors=shuffle(selectedPool.filter(x=>x.en!==v.en)).slice(0,3);const opts=shuffle([v,...distractors]);
  const box=document.getElementById('quizChoices');box.innerHTML='';
  opts.forEach(opt=>{const b=document.createElement('button');b.textContent=opt.en;b.onclick=()=>answerQuiz(b,opt,v);box.appendChild(b);});
 }
@@ -101,7 +112,7 @@ function answerQuiz(btn,opt,v){
 }
 function nextQuiz(){
  if(qIndex<questions.length-1){qIndex++;renderQuiz();}
- else{document.getElementById('quizPlay').classList.add('hidden');document.getElementById('quizResult').classList.remove('hidden');document.getElementById('resultTitle').textContent='おつかれさまでした！';document.getElementById('resultText').textContent='10問中 '+score+' 問正解です。間違えた語彙は、語彙カードでもう一度確認しましょう。';document.getElementById('quizProgress').textContent='クイズ終了';}
+ else{document.getElementById('quizPlay').classList.add('hidden');document.getElementById('quizResult').classList.remove('hidden');document.getElementById('resultTitle').textContent='おつかれさまでした！';document.getElementById('resultText').textContent=questions.length+'問中 '+score+' 問正解です。間違えた語彙は、語彙カードでもう一度確認しましょう。';document.getElementById('quizProgress').textContent='出題範囲：'+quizUnitLabel()+'｜クイズ終了';}
 }
 changeUnit();
 </script>
