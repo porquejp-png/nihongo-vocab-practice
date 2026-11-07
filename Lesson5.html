@@ -33,10 +33,11 @@ select{background:#edf4fb;color:var(--ink);flex:1;min-width:130px}
 .hidden{display:none!important}
 footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 0 24px}
 @media(max-width:420px){main{padding:12px}.panel{padding:14px}.choices{grid-template-columns:1fr}.card{min-height:220px}}
+ .home-link{display:inline-block;margin:0 0 12px;padding:8px 14px;border:1px solid #ffffffaa;border-radius:999px;color:white;text-decoration:none;font-weight:700;font-size:.9rem}.home-link:hover{background:#ffffff22}
 </style>
 </head>
 <body>
-<header><h1>にほんご語彙トレーニング</h1><p>Lesson 5｜語彙カード ＋ 4択クイズ</p></header>
+<header><a class="home-link" href="https://porquejp-png.github.io/nihongo-vocab-practice/">⌂ ホームへ戻る</a><h1>にほんご語彙トレーニング</h1><p>Lesson 5｜語彙カード ＋ 4択クイズ</p></header>
 <main>
 <nav><button id="cardsTab" class="active" onclick="showMode('cards')">語彙カード</button><button id="quizTab" onclick="showMode('quiz')">4択クイズ</button></nav>
 <section id="cardsPanel" class="panel">
